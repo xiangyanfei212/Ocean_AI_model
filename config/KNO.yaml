@@ -1,0 +1,117 @@
+### base config ###
+# -*- coding: utf-8 -*-
+full_field: &FULL_FIELD
+  loss: 'l2'
+  lr: 1E-3
+  max_epochs: 80
+  batch_size: 64
+  scheduler: 'ReduceLROnPlateau'
+  num_data_workers: 0
+  dt: 1                     # how many timesteps ahead the model will predict
+  n_history: 0              # how many previous timesteps to consider
+  prediction_type: 'iterative'
+  prediction_length: 41     # applicable only if prediction_type == 'iterative'
+  n_initial_conditions: 5   # applicable only if prediction_type == 'iterative'
+  ics_type: "default"       # default or datetime
+  date_strings: ["2018-09-14 00:00:00"]
+  save_raw_forecasts: !!bool True
+  save_channel: !!bool False
+  masked_acc: !!bool False
+  maskpath: None
+  perturb: !!bool False
+  add_grid: !!bool False
+  N_grid_channels: 0
+  gridtype: 'sinusoidal'    # options 'sinusoidal' or 'linear'
+  roll: !!bool False
+  enable_nhwc: !!bool False
+  optimizer_type: 'FusedAdam'
+
+  # directory path to store training checkpoints and other output
+  exp_dir: './exp'
+      
+  # afno hyperparams
+  num_blocks: 8         # original:8
+  nettype: 'autoencoder_vit'
+  patch_size: 8
+  width: 56
+  modes: 32
+  target: 'default'     # options default, residual 
+  in_channels: [0,1]
+  out_channels: [0,1]   # must be same as in_channels if prediction_type == 'iterative'
+
+  # train valid test data
+  train_data_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/train'
+  valid_data_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/valid'  
+  test_data_path:   '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/test'
+
+  # normalization
+  normalize: !!bool True
+  normalization: 'zscore' # options zscore or minmax
+  global_mins_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/train/global_mins.npy' 
+  global_maxs_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/train/global_maxs.npy' 
+  global_means_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/train/global_means.npy' 
+  global_stds_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/train/global_stds.npy' 
+
+  # orography
+  orography: !!bool True
+  orography_norm_zscore_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/orography_norm_zscore.h5'
+  orography_norm_maxmin_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_02/orography_norm_maxmin.h5'
+
+  # noise
+  add_noise: !!bool False
+  noise_std: 0
+
+  # crop
+  crop_size_x: None
+  crop_size_y: None
+
+  log_to_screen: !!bool True
+  log_to_wandb: !!bool True
+  save_checkpoint: !!bool True
+  plot_animations: !!bool False
+  
+
+autoencoder_vit: &autoencoder_vit
+  <<: *FULL_FIELD
+  nettype: 'autoencoder_vit'
+  exp_dir: './exp_autoencoder_vit' # directory path to store training checkpoints and other output
+  log_to_wandb: !!bool True
+
+  # Train params
+  lr: 5E-4
+  batch_size: 8 # 64
+  max_epochs: 50
+  scheduler: 'CosineAnnealingLR'
+  weight_gen_loss: 0.8
+  weight_rec_loss: 0.2
+
+  # Data params
+  in_chans: 31
+  out_chans: 25
+  in_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ,21, 22, 23, 24, 25, 26, 27, 28, 29]
+  out_channels: [0, 1 ,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+  img_size_h: 170
+  img_size_w: 360
+  patch_size_h: 5
+  patch_size_w: 5
+  mlp_ratio: 4.
+
+  # Encoder hyperparams
+  embed_dim: 128
+  depth: 2
+  num_heads: 16
+  # Decoder hyperparams
+  decoder_embed_dim: 128
+  decoder_depth: 2
+  decoder_num_heads: 16
+  # Koopman hyperparams
+  koopman_depth: 2
+  modes_h_ratio: 1
+  modes_w_ratio: 0.8
+  # Fourier hyperparams
+  drop_rate: 0.
+  drop_path_rate: 0.
+  sparsity_threshold: 0.01
+  hard_thresholding_fraction: 1.0
+  num_blocks: 8
+

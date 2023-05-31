@@ -1,0 +1,11 @@
+*.out
+*.transfer
+sample_01
+sample_02
+sample_03
+wandb
+exp
+hostfile
+env.sh
+single_node.sh
+run_multi_nodes.sh
