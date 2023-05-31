@@ -9,5 +9,3 @@ hostfile
 env.sh
 single_node.sh
 run_multi_nodes.sh
-01_data_process
-01_sample_generate
