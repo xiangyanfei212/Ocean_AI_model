@@ -1,9 +1,0 @@
-nohup: ignoring input
-ic| year_means.shape: (1, 30, 1, 1)
-ic| year_means.shape: (1, 30, 1, 1)
-ic| year_means.shape: (1, 30, 1, 1)
-ic| year_means.shape: (1, 30, 1, 1)
-ic| year_means.shape: (1, 30, 1, 1)
-ic| max_global.shape: (30,), min_global.shape: (30,)
-means:  (1, 30, 1, 1)
-stds:  (1, 30, 1, 1)
