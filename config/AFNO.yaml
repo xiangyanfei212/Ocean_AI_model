@@ -52,6 +52,10 @@ full_field: &FULL_FIELD
   valid_data_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/valid'  
   test_data_path:   '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/test'
 
+  # land mask
+  land_mask: !!bool True
+  land_mask_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/land_mask.h5'
+
   # orography
   orography: !!bool True
   orography_norm_zscore_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/orography_norm_zscore.h5'

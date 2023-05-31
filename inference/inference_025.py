@@ -165,8 +165,6 @@ def setup(params):
     return valid_data_full, model
 
     
-
-    
 def autoregressive_inference(params, ic, valid_data_full, model): 
     ic = int(ic) 
     
@@ -206,20 +204,6 @@ def autoregressive_inference(params, ic, valid_data_full, model):
     if params.normalization == 'minmax': 
         valid_data = (valid_data - params.mins) / (params.maxs - params.mins)
     valid_data = torch.as_tensor(valid_data)
-
-    # load time means
-    # if not params.use_daily_climatology:
-    #     m = torch.as_tensor((np.load(params.time_means_path)[0][out_channels] - means)/stds)[:, 0:img_shape_x] # climatology
-    #     m = torch.unsqueeze(m, 0)
-    # else:
-    #     # use daily clim like weyn et al. (different from rasp)
-    #     dc_path = params.dc_path
-    #     with h5py.File(dc_path, 'r') as f:
-    #         dc = f['time_means_daily'][ic:ic+prediction_length*dt:dt] # 1460,21,721,1440
-    #     m = torch.as_tensor((dc[:,out_channels,0:img_shape_x,:] - means)/stds) 
-    # m = m.to(device, dtype=torch.float)
-    # if params.interp > 0:
-    #     m_coarse = downsample(m, scale=params.interp)
 
     # orography
     if params.orography and params.normalization == 'zscore': 
@@ -270,23 +254,20 @@ def autoregressive_inference(params, ic, valid_data_full, model):
 
             future_pred = history_stack
 
-            # if params.use_daily_climatology:
-            #     clim = m[i:i+1]
-            #     if params.interp > 0:
-            #         clim_coarse = m_coarse[i:i+1]
-            # else:
-            #     clim = m
-            #     if params.interp > 0:
-            #         clim_coarse = m_coarse
-
             pred = torch.unsqueeze(seq_pred[i], 0)
             tar  = torch.unsqueeze(seq_real[i], 0)
+
+            if params.land_mask:
+                # 0:land, 1:ocean
+                with h5py.File(params.land_mask_path, 'r') as _f: 
+                    logging.info(f"Loading land mask data from {params.land_mask_path}")
+                    mask_data = _f['fields'].to(self.device, dtype=torch.float)
+                pred = torch.masked_fill(input=pred, mask=mask_data, value=0)
+                tar  = torch.masked_fill(input=tar,  mask=mask_data, value=0)
 
             # Compute metrics 
             if params.normalization == 'zscore': 
                 valid_loss[i] = weighted_rmse_torch_channels(pred, tar) * params.stds[:,:n_out_channels,0,0]
-            # acc[i] = weighted_acc_torch_channels(pred-clim, tar-clim)
-            # acc_unweighted[i] = unweighted_acc_torch_channels(pred-clim, tar-clim)
             acc[i] = weighted_acc_torch_channels(pred, tar)
             acc_unweighted[i] = unweighted_acc_torch_channels(pred, tar)
 
@@ -297,8 +278,6 @@ def autoregressive_inference(params, ic, valid_data_full, model):
                     valid_loss_coarse[i] = weighted_rmse_torch_channels(pred, tar) * params.stds[:,:n_out_channels]
                 acc_coarse[i] = weighted_acc_torch_channels(pred, tar)
                 acc_coarse_unweighted[i] = unweighted_acc_torch_channels(pred, tar)
-                # acc_coarse[i] = weighted_acc_torch_channels(pred-clim_coarse, tar-clim_coarse)
-                # acc_coarse_unweighted[i] = unweighted_acc_torch_channels(pred-clim_coarse, tar-clim_coarse)
 
             if params.log_to_screen:
                 idx = idxes[fld] 
@@ -328,13 +307,11 @@ def autoregressive_inference(params, ic, valid_data_full, model):
             np.expand_dims(acc_coarse_unweighted, 0))
 
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--run_num", default='00', type=str)
     parser.add_argument("--yaml_config", default='../config/AFNO.yaml', type=str)
     parser.add_argument("--config", default='full_field', type=str)
-    parser.add_argument("--use_daily_climatology", action='store_true') # store_true: 如果在命令行中指定了该选项，则其值为 True，否则为 False。
     parser.add_argument("--vis", default=True)
     parser.add_argument("--override_dir", default=None, type = str, help = 'Path to store inference outputs; must also set --weights arg')
     parser.add_argument("--interp", default=0, type=float)
@@ -345,7 +322,6 @@ if __name__ == '__main__':
     params = YParams(os.path.abspath(args.yaml_config), args.config)
     params['world_size'] = 1
     params['interp'] = args.interp
-    params['use_daily_climatology'] = args.use_daily_climatology
     params['global_batch_size'] = params.batch_size
 
     torch.cuda.set_device(0)
@@ -372,7 +348,7 @@ if __name__ == '__main__':
         stop = num_samples
         ics = np.arange(0, stop, DECORRELATION_TIME)
         n_ics = len(ics)
-    elif params["ics_type"] == "datetime":
+    elif params["ics_type"] == "datetime": # TODO: this function has not been debug
         date_strings = params["date_strings"]
         ics = []
         if params.perturb: 

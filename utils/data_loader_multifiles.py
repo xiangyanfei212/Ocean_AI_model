@@ -67,7 +67,7 @@ def get_data_loader(params, files_pattern, distributed, train):
     # 在多机多卡情况下分布式训练数据的读取也是一个问题，不同的卡读取到的数据应该是不同的。
     # dataparallel的做法是直接将batch切分到不同的卡，这种方法对于多机来说不可取，因为多机之间直接进行数据传输会严重影响效率。
     # 于是有了利用sampler确保dataloader只会load到整个数据集的一个特定子集的做法。
-    # DistributedSampler就是做这件事的。它为每一个子进程划分出一部分数据集，以避免不同进程之间数据重复。
+    # DistributedSampler就是做这件事的。它为每一个子进程分配一部分数据集，以避免不同进程之间数据重复。
 
     # 构造加载器dataloader
     dataloader = DataLoader(dataset,
