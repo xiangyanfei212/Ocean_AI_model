@@ -165,7 +165,7 @@ class Trainer():
             if self.params.log_to_screen:
                 logging.info('Time taken for epoch {} is {} sec'.format(epoch + 1, time.time() - start))
                 logging.info('train data time={}, train step time={}, valid step time={}'.format(data_time, tr_time, valid_time))
-                logging.info('Train loss: {}. Valid loss: {}'.format(train_logs['loss'], valid_logs['valid_loss']))
+                logging.info('Train loss: {}. Valid loss: {}'.format(train_logs['train_loss'], valid_logs['valid_loss']))
 
             if epoch==self.params.max_epochs-1:
                 logging.info('Final Valid Weighted RMSE:')
@@ -220,6 +220,17 @@ class Trainer():
             with amp.autocast(self.params.enable_amp):
                 gen = self.model(inp)
                 gen.to(self.device, dtype=torch.float)
+
+                # land mask
+                if self.params.land_mask:
+                    # 0:land, 1:ocean
+                    with h5py.File(self.params.land_mask_path, 'r') as _f: 
+                        logging.info(f"Loading land mask data from {self.params.land_mask_path}")
+                        mask_data = torch.as_tensor(_f['fields'][:]).to(self.device, dtype=torch.float)
+
+                    gen = torch.masked_fill(input=gen, mask=~mask_data, value=0)
+                    tar = torch.masked_fill(input=tar, mask=~mask_data, value=0)
+
                 loss_gen = self.loss_obj(gen, tar)
                 loss = loss_gen
 
@@ -268,9 +279,9 @@ class Trainer():
                     # 0:land, 1:ocean
                     with h5py.File(self.params.land_mask_path, 'r') as _f: 
                         logging.info(f"Loading land mask data from {self.params.land_mask_path}")
-                        mask_data = _f['fields'].to(self.device, dtype=torch.float)
-                    gen = torch.masked_fill(input=gen, mask=mask_data, value=0)
-                    tar = torch.masked_fill(input=tar, mask=mask_data, value=0)
+                        mask_data = torch.as_tensor(_f['fields'][:]).to(self.device, dtype=torch.float)
+                    gen = torch.masked_fill(input=gen, mask=~mask_data, value=0)
+                    tar = torch.masked_fill(input=tar, mask=~mask_data, value=0)
 
                 valid_loss += self.loss_obj(gen, tar)
                 valid_l1 += nn.functional.l1_loss(gen, tar)

@@ -256,14 +256,17 @@ def autoregressive_inference(params, ic, valid_data_full, model):
 
             pred = torch.unsqueeze(seq_pred[i], 0)
             tar  = torch.unsqueeze(seq_real[i], 0)
+            print('pred:', pred.shape, 'tar:', tar.shape)
 
             if params.land_mask:
                 # 0:land, 1:ocean
                 with h5py.File(params.land_mask_path, 'r') as _f: 
                     logging.info(f"Loading land mask data from {params.land_mask_path}")
-                    mask_data = _f['fields'].to(self.device, dtype=torch.float)
-                pred = torch.masked_fill(input=pred, mask=mask_data, value=0)
-                tar  = torch.masked_fill(input=tar,  mask=mask_data, value=0)
+                    mask_data = torch.as_tensor(_f['fields'][:], dtype=bool)
+
+                # 将 mask 张量中为 True 的元素在 input 张量中对应位置的元素替换为指定的 value 值
+                pred = torch.masked_fill(input=pred, mask=~mask_data, value=0)
+                tar  = torch.masked_fill(input=tar,  mask=~mask_data, value=0)
 
             # Compute metrics 
             if params.normalization == 'zscore': 

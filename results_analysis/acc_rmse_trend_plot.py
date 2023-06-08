@@ -33,17 +33,23 @@ def convert_mean_weighted_acc_rmse_to_csv(h5_path, out_dir):
     rmse_df.to_csv(os.path.join(out_dir, 'mean_weighted_rmse.csv'))
 
 def plot_shaded_curve(h5_path, var_name, prediction_length, out_dir):
-    f = h5py.File(h5_path, 'r')
-    ic(f.keys())
-    acc = f['acc'][:] # (#init_conditions, #prediction_length, #vars)
-    rmse = f['rmse'][:]
+    # acc/rmse : (#init_conditions, #prediction_length, #vars)
+    print(f'variable: {var_name}')
 
     var_idx = VAR_INDEX[var_name]
-    acc = acc[:, :prediction_length, var_idx] # (#init_conditions, #prediction_length)
-    rmse = rmse[:, :prediction_length, var_idx]
+
+    f = h5py.File(h5_path, 'r')
+    ic(f.keys())
+    acc = f['acc'][:, :prediction_length, var_idx] # (#init_conditions, #prediction_length)
+    rmse = f['rmse'][:, :prediction_length, var_idx] # 
 
     acc_mean = np.mean(acc, axis=0) # (#prediction_length)
     rmse_mean = np.mean(rmse, axis=0)
+
+    # mean metrics for 30-days forecasting 
+    acc_mean_ = np.mean(acc_mean)
+    rmse_mean_ = np.mean(rmse_mean)
+    print(f'mean metrics for 30-days forecasting: acc={acc_mean_}, rmse={rmse_mean_}')
 
     acc_025 = np.quantile(acc, .25, axis=0)
     acc_075 = np.quantile(acc, .75, axis=0)
@@ -81,7 +87,10 @@ if __name__ == '__main__':
     in_h5_file = os.path.join(in_dir, 'autoregressive_predictions.h5')
     prediction_length = 30
     plot_shaded_curve(in_h5_file, 'ssh', prediction_length, out_dir=in_dir)
-    plot_shaded_curve(in_h5_file, 'T1000', prediction_length, out_dir=in_dir)
+    plot_shaded_curve(in_h5_file, 'T0', prediction_length, out_dir=in_dir)
+    plot_shaded_curve(in_h5_file, 'S0', prediction_length, out_dir=in_dir)
+    plot_shaded_curve(in_h5_file, 'U0', prediction_length, out_dir=in_dir)
+    plot_shaded_curve(in_h5_file, 'V0', prediction_length, out_dir=in_dir)
     
     # convert_mean_weighted_acc_rmse_to_csv(in_h5_path, out_dir=in_dir)
 

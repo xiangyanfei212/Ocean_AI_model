@@ -6,8 +6,5 @@ sample_03
 wandb
 exp
 hostfile
-env.sh
-single_node.sh
-run_multi_nodes.sh
 00_data_process
 01_sample_generate

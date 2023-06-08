@@ -1,0 +1,17 @@
+apex
+cartopy
+h5py
+icecream
+matplotlib
+netcdf4
+numpy
+pandas
+pillow
+ruamel-yaml
+scipy
+torch
+torchsummary
+torchvision
+tqdm
+wandb
+xarray
