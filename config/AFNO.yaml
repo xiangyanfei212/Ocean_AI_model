@@ -42,24 +42,24 @@ full_field: &FULL_FIELD
   # normalization
   normalize: !!bool True
   normalization: 'zscore' # options zscore or minmax
-  global_mins_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_mins.npy' 
-  global_maxs_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_maxs.npy' 
-  global_means_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_means.npy' 
-  global_stds_path:  '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_stds.npy' 
+  global_mins_path:  './sample_00/train/global_mins.npy' 
+  global_maxs_path:  './sample_00/train/global_maxs.npy' 
+  global_means_path: './sample_00/train/global_means.npy' 
+  global_stds_path:  './sample_00/train/global_stds.npy' 
 
   # data
-  train_data_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train'
-  valid_data_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/valid'  
-  test_data_path:   '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/test'
+  train_data_path: './sample_00/train'
+  valid_data_path: './sample_00/valid'  
+  test_data_path:  './sample_00/test'
 
   # land mask
   land_mask: !!bool True
-  land_mask_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/land_mask.h5'
+  land_mask_path: './sample_00/land_mask.h5'
 
   # orography
   orography: !!bool True
-  orography_norm_zscore_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/orography_norm_zscore.h5'
-  orography_norm_maxmin_path: '/work/home/acrzcyisbk/Ocean_AI_model/sample_03/orography_norm_maxmin.h5'
+  orography_norm_zscore_path: './sample_00/orography_norm_zscore.h5'
+  orography_norm_maxmin_path: './sample_00/orography_norm_maxmin.h5'
 
   # directory path to store training checkpoints and other output
   exp_dir: './exp'

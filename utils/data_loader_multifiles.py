@@ -110,10 +110,8 @@ class GetDataset(Dataset):
 
         with h5py.File(self.files_paths[0], 'r') as _f: 
             logging.info("Getting file stats from {}".format(self.files_paths[0]))
-            # self.n_samples_per_year = _f['fields'].shape[0] # 每年数据量
-            self.n_samples_per_year = 250 
-            # !! 这里指定为300的原因是因为每年的样本数量有多有少，选择最少的年份的样本量作为n_samples_per_year，否则后面会报"out of index"
-
+            self.n_samples_per_year = _f['fields'].shape[0] - 1 # '-1': Leap years have one more sample than non-leap years
+            
             # original image shape (before padding)
             self.img_shape_x = _f['fields'].shape[2] - 1 # just get rid of one of the pixels
             self.img_shape_y = _f['fields'].shape[3]

@@ -20,7 +20,7 @@ comm_rank=$OMPI_COMM_WORLD_RANK
 local_rank=$OMPI_COMM_WORLD_LOCAL_RANK
 
 # APP="python -u train.py --dist-url tcp://${1}:34567 --world-size=${comm_size} --comm_rank=${comm_rank} --local_rank=${local_rank} --enable_amp --yaml_config=$config_path --config=$config --run_num=$run_num"
-APP="python -u 03_train_025.py --dist-url tcp://${1}:34567 --world-size=${comm_size} --comm_rank=${comm_rank} --local_rank=${local_rank} --enable_amp --yaml_config=$config_path --config=$config --run_num=$run_num"
+APP="python -u train_025_sugon.py --dist-url tcp://${1}:34567 --world-size=${comm_size} --comm_rank=${comm_rank} --local_rank=${local_rank} --enable_amp --yaml_config=$config_path --config=$config --run_num=$run_num"
 
 # 多节点多卡的并行计算参数设置
 case ${local_rank} in
