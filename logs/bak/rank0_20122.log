@@ -1,0 +1,493 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+paraai-n32-h-01-agent-16
+paraai-n32-h-01-agent-16
+paraai-n32-h-01-agent-16
+paraai-n32-h-01-agent-16
+0000
+
+
+
+------------------ Configuration ------------------ ------------------ Configuration ------------------ ------------------ Configuration ------------------ ------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+
+
+
+log_to_wandblog_to_wandblog_to_wandb log_to_wandb True True
+ True
+Truelr 
+lr 
+0.0005
+lr 0.0005
+lr batch_size 0.0005
+batch_size 0.0005
+32
+batch_size 32
+batch_size max_epochs 32
+max_epochs 32
+500
+max_epochs 500
+max_epochs scheduler 500
+scheduler 500
+CosineAnnealingLR
+scheduler CosineAnnealingLR
+scheduler in_channels CosineAnnealingLR
+in_channels CosineAnnealingLR
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+in_channels out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+out_channels N_in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+N_in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+31
+N_in_channels 31
+N_in_channels N_out_channels 31
+N_out_channels 31
+25
+N_out_channels 25
+N_out_channels img_size_h 25
+img_size_h 25
+720
+img_size_h 720
+img_size_h img_size_w 720
+img_size_w 720
+1440
+img_size_w 1440
+img_size_w patch_size_h 1440
+patch_size_h 1440
+5
+patch_size_h 5
+patch_size_h patch_size_w 5
+patch_size_w 5
+5
+patch_size_w 5
+patch_size_w loss 5
+loss 5
+l2
+loss l2
+loss num_data_workers l2
+num_data_workers l2
+0
+num_data_workers 0
+num_data_workers dt 0
+dt 0
+1
+dt 1
+dt n_history 1
+n_history 1
+0
+n_history 0
+n_history prediction_type 0
+prediction_type 0
+iterative
+prediction_type iterative
+prediction_type prediction_length iterative
+prediction_length iterative
+30
+prediction_length 30
+prediction_length n_initial_conditions 30
+n_initial_conditions 30
+5
+n_initial_conditions 5
+n_initial_conditions ics_type 5
+ics_type 5
+default
+ics_type default
+ics_type save_raw_forecasts default
+save_raw_forecasts default
+True
+save_raw_forecasts True
+save_raw_forecasts save_channel True
+save_channel True
+False
+save_channel False
+save_channel masked_acc False
+masked_acc False
+False
+masked_acc False
+masked_acc maskpath False
+maskpath False
+None
+maskpath None
+maskpath perturb None
+perturb None
+False
+perturb False
+perturb add_grid False
+add_grid False
+False
+add_grid False
+add_grid N_grid_channels False
+N_grid_channels False
+0
+N_grid_channels 0
+N_grid_channels gridtype 0
+gridtype 0
+sinusoidal
+gridtype sinusoidal
+gridtype roll sinusoidal
+roll sinusoidal
+False
+roll False
+roll num_blocks False
+num_blocks False
+8
+num_blocks 8
+num_blocks nettype 8
+nettype 8
+afno
+nettype afno
+nettype patch_size afno
+patch_size afno
+8
+patch_size 8
+patch_size width 8
+width 8
+56
+width 56
+width modes 56
+modes 56
+32
+modes 32
+modes target 32
+target 32
+default
+target default
+target enable_nhwc default
+enable_nhwc default
+False
+enable_nhwc False
+enable_nhwc optimizer_type False
+optimizer_type False
+FusedAdam
+optimizer_type FusedAdam
+optimizer_type normalize FusedAdam
+normalize FusedAdam
+True
+normalize True
+normalize normalization Truenormalization True
+zscore
+
+zscore
+normalization global_mins_path normalization global_mins_path zscore
+./sample_00/train/global_mins.npy
+zscore
+./sample_00/train/global_mins.npy
+global_mins_path global_maxs_path global_mins_path global_maxs_path ./sample_00/train/global_mins.npy
+./sample_00/train/global_maxs.npy
+./sample_00/train/global_mins.npy
+./sample_00/train/global_maxs.npy
+global_maxs_path global_means_path global_maxs_path global_means_path ./sample_00/train/global_maxs.npy
+./sample_00/train/global_means.npy
+./sample_00/train/global_maxs.npy
+./sample_00/train/global_means.npy
+global_means_path global_stds_path global_means_path global_stds_path ./sample_00/train/global_means.npy
+./sample_00/train/global_stds.npy
+./sample_00/train/global_means.npy
+./sample_00/train/global_stds.npy
+global_stds_path train_data_path global_stds_path train_data_path ./sample_00/train/global_stds.npy
+./sample_00/train
+./sample_00/train/global_stds.npy
+./sample_00/train
+train_data_path valid_data_path train_data_path valid_data_path ./sample_00/train
+./sample_00/valid
+./sample_00/train
+./sample_00/valid
+valid_data_path test_data_path valid_data_path test_data_path ./sample_00/valid
+./sample_00/test
+./sample_00/valid
+./sample_00/test
+test_data_path land_mask test_data_path land_mask ./sample_00/test
+True
+./sample_00/test
+True
+land_mask land_mask_path land_mask land_mask_path True
+./sample_00/land_mask.h5
+True
+./sample_00/land_mask.h5
+land_mask_path orography land_mask_path orography ./sample_00/land_mask.h5
+True
+./sample_00/land_mask.h5
+True
+orography orography_norm_zscore_path orography orography_norm_zscore_path True
+./sample_00/orography_norm_zscore.h5
+True
+./sample_00/orography_norm_zscore.h5
+orography_norm_zscore_path orography_norm_maxmin_path orography_norm_zscore_path orography_norm_maxmin_path ./sample_00/orography_norm_zscore.h5
+./sample_00/orography_norm_maxmin.h5
+./sample_00/orography_norm_zscore.h5
+./sample_00/orography_norm_maxmin.h5
+orography_norm_maxmin_path exp_dir orography_norm_maxmin_path exp_dir ./sample_00/orography_norm_maxmin.h5
+./exp
+./sample_00/orography_norm_maxmin.h5
+./exp
+exp_dir add_noise exp_dir add_noise ./exp
+False
+./exp
+False
+add_noise noise_std add_noise noise_std False
+0
+False
+0
+noise_std crop_size_x noise_std crop_size_x 0
+None
+0
+None
+crop_size_x crop_size_y crop_size_x crop_size_y None
+None
+None
+None
+crop_size_y log_to_screen crop_size_y log_to_screen None
+True
+None
+True
+log_to_screen save_checkpoint log_to_screen save_checkpoint True
+True
+True
+True
+save_checkpoint plot_animations save_checkpoint plot_animations True
+False
+True
+False
+plot_animations ---------------------------------------------------
+plot_animations ---------------------------------------------------
+False
+world_size : False
+world_size : ---------------------------------------------------16
+---------------------------------------------------
+16
+
+Initialize distributed process group...
+world_size : Initialize distributed process group...
+world_size : 16
+16
+Initialize distributed process group...
+Initialize distributed process group...
+2023-06-09 10:55:01,624 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2023-06-09 10:55:01,625 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2023-06-09 10:55:01,632 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+2023-06-09 10:55:01,633 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2023-06-09 10:55:01,634 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 10:55:01,635 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 10:55:01,636 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 10:55:01,637 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 10:55:01,691 - root - INFO - device: cuda:3
+2023-06-09 10:55:01,692 - root - INFO - rank 3, begin data loader init
+2023-06-09 10:55:01,693 - root - INFO - device: cuda:2
+2023-06-09 10:55:01,693 - root - INFO - device: cuda:1
+2023-06-09 10:55:01,694 - root - INFO - rank 2, begin data loader init
+2023-06-09 10:55:01,695 - root - INFO - rank 1, begin data loader init
+2023-06-09 10:55:01,739 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 10:55:01,739 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 10:55:01,739 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 10:55:01,741 - root - INFO - Number of samples per year: 365
+2023-06-09 10:55:01,743 - root - INFO - Number of samples per year: 365
+2023-06-09 10:55:01,743 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,743 - root - INFO - Number of samples per year: 365
+2023-06-09 10:55:01,744 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,746 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,747 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,748 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,749 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,750 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,750 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,752 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,783 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 10:55:01,783 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 10:55:01,783 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 10:55:01,785 - root - INFO - Number of samples per year: 364
+2023-06-09 10:55:01,786 - root - INFO - Number of samples per year: 364
+2023-06-09 10:55:01,787 - root - INFO - Number of samples per year: 364
+2023-06-09 10:55:01,787 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,787 - root - INFO - ------------------ Configuration ------------------
+2023-06-09 10:55:01,788 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,789 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:01,790 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,791 - root - INFO - Configuration file: /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+2023-06-09 10:55:01,792 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,793 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:01,794 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,795 - root - INFO - Configuration name: afno_backbone
+2023-06-09 10:55:01,796 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,797 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:01,797 - root - INFO - rank 2, data loader initialized
+2023-06-09 10:55:01,798 - root - INFO - log_to_wandb True
+2023-06-09 10:55:01,799 - root - INFO - rank 3, data loader initialized
+2023-06-09 10:55:01,800 - root - INFO - rank 1, data loader initialized
+2023-06-09 10:55:01,802 - root - INFO - lr 0.0005
+2023-06-09 10:55:01,805 - root - INFO - batch_size 2
+2023-06-09 10:55:01,806 - root - INFO - max_epochs 500
+2023-06-09 10:55:01,807 - root - INFO - scheduler CosineAnnealingLR
+2023-06-09 10:55:01,808 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+2023-06-09 10:55:01,809 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+2023-06-09 10:55:01,810 - root - INFO - N_in_channels 31
+2023-06-09 10:55:01,811 - root - INFO - N_out_channels 25
+2023-06-09 10:55:01,812 - root - INFO - img_size_h 720
+2023-06-09 10:55:01,813 - root - INFO - img_size_w 1440
+2023-06-09 10:55:01,814 - root - INFO - patch_size_h 5
+2023-06-09 10:55:01,815 - root - INFO - patch_size_w 5
+2023-06-09 10:55:01,816 - root - INFO - loss l2
+2023-06-09 10:55:01,817 - root - INFO - num_data_workers 0
+2023-06-09 10:55:01,818 - root - INFO - dt 1
+2023-06-09 10:55:01,819 - root - INFO - n_history 0
+2023-06-09 10:55:01,820 - root - INFO - prediction_type iterative
+2023-06-09 10:55:01,821 - root - INFO - prediction_length 30
+2023-06-09 10:55:01,822 - root - INFO - n_initial_conditions 5
+2023-06-09 10:55:01,823 - root - INFO - ics_type default
+2023-06-09 10:55:01,824 - root - INFO - save_raw_forecasts True
+2023-06-09 10:55:01,824 - root - INFO - save_channel False
+2023-06-09 10:55:01,825 - root - INFO - masked_acc False
+2023-06-09 10:55:01,826 - root - INFO - maskpath None
+2023-06-09 10:55:01,827 - root - INFO - perturb False
+2023-06-09 10:55:01,828 - root - INFO - add_grid False
+2023-06-09 10:55:01,829 - root - INFO - N_grid_channels 0
+2023-06-09 10:55:01,830 - root - INFO - gridtype sinusoidal
+2023-06-09 10:55:01,831 - root - INFO - roll False
+2023-06-09 10:55:01,832 - root - INFO - num_blocks 8
+2023-06-09 10:55:01,833 - root - INFO - nettype afno
+2023-06-09 10:55:01,834 - root - INFO - patch_size 8
+2023-06-09 10:55:01,835 - root - INFO - width 56
+2023-06-09 10:55:01,835 - root - INFO - modes 32
+2023-06-09 10:55:01,836 - root - INFO - target default
+2023-06-09 10:55:01,837 - root - INFO - enable_nhwc False
+2023-06-09 10:55:01,839 - root - INFO - optimizer_type FusedAdam
+2023-06-09 10:55:01,840 - root - INFO - normalize True
+2023-06-09 10:55:01,840 - root - INFO - normalization zscore
+2023-06-09 10:55:01,841 - root - INFO - global_mins_path ./sample_00/train/global_mins.npy
+2023-06-09 10:55:01,842 - root - INFO - global_maxs_path ./sample_00/train/global_maxs.npy
+2023-06-09 10:55:01,843 - root - INFO - global_means_path ./sample_00/train/global_means.npy
+2023-06-09 10:55:01,844 - root - INFO - global_stds_path ./sample_00/train/global_stds.npy
+2023-06-09 10:55:01,845 - root - INFO - train_data_path ./sample_00/train
+2023-06-09 10:55:01,846 - root - INFO - valid_data_path ./sample_00/valid
+2023-06-09 10:55:01,847 - root - INFO - test_data_path ./sample_00/test
+2023-06-09 10:55:01,848 - root - INFO - land_mask True
+2023-06-09 10:55:01,849 - root - INFO - land_mask_path ./sample_00/land_mask.h5
+2023-06-09 10:55:01,850 - root - INFO - orography True
+2023-06-09 10:55:01,851 - root - INFO - orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+2023-06-09 10:55:01,852 - root - INFO - orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+2023-06-09 10:55:01,853 - root - INFO - exp_dir ./exp
+2023-06-09 10:55:01,854 - root - INFO - add_noise False
+2023-06-09 10:55:01,855 - root - INFO - noise_std 0
+2023-06-09 10:55:01,856 - root - INFO - crop_size_x None
+2023-06-09 10:55:01,857 - root - INFO - crop_size_y None
+2023-06-09 10:55:01,858 - root - INFO - log_to_screen True
+2023-06-09 10:55:01,859 - root - INFO - save_checkpoint True
+2023-06-09 10:55:01,860 - root - INFO - plot_animations False
+2023-06-09 10:55:01,861 - root - INFO - epsilon_factor 0
+2023-06-09 10:55:01,862 - root - INFO - world_size 16
+2023-06-09 10:55:01,863 - root - INFO - local_rank 0
+2023-06-09 10:55:01,864 - root - INFO - global_batch_size 32
+2023-06-09 10:55:01,865 - root - INFO - enable_amp True
+2023-06-09 10:55:01,866 - root - INFO - experiment_dir /home/bingxing2/home/scx6115/Ocean_AI_model/exp/afno_backbone/20230609-105439
+2023-06-09 10:55:01,867 - root - INFO - checkpoint_path ./exp/afno_backbone/20230609-105439/training_checkpoints/ckpt.tar
+2023-06-09 10:55:01,868 - root - INFO - best_checkpoint_path ./exp/afno_backbone/20230609-105439/training_checkpoints/best_ckpt.tar
+2023-06-09 10:55:01,869 - root - INFO - resuming False
+2023-06-09 10:55:01,870 - root - INFO - entity ocean_ai_model
+2023-06-09 10:55:01,871 - root - INFO - project ai4science
+2023-06-09 10:55:01,872 - root - INFO - group 025_daily
+2023-06-09 10:55:01,873 - root - INFO - name afno_backbone_20230609-105439
+2023-06-09 10:55:01,874 - root - INFO - ---------------------------------------------------
+wandb: Tracking run with wandb version 0.15.3
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2023-06-09 10:55:11,263 - root - INFO - device: cuda:0
+2023-06-09 10:55:11,263 - root - INFO - rank 0, begin data loader init
+2023-06-09 10:55:11,265 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 10:55:11,267 - root - INFO - Number of samples per year: 365
+2023-06-09 10:55:11,267 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:11,267 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:11,267 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:11,270 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 10:55:11,271 - root - INFO - Number of samples per year: 364
+2023-06-09 10:55:11,271 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 10:55:11,271 - root - INFO - Delta t: 1 days
+2023-06-09 10:55:11,271 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 10:55:11,271 - root - INFO - rank 0, data loader initialized
+
+paraai-n32-h-01-agent-16:27491:27491 [0] bootstrap.cc:40 NCCL WARN Bootstrap : no socket interface found
+paraai-n32-h-01-agent-16:27491:27491 [0] NCCL INFO init.cc:87 -> 3
+paraai-n32-h-01-agent-16:27491:27491 [0] NCCL INFO init.cc:105 -> 3
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 479, in <module>
+    trainer = Trainer(params, world_rank)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 100, in __init__
+    self.model = DistributedDataParallel(self.model,
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 674, in __init__
+    _verify_param_shape_across_processes(self.process_group, parameters)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/utils.py", line 118, in _verify_param_shape_across_processes
+    return dist._verify_params_across_processes(process_group, tensors, logger)
+torch.distributed.DistBackendError: NCCL error in: /home/bingxing2/home/scx6002/wuxm/2.0.0_cu117_cp310/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1207, internal error, NCCL version 2.14.3
+ncclInternalError: Internal check failed.
+Last error:
+Bootstrap : no socket interface found
+wandb: Waiting for W&B process to finish... (failed 1).
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/bingxing2/home/scx6115/Ocean_AI_model/wandb/offline-run-20230609_105503-mfjo6skq
+wandb: Find logs at: ./wandb/offline-run-20230609_105503-mfjo6skq/logs
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 479, in <module>
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 479, in <module>
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 479, in <module>
+    trainer = Trainer(params, world_rank)    trainer = Trainer(params, world_rank)    trainer = Trainer(params, world_rank)
+
+
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 100, in __init__
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 100, in __init__
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 100, in __init__
+    self.model = DistributedDataParallel(self.model,    self.model = DistributedDataParallel(self.model,    self.model = DistributedDataParallel(self.model,
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 674, in __init__
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 674, in __init__
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 674, in __init__
+    _verify_param_shape_across_processes(self.process_group, parameters)    _verify_param_shape_across_processes(self.process_group, parameters)    _verify_param_shape_across_processes(self.process_group, parameters)
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/utils.py", line 118, in _verify_param_shape_across_processes
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/utils.py", line 118, in _verify_param_shape_across_processes
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/utils.py", line 118, in _verify_param_shape_across_processes
+    return dist._verify_params_across_processes(process_group, tensors, logger)    return dist._verify_params_across_processes(process_group, tensors, logger)    return dist._verify_params_across_processes(process_group, tensors, logger)
+
+
+RuntimeError: RuntimeError: RuntimeError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+[3] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+[2] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 27492 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 27493 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 27494 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 27491) of binary: /home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/python
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train_025_bingxing.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-06-09_10:55:24
+  host      : paraai-n32-h-01-agent-16.paraai-n32-h-01.com
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 27491)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

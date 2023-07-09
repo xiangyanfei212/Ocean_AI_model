@@ -1,0 +1,7 @@
+cuda-11.7 loaded successful
+gcc-12.2.0 loaded successful
+paraai-n32-h-01-agent-102
+paraai-n32-h-01-agent-106
+paraai-n32-h-01-agent-107
+paraai-n32-h-01-agent-108
+slurmstepd: error: *** JOB 30321 ON paraai-n32-h-01-agent-102 CANCELLED AT 2023-07-03T21:50:23 ***

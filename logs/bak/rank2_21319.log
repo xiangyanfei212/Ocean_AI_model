@@ -1,0 +1,657 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+paraai-n32-h-01-agent-63
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+paraai-n32-h-01-agent-63
+paraai-n32-h-01-agent-63
+paraai-n32-h-01-agent-63
+00
+
+------------------ Configuration ------------------ ------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml 
+/home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 64
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_ratio 4.0
+in_chans_2d 7
+out_chans_2d 1
+in_chans_3d 4
+out_chans_3d 4
+var_depth 6
+embed_dim 512
+depth 16
+num_heads 16
+decoder_embed_dim 1024
+decoder_depth 8
+decoder_num_heads 16
+drop_rate 0.0
+drop_path_rate 0.0
+sparsity_threshold 0.01
+hard_thresholding_fraction 1.0
+num_blocks 8
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+nettypeadd_grid False 
+Masked_AE_fusionN_grid_channels
+ 0
+gridtype sinusoidal
+log_to_wandbnettype rollTrue  
+FalseMasked_AE_fusion
+
+lr enable_nhwclog_to_wandb  FalseTrue
+0.001
+
+optimizer_type FusedAdamlrbatch_size
+  64exp_dir0.001
+ 
+./expmax_epochs
+ batch_sizepatch_size100  
+864
+
+scheduler CosineAnnealingLRwidthmax_epochs
+  56100
+fusion_3d_2d
+ modesscheduler True 32
+CosineAnnealingLR
+
+in_chans fusion_3d_2d31target 
+True 
+defaultout_chans
+ in_chans25 train_data_path
+31 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/trainin_channels
+ out_chansvalid_data_path  25/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+
+in_channelstest_data_path [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29] 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_maskout_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]True 
+
+land_mask_path [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+
+out_channels normalizeimg_size_h  True720
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]normalization
+img_size_w  zscore1440img_size_h
+
+ global_mins_path720patch_size_h
+  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy16img_size_w
+
+ 1440global_maxs_pathpatch_size_w
+  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy16patch_size_h
+
+ global_means_path16patch_size_d
+  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy2patch_size_w
+
+ 16mlp_ratio
+global_stds_path  patch_size_d/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy4.0 
+
+2
+orographyin_chans_2d  mlp_ratioTrue7
+ 
+4.0orography_norm_zscore_path
+out_chans_2d  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5in_chans_2d1
+ 
+7orography_norm_maxmin_path
+ in_chans_3d/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5out_chans_2d 
+ 41
+
+add_noiseout_chans_3d  in_chans_3dFalse 
+44
+
+noise_std var_depth0out_chans_3d  
+64
+
+crop_size_x Noneembed_dimvar_depth
+  512crop_size_y6
+ 
+Nonedepth
+ embed_dim16 
+log_to_screen512 
+nettypenum_headsTruedepth 
+ 16 
+16save_checkpointMasked_AE_fusion 
+decoder_embed_dimTrue num_heads
+
+ 1024plot_animations
+16 
+Falsedecoder_depth
+ decoder_embed_dim8 
+1024log_to_wandbdecoder_num_heads
+  decoder_depthTrue 16
+8
+
+lrdrop_ratedecoder_num_heads   0.016
+
+drop_path_ratedrop_rate  0.00.0
+0.001
+sparsity_threshold
+ drop_path_rate 0.010.0
+
+batch_sizesparsity_thresholdhard_thresholding_fraction   641.00.01
+
+
+---------------------------------------------------
+hard_thresholding_fractionnum_blocksmax_epochs   81.0100
+
+
+num_blocksloss  scheduler8l2
+world_size :
+  loss16num_data_workers 
+CosineAnnealingLR l2Initialize distributed process group...
+
+
+0
+num_data_workersdtfusion_3d_2d   10True
+
+n_history
+ dt0 in_chans
+1 
+prediction_type31 n_history
+iterative 
+0out_chansprediction_length
+  prediction_type2541 
+
+iterative
+n_initial_conditionsprediction_length 5 in_channels
+41 
+ics_typen_initial_conditions  default5
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+ics_typedate_strings  default
+['2018-09-14 00:00:00']
+out_channelsdate_stringssave_raw_forecasts   True['2018-09-14 00:00:00']
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]save_raw_forecastssave_channel
+  FalseTrueimg_size_h
+
+ masked_accsave_channel720  
+FalseFalse
+
+img_size_wmaskpath masked_acc 1440None 
+
+False
+patch_size_hperturbmaskpath  False 16None
+
+
+add_grid Falseperturbpatch_size_w
+  FalseN_grid_channels16 
+
+0
+add_gridpatch_size_d gridtype False 2
+sinusoidal
+
+N_grid_channels mlp_ratioroll0  
+False4.0
+gridtype
+ enable_nhwcsinusoidal 
+in_chans_2dFalseroll  
+False7optimizer_type
+ 
+FusedAdamenable_nhwc
+ out_chans_2dFalseexp_dir 
+ 1./expoptimizer_type
+
+ FusedAdam
+patch_size in_chans_3d8exp_dir 
+ 4./expwidth
+ 
+56out_chans_3dpatch_size
+  modes84
+ 
+32widthvar_depth
+  56target
+ 6defaultmodes
+
+ 32
+train_data_pathembed_dim target /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train 512
+default
+valid_data_path
+depth train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid 16/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+
+
+test_data_path num_heads/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/testvalid_data_path 
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid16
+land_mask
+ test_data_pathTrue decoder_embed_dim
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test 
+land_mask_path1024 land_mask
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5 
+Truedecoder_depth
+normalize  land_mask_path8True 
+
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalizationnormalize decoder_num_heads zscore True
+16
+global_mins_path
+ normalization/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy drop_rate
+zscore 
+global_maxs_path0.0 global_mins_path
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npydrop_path_rate
+global_means_path  global_maxs_path0.0/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy 
+
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_stds_pathsparsity_threshold global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy0.01
+orography
+ global_stds_pathTrue 
+hard_thresholding_fraction/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npyorography_norm_zscore_path 
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5orography1.0
+ 
+Trueorography_norm_maxmin_path
+ num_blocks/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5orography_norm_zscore_path 
+ 8/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5add_noise
+ 
+False
+orography_norm_maxmin_pathloss noise_std  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h50
+l2
+add_noise 
+Falsecrop_size_x
+ num_data_workersnoise_stdNone 
+ 0crop_size_y0
+ 
+Nonecrop_size_x
+dt log_to_screen None 1
+True
+crop_size_y
+ save_checkpointNone n_history
+True 
+log_to_screen0 plot_animations
+True 
+Falseprediction_type
+save_checkpoint  iterativeTrue
+
+prediction_lengthplot_animations  False
+41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+---------------------------------------------------save_raw_forecasts
+ True
+save_channel False
+masked_acc False
+maskpath None
+world_size : 16perturb
+ Initialize distributed process group...---------------------------------------------------
+False
+
+add_grid False
+N_grid_channels 0
+gridtype world_size :sinusoidal 
+16
+Initialize distributed process group...roll
+ False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-13 17:55:30,592 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 10
+2023-06-13 17:55:30,592 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 11
+2023-06-13 17:55:30,592 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 9
+2023-06-13 17:55:30,592 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 8
+2023-06-13 17:55:31,204 - torch.distributed.distributed_c10d - INFO - Rank 10: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 17:55:31,204 - torch.distributed.distributed_c10d - INFO - Rank 11: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 17:55:31,206 - torch.distributed.distributed_c10d - INFO - Rank 9: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 17:55:31,206 - torch.distributed.distributed_c10d - INFO - Rank 8: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 17:55:31,269 - root - INFO - device: cuda:3
+2023-06-13 17:55:31,269 - root - INFO - rank 11, begin data loader init
+2023-06-13 17:55:31,271 - root - INFO - device: cuda:2
+2023-06-13 17:55:31,271 - root - INFO - rank 10, begin data loader init
+2023-06-13 17:55:31,275 - root - INFO - device: cuda:0
+2023-06-13 17:55:31,275 - root - INFO - rank 8, begin data loader init
+2023-06-13 17:55:31,275 - root - INFO - device: cuda:1
+2023-06-13 17:55:31,275 - root - INFO - rank 9, begin data loader init
+2023-06-13 17:55:31,307 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 17:55:31,307 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 17:55:31,307 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 17:55:31,307 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 17:55:31,308 - root - INFO - Number of samples per year: 365
+2023-06-13 17:55:31,308 - root - INFO - Number of samples per year: 365
+2023-06-13 17:55:31,308 - root - INFO - Number of samples per year: 365
+2023-06-13 17:55:31,308 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,308 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,308 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,308 - root - INFO - Number of samples per year: 365
+2023-06-13 17:55:31,308 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,308 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,308 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,308 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,308 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,308 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,308 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,308 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,308 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,314 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 17:55:31,314 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 17:55:31,314 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 17:55:31,314 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 17:55:31,315 - root - INFO - Number of samples per year: 364
+2023-06-13 17:55:31,315 - root - INFO - Number of samples per year: 364
+2023-06-13 17:55:31,315 - root - INFO - Number of samples per year: 364
+2023-06-13 17:55:31,315 - root - INFO - Number of samples per year: 364
+2023-06-13 17:55:31,315 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,315 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,315 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,315 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-13 17:55:31,315 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,315 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,315 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,315 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,315 - root - INFO - Delta t: 1 days
+2023-06-13 17:55:31,315 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,315 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,315 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 17:55:31,315 - root - INFO - rank 9, data loader initialized
+2023-06-13 17:55:31,315 - root - INFO - rank 8, data loader initialized
+2023-06-13 17:55:31,315 - root - INFO - rank 11, data loader initialized
+2023-06-13 17:55:31,315 - root - INFO - rank 10, data loader initialized
+paraai-n32-h-01-agent-63:1897658:1897658 [2] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-63:1897656:1897656 [0] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-63:1897657:1897657 [1] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-63:1897659:1897659 [3] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-63:1897658:1897658 [2] NCCL INFO Bootstrap : Using eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897659:1897659 [3] NCCL INFO Bootstrap : Using eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897657:1897657 [1] NCCL INFO Bootstrap : Using eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897656:1897656 [0] NCCL INFO Bootstrap : Using eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897658:1897658 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-63:1897659:1897659 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-63:1897656:1897656 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-63:1897657:1897657 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Using network IB
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Using network IB
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Using network IB
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.111<0>
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Using network IB
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Setting affinity for GPU 2 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Trees [0] 9/12/-1->8->0 [1] 9/-1/-1->8->5
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Trees [0] 10/4/-1->9->8 [1] 10/-1/-1->9->8
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Trees [0] 11/-1/-1->10->9 [1] 11/-1/-1->10->9
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Trees [0] -1/-1/-1->11->10 [1] -1/-1/-1->11->10
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Channel 00 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 00 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Channel 01 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 01 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Channel 00/0 : 11[82000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 01/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 01 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-63:1897656:1898668 [0] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-63:1897656:1898668 [0] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-63:1897656:1898668 [0] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Channel 01/0 : 11[82000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Channel 00 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Channel 01 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897659:1898667 [3] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Channel 00 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Channel 01 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 01/0 : 5[2000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00/0 : 8[1000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 00/0 : 4[1000] -> 9[2000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00/0 : 0[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897657:1898669 [1] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-63:1897657:1898669 [1] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-63:1897657:1898669 [1] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00/0 : 8[1000] -> 0[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 00/0 : 9[2000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 00/0 : 12[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 00 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Channel 01 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Channel 01/0 : 8[1000] -> 5[2000] [send] via NET/IB/0
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-63:1897656:1898646 [0] NCCL INFO comm 0x3df3fc80 rank 8 nranks 16 cudaDev 0 busId 1000 - Init COMPLETE
+paraai-n32-h-01-agent-63:1897657:1898647 [1] NCCL INFO comm 0xc937c40 rank 9 nranks 16 cudaDev 1 busId 2000 - Init COMPLETE
+paraai-n32-h-01-agent-63:1897658:1898644 [2] NCCL INFO comm 0x19160380 rank 10 nranks 16 cudaDev 2 busId 81000 - Init COMPLETE
+paraai-n32-h-01-agent-63:1897659:1898645 [3] NCCL INFO comm 0x48913bc0 rank 11 nranks 16 cudaDev 3 busId 82000 - Init COMPLETE
+paraai-n32-h-01-agent-63:1897659:1898672 [3] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-63:1897659:1898672 [3] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 489, in <module>
+    trainer.train()
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 140, in train
+    tr_time, data_time, train_logs = self.train_one_epoch() 
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 226, in train_one_epoch
+    gen = self.model(inp_2d, inp_3d, mask_ratio=0)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 489, in <module>
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 264, in forward
+    trainer.train()
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 140, in train
+    tr_time, data_time, train_logs = self.train_one_epoch() 
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 226, in train_one_epoch
+    gen = self.model(inp_2d, inp_3d, mask_ratio=0)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    x = self.forward_decoder(x, ids_restore)  # [N, L, p*p*3]
+      File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 239, in forward_decoder
+return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 264, in forward
+    x = blk(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    x = self.forward_decoder(x, ids_restore)  # [N, L, p*p*3]
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 239, in forward_decoder
+    x = blk(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/fourier_block_Masked_AE_Ocean.py", line 127, in forward
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/fourier_block_Masked_AE_Ocean.py", line 127, in forward
+    x = self.norm1(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    x = self.norm1(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 190, in forward
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 190, in forward
+    return F.layer_norm(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/functional.py", line 2515, in layer_norm
+    return F.layer_norm(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/functional.py", line 2515, in layer_norm
+    return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)    
+return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
+torch.cudatorch.cuda..OutOfMemoryErrorOutOfMemoryError: : CUDA out of memory. Tried to allocate 254.00 MiB (GPU 0; 39.41 GiB total capacity; 37.17 GiB already allocated; 246.50 MiB free; 37.47 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONFCUDA out of memory. Tried to allocate 254.00 MiB (GPU 2; 39.41 GiB total capacity; 37.17 GiB already allocated; 246.50 MiB free; 37.47 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 489, in <module>
+    trainer.train()
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 140, in train
+    tr_time, data_time, train_logs = self.train_one_epoch() 
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 226, in train_one_epoch
+    gen = self.model(inp_2d, inp_3d, mask_ratio=0)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 264, in forward
+    x = self.forward_decoder(x, ids_restore)  # [N, L, p*p*3]
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 239, in forward_decoder
+    x = blk(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/fourier_block_Masked_AE_Ocean.py", line 127, in forward
+    x = self.norm1(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 190, in forward
+    return F.layer_norm(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/functional.py", line 2515, in layer_norm
+    return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 254.00 MiB (GPU 3; 39.41 GiB total capacity; 37.17 GiB already allocated; 246.50 MiB free; 37.47 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 489, in <module>
+    trainer.train()
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 140, in train
+    tr_time, data_time, train_logs = self.train_one_epoch() 
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 226, in train_one_epoch
+    gen = self.model(inp_2d, inp_3d, mask_ratio=0)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1156, in forward
+    output = self._run_ddp_forward(*inputs, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/parallel/distributed.py", line 1110, in _run_ddp_forward
+    return module_to_run(*inputs[0], **kwargs[0])  # type: ignore[index]
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 264, in forward
+    x = self.forward_decoder(x, ids_restore)  # [N, L, p*p*3]
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/Masked_AE_fusion.py", line 239, in forward_decoder
+    x = blk(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/networks/fourier_block_Masked_AE_Ocean.py", line 127, in forward
+    x = self.norm1(x)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 190, in forward
+    return F.layer_norm(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/nn/functional.py", line 2515, in layer_norm
+    return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 254.00 MiB (GPU 1; 39.41 GiB total capacity; 37.17 GiB already allocated; 246.50 MiB free; 37.47 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+paraai-n32-h-01-agent-63:1897658:1898670 [2] NCCL INFO [Service thread] Connection closed by localRank 2
+paraai-n32-h-01-agent-63:1897659:1898667 [3] NCCL INFO [Service thread] Connection closed by localRank 3
+paraai-n32-h-01-agent-63:1897658:1897658 [2] NCCL INFO comm 0x19160380 rank 10 nranks 16 cudaDev 2 busId 81000 - Abort COMPLETE
+paraai-n32-h-01-agent-63:1897656:1898668 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+paraai-n32-h-01-agent-63:1897659:1897659 [3] NCCL INFO comm 0x48913bc0 rank 11 nranks 16 cudaDev 3 busId 82000 - Abort COMPLETE
+paraai-n32-h-01-agent-63:1897656:1897656 [0] NCCL INFO comm 0x3df3fc80 rank 8 nranks 16 cudaDev 0 busId 1000 - Abort COMPLETE
+paraai-n32-h-01-agent-63:1897657:1898669 [1] NCCL INFO [Service thread] Connection closed by localRank 1
+paraai-n32-h-01-agent-63:1897657:1897657 [1] NCCL INFO comm 0xc937c40 rank 9 nranks 16 cudaDev 1 busId 2000 - Abort COMPLETE
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 1897656 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 1897657 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 2 (pid: 1897658) of binary: /home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/python
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train_025_bingxing.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-06-13_17:56:00
+  host      : paraai-n32-h-01-agent-63.paraai-n32-h-01.com
+  rank      : 11 (local_rank: 3)
+  exitcode  : 1 (pid: 1897659)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-06-13_17:56:00
+  host      : paraai-n32-h-01-agent-63.paraai-n32-h-01.com
+  rank      : 10 (local_rank: 2)
+  exitcode  : 1 (pid: 1897658)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: paraai-n32-h-01-agent-63: task 0: Exited with exit code 1

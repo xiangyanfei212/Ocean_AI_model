@@ -1,0 +1,661 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+paraai-n32-h-01-agent-87
+paraai-n32-h-01-agent-87
+paraai-n32-h-01-agent-87
+0paraai-n32-h-01-agent-87
+
+0------------------ Configuration ------------------ 
+0 0------------------ Configuration ------------------ 
+/home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+ ------------------ Configuration ------------------ 
+------------------ Configuration ------------------ /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml  
+/home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml/home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+
+nettype Masked_AE_Ocean
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 150
+scheduler nettypeCosineAnnealingLR 
+Masked_AE_Oceanfusion_3d_2d
+ log_to_wandbFalse nettype
+True in_channels
+Masked_AE_Ocean lr
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65] log_to_wandb
+0.001 out_channels
+True batch_size
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] lr
+32 N_in_channels
+0.001 max_epochs
+66 batch_size
+150 N_out_channels
+32 scheduler
+61 max_epochs
+CosineAnnealingLR img_size_h
+150 fusion_3d_2d
+720 scheduler
+False img_size_w
+CosineAnnealingLR in_channels
+1440 fusion_3d_2d
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65] patch_size_h
+False out_channels
+8 in_channels
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60] patch_size_w
+ [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]N_in_channels8
+ 
+out_channels66mlp_ratio 
+ [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]N_out_channels4.0
+ 
+N_in_channels61embed_dim 
+ 66img_size_h512
+ 
+N_out_channels720depth 
+ 61img_size_w16
+ 
+img_size_h1440num_heads 
+ 720patch_size_h16
+ 
+img_size_w8decoder_embed_dim 
+ 1440patch_size_w1024
+ 
+nettypepatch_size_h8decoder_depth  
+ Masked_AE_Ocean8mlp_ratio8
+
+ 
+log_to_wandbpatch_size_w4.0decoder_num_heads  
+ True8embed_dim16
+
+ 
+lrmlp_ratio512koopman_depth  
+ 0.0014.0depth2
+
+ 
+batch_sizeembed_dim16modes_h_ratio  
+ 32512num_heads1
+
+ 
+max_epochsdepth16modes_w_ratio  
+ 15016decoder_embed_dim0.8
+
+ 
+schedulernum_heads1024drop_rate  
+ CosineAnnealingLR16decoder_depth0.0
+
+ 
+fusion_3d_2ddecoder_embed_dim8drop_path_rate  
+ False1024decoder_num_heads0.0
+
+ 
+in_channelsdecoder_depth16sparsity_threshold  
+ [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]8koopman_depth0.01
+
+ 
+out_channelsdecoder_num_heads2hard_thresholding_fraction  
+ [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]16modes_h_ratio1.0
+
+ 
+N_in_channelskoopman_depth1num_blocks  
+ 662modes_w_ratio8
+
+ 
+N_out_channelsmodes_h_ratio0.8loss  
+ 611drop_ratel2
+
+ 
+img_size_hmodes_w_ratio0.0num_data_workers  
+ 7200.8drop_path_rate0
+
+ 
+img_size_wdrop_rate0.0dt  
+ 14400.0sparsity_threshold1
+
+ 
+patch_size_hdrop_path_rate0.01n_history  
+ 80.0hard_thresholding_fraction0
+
+ 
+patch_size_wsparsity_threshold1.0prediction_type  
+ 80.01num_blocksiterative
+
+ 
+mlp_ratiohard_thresholding_fraction8prediction_length  
+ 4.01.0loss41
+
+ 
+embed_dimnum_blocksl2n_initial_conditions  
+ 5128num_data_workers5
+
+ 
+depthloss0ics_type  
+ 16l2dtdefault
+
+ 
+num_headsnum_data_workers1date_strings  
+ 160n_history['2018-09-14 00:00:00']
+
+ 
+decoder_embed_dimdt0save_raw_forecasts  
+ 10241prediction_typeTrue
+
+ 
+decoder_depthn_historyiterativesave_channel  
+ 80prediction_lengthFalse
+
+ 
+decoder_num_headsprediction_type41masked_acc  
+ 16iterativen_initial_conditionsFalse
+
+ 
+koopman_depthprediction_length5maskpath  
+ 241ics_typeNone
+
+ 
+modes_h_ration_initial_conditionsdefaultperturb  
+ 15date_stringsFalse
+
+ 
+modes_w_ratioics_type['2018-09-14 00:00:00']add_grid  
+ 0.8defaultsave_raw_forecastsFalse
+
+ 
+drop_ratedate_stringsTrueN_grid_channels  
+ 0.0['2018-09-14 00:00:00']save_channel0
+
+ 
+drop_path_ratesave_raw_forecastsFalsegridtype  
+ 0.0Truemasked_accsinusoidal
+
+ 
+sparsity_thresholdsave_channelFalseroll  
+ 0.01FalsemaskpathFalse
+
+ 
+hard_thresholding_fractionmasked_accNoneenable_nhwc  
+ 1.0FalseperturbFalse
+
+ 
+num_blocksmaskpathFalseoptimizer_type  
+ 8Noneadd_gridFusedAdam
+
+ 
+lossperturbFalseexp_dir  
+ l2FalseN_grid_channels./exp_15_levels
+
+ 
+num_data_workersadd_grid0patch_size  
+ 0Falsegridtype8
+
+ 
+dtN_grid_channelssinusoidalwidth  
+ 10roll56
+
+ 
+n_historygridtypeFalsemodes  
+ 0sinusoidalenable_nhwc32
+
+ 
+prediction_typerollFalsetarget  
+ iterativeFalseoptimizer_typedefault
+
+ 
+prediction_lengthenable_nhwcFusedAdamtrain_data_path  
+ 41Falseexp_dir/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+
+ 
+n_initial_conditionsoptimizer_type./exp_15_levelsvalid_data_path  
+ 5FusedAdampatch_size/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+
+ 
+ics_typeexp_dir8test_data_path  
+ default./exp_15_levelswidth/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+
+ 
+patch_sizedate_strings56land_mask  
+ 8['2018-09-14 00:00:00']modesTrue
+
+ 
+widthsave_raw_forecasts32land_mask_path  
+ 56Truetarget/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+
+ 
+modessave_channeldefaultnormalize  
+ 32Falsetrain_data_pathTrue
+
+ 
+targetmasked_acc/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/trainnormalization  
+ defaultFalsevalid_data_pathzscore
+
+ 
+train_data_pathmaskpath/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/validglobal_mins_path  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/trainNonetest_data_path/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+
+ 
+valid_data_pathperturb/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/testglobal_maxs_path  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/validFalseland_mask/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+
+ 
+test_data_pathadd_gridTrueglobal_means_path  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/testFalseland_mask_path/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+
+ 
+land_maskN_grid_channels/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5global_stds_path  
+ True0normalize/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+
+ 
+land_mask_pathgridtypeTrueorography  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5sinusoidalnormalizationTrue
+
+ 
+normalizerollzscoreorography_norm_zscore_path  
+ TrueFalseglobal_mins_path/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+
+ 
+normalizationenable_nhwc/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npyorography_norm_maxmin_path  
+ zscoreFalseglobal_maxs_path/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+
+ 
+global_mins_pathoptimizer_type/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npyadd_noise  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npyFusedAdamglobal_means_pathFalse
+
+ 
+global_maxs_pathexp_dir/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npynoise_std  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy./exp_15_levelsglobal_stds_path0
+
+ 
+global_means_pathpatch_size/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npycrop_size_x  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy8orographyNone
+
+ 
+global_stds_pathwidthTruecrop_size_y  
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy56orography_norm_zscore_pathNone
+
+ 
+orographymodes/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+log_to_screenorography_norm_maxmin_path    TrueTrue32/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+
+
+
+orography_norm_zscore_pathsave_checkpointtargetadd_noise    /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5TruedefaultFalse
+
+
+
+orography_norm_maxmin_pathplot_animationstrain_data_pathnoise_std    /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5False/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train0
+
+
+
+add_noisecrop_size_xvalid_data_path---------------------------------------------------   
+FalseNone/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+world_size :
+
+noise_std crop_size_ytest_data_path 16  0
+None/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+Initialize distributed process group...
+
+crop_size_x
+log_to_screenland_mask   NoneTrueTrue
+
+
+crop_size_ysave_checkpointland_mask_path   NoneTrue/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+
+
+log_to_screenplot_animationsnormalize   TrueFalseTrue
+
+
+save_checkpointnormalization  ---------------------------------------------------Truezscore
+
+
+world_size :plot_animationsglobal_mins_path   16False/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+
+
+Initialize distributed process group...global_maxs_path
+ ---------------------------------------------------/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+
+global_means_pathworld_size :  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy16
+
+global_stds_pathInitialize distributed process group... 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-28 13:12:08,729 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 10
+2023-06-28 13:12:08,729 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 8
+2023-06-28 13:12:08,729 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 9
+2023-06-28 13:12:08,729 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 11
+2023-06-28 13:12:09,096 - torch.distributed.distributed_c10d - INFO - Rank 9: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:12:09,096 - torch.distributed.distributed_c10d - INFO - Rank 10: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:12:09,096 - torch.distributed.distributed_c10d - INFO - Rank 8: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:12:09,096 - torch.distributed.distributed_c10d - INFO - Rank 11: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:12:09,183 - root - INFO - device: cuda:1
+2023-06-28 13:12:09,183 - root - INFO - rank 9, begin data loader init
+2023-06-28 13:12:09,183 - root - INFO - device: cuda:0
+2023-06-28 13:12:09,183 - root - INFO - rank 8, begin data loader init
+2023-06-28 13:12:09,185 - root - INFO - device: cuda:2
+2023-06-28 13:12:09,185 - root - INFO - rank 10, begin data loader init
+2023-06-28 13:12:09,187 - root - INFO - device: cuda:3
+2023-06-28 13:12:09,188 - root - INFO - rank 11, begin data loader init
+2023-06-28 13:12:09,189 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:12:09,189 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:12:09,189 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:12:09,190 - root - INFO - Number of samples per year: 365
+2023-06-28 13:12:09,190 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:12:09,190 - root - INFO - Number of samples per year: 365
+2023-06-28 13:12:09,190 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,190 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,190 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,190 - root - INFO - Number of samples per year: 365
+2023-06-28 13:12:09,190 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,190 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,190 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,190 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,190 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,190 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,192 - root - INFO - Number of samples per year: 365
+2023-06-28 13:12:09,192 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,192 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,192 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,195 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:12:09,195 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:12:09,195 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:12:09,195 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:12:09,196 - root - INFO - Number of samples per year: 364
+2023-06-28 13:12:09,196 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,196 - root - INFO - Number of samples per year: 364
+2023-06-28 13:12:09,196 - root - INFO - Number of samples per year: 364
+2023-06-28 13:12:09,196 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,196 - root - INFO - Number of samples per year: 364
+2023-06-28 13:12:09,196 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,196 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,196 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,196 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:12:09,196 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,196 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,196 - root - INFO - Delta t: 1 days
+2023-06-28 13:12:09,196 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,196 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,196 - root - INFO - rank 8, data loader initialized
+2023-06-28 13:12:09,196 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:12:09,196 - root - INFO - rank 9, data loader initialized
+2023-06-28 13:12:09,196 - root - INFO - rank 11, data loader initialized
+2023-06-28 13:12:09,197 - root - INFO - rank 10, data loader initialized
+paraai-n32-h-01-agent-87:834139:834139 [1] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-87:834138:834138 [0] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-87:834140:834140 [2] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-87:834141:834141 [3] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-87:834138:834138 [0] NCCL INFO Bootstrap : Using eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834140:834140 [2] NCCL INFO Bootstrap : Using eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834139:834139 [1] NCCL INFO Bootstrap : Using eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834141:834141 [3] NCCL INFO Bootstrap : Using eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834138:834138 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-87:834139:834139 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-87:834141:834141 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-87:834140:834140 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Using network IB
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Using network IB
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Using network IB
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.5.149<0>
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Using network IB
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Setting affinity for GPU 2 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Trees [0] 11/-1/-1->10->9 [1] 11/14/-1->10->2 [2] 11/-1/-1->10->9 [3] 11/-1/-1->10->7 [4] 11/-1/-1->10->9 [5] 11/14/-1->10->2 [6] 11/-1/-1->10->9 [7] 11/-1/-1->10->7 [8] 11/-1/-1->10->9 [9] 11/14/-1->10->2 [10] 11/-1/-1->10->9 [11] 11/-1/-1->10->7 [12] 11/-1/-1->10->9 [13] 11/14/-1->10->2 [14] 11/-1/-1->10->9 [15] 11/-1/-1->10->7
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Trees [0] 10/4/-1->9->8 [1] -1/-1/-1->9->8 [2] 10/-1/-1->9->8 [3] -1/-1/-1->9->8 [4] 10/4/-1->9->8 [5] -1/-1/-1->9->8 [6] 10/-1/-1->9->8 [7] -1/-1/-1->9->8 [8] 10/4/-1->9->8 [9] -1/-1/-1->9->8 [10] 10/-1/-1->9->8 [11] -1/-1/-1->9->8 [12] 10/4/-1->9->8 [13] -1/-1/-1->9->8 [14] 10/-1/-1->9->8 [15] -1/-1/-1->9->8
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Trees [0] 9/12/-1->8->0 [1] 9/-1/-1->8->11 [2] 9/-1/-1->8->5 [3] 9/-1/-1->8->11 [4] 9/12/-1->8->0 [5] 9/-1/-1->8->11 [6] 9/-1/-1->8->5 [7] 9/-1/-1->8->11 [8] 9/12/-1->8->0 [9] 9/-1/-1->8->11 [10] 9/-1/-1->8->5 [11] 9/-1/-1->8->11 [12] 9/12/-1->8->0 [13] 9/-1/-1->8->11 [14] 9/-1/-1->8->5 [15] 9/-1/-1->8->11
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Trees [0] -1/-1/-1->11->10 [1] 8/6/-1->11->10 [2] -1/-1/-1->11->10 [3] 8/-1/-1->11->10 [4] -1/-1/-1->11->10 [5] 8/6/-1->11->10 [6] -1/-1/-1->11->10 [7] 8/-1/-1->11->10 [8] -1/-1/-1->11->10 [9] 8/6/-1->11->10 [10] -1/-1/-1->11->10 [11] 8/-1/-1->11->10 [12] -1/-1/-1->11->10 [13] 8/6/-1->11->10 [14] -1/-1/-1->11->10 [15] 8/-1/-1->11->10
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 00 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 00 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 02 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 02 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 03 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 04 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 04 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 06 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 08 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 06 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 10 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 07 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 12 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 08 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 14 : 9[2000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 10 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 11 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 12 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 14 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 15 : 10[81000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 00/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 02/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 02/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 04/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 06/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 06/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 08/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 10/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 12/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 14/0 : 11[82000] -> 12[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 10/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836588 [3] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 03/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 01 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 03 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 05 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 07 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 09 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 11 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 13 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 15 : 11[82000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 14/0 : 7[82000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 02 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 06 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 10 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 14 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836590 [0] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 01 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 03 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 05 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 07 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 09 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 11 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 13 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 15 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 07/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 01/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 03/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 11/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 05/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 07/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 15/0 : 4[1000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836589 [2] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 09/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 11/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 03/0 : 7[82000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 13/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 07/0 : 7[82000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 11/0 : 7[82000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 15/0 : 8[1000] -> 14[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 01 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 03 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 05 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 07 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 09 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 11 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 13 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 15 : 8[1000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 00/0 : 4[1000] -> 9[2000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 15/0 : 7[82000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 02/0 : 5[2000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 04/0 : 4[1000] -> 9[2000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01/0 : 10[81000] -> 14[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 08/0 : 4[1000] -> 9[2000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 06/0 : 5[2000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05/0 : 10[81000] -> 14[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 12/0 : 4[1000] -> 9[2000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 10/0 : 5[2000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09/0 : 10[81000] -> 14[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13/0 : 10[81000] -> 14[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 14/0 : 5[2000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 01 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 03 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 05 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 07 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 09 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 11 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 13 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 15 : 8[1000] -> 11[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 01/0 : 6[81000] -> 11[82000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 05/0 : 6[81000] -> 11[82000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01/0 : 2[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00/0 : 8[1000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834139:836591 [1] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 09/0 : 6[81000] -> 11[82000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05/0 : 2[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04/0 : 8[1000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 00/0 : 9[2000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 13/0 : 6[81000] -> 11[82000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08/0 : 8[1000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09/0 : 2[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 04/0 : 9[2000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 01/0 : 11[82000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13/0 : 2[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12/0 : 8[1000] -> 12[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 08/0 : 9[2000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 05/0 : 11[82000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01/0 : 10[81000] -> 2[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00/0 : 0[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 12/0 : 9[2000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 09/0 : 11[82000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05/0 : 10[81000] -> 2[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04/0 : 0[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 13/0 : 11[82000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09/0 : 10[81000] -> 2[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08/0 : 0[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13/0 : 10[81000] -> 2[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12/0 : 0[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00/0 : 8[1000] -> 0[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 01/0 : 14[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 05/0 : 14[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04/0 : 8[1000] -> 0[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 09/0 : 14[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08/0 : 8[1000] -> 0[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12/0 : 8[1000] -> 0[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 13/0 : 14[81000] -> 10[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 00/0 : 12[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 04/0 : 12[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 01 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 03 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 05 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 07 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 09 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 11 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 13 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 15 : 11[82000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 08/0 : 12[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 03/0 : 10[81000] -> 7[82000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 00 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 02 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 04 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 06 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 08 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 10 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 12 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Channel 14 : 9[2000] -> 8[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 12/0 : 12[1000] -> 8[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 07/0 : 10[81000] -> 7[82000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 02/0 : 8[1000] -> 5[2000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 11/0 : 10[81000] -> 7[82000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 06/0 : 8[1000] -> 5[2000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 15/0 : 10[81000] -> 7[82000] [send] via NET/IB/1
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 00 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 02 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 04 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 06 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 08 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 10 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 12 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Channel 14 : 10[81000] -> 9[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 10/0 : 8[1000] -> 5[2000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Channel 14/0 : 8[1000] -> 5[2000] [send] via NET/IB/0
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 00 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 01 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 02 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 03 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 04 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 05 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 06 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 07 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 08 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 09 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 10 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 11 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 12 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 13 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 14 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Channel 15 : 11[82000] -> 10[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-87:834141:836578 [3] NCCL INFO comm 0x6edb94d0 rank 11 nranks 16 cudaDev 3 busId 82000 - Init COMPLETE
+paraai-n32-h-01-agent-87:834140:836576 [2] NCCL INFO comm 0x27c3d240 rank 10 nranks 16 cudaDev 2 busId 81000 - Init COMPLETE
+paraai-n32-h-01-agent-87:834139:836577 [1] NCCL INFO comm 0xde3f040 rank 9 nranks 16 cudaDev 1 busId 2000 - Init COMPLETE
+paraai-n32-h-01-agent-87:834138:836575 [0] NCCL INFO comm 0x11378ec0 rank 8 nranks 16 cudaDev 0 busId 1000 - Init COMPLETE
+2023-06-29 21:51:03,898 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 21:51:03,898 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 21:51:03,898 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 21:51:03,898 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+paraai-n32-h-01-agent-87:834140:836589 [2] NCCL INFO [Service thread] Connection closed by localRank 2
+paraai-n32-h-01-agent-87:834138:836590 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+paraai-n32-h-01-agent-87:834140:834140 [2] NCCL INFO comm 0x27c3d240 rank 10 nranks 16 cudaDev 2 busId 81000 - Abort COMPLETE
+paraai-n32-h-01-agent-87:834139:836591 [1] NCCL INFO [Service thread] Connection closed by localRank 1
+paraai-n32-h-01-agent-87:834138:834138 [0] NCCL INFO comm 0x11378ec0 rank 8 nranks 16 cudaDev 0 busId 1000 - Abort COMPLETE
+paraai-n32-h-01-agent-87:834139:834139 [1] NCCL INFO comm 0xde3f040 rank 9 nranks 16 cudaDev 1 busId 2000 - Abort COMPLETE
+paraai-n32-h-01-agent-87:834141:836588 [3] NCCL INFO [Service thread] Connection closed by localRank 3
+paraai-n32-h-01-agent-87:834141:834141 [3] NCCL INFO comm 0x6edb94d0 rank 11 nranks 16 cudaDev 3 busId 82000 - Abort COMPLETE

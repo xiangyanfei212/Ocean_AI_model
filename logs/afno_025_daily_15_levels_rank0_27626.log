@@ -1,0 +1,1061 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+paraai-n32-h-01-agent-102
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+paraai-n32-h-01-agent-102
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+paraai-n32-h-01-agent-102
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+paraai-n32-h-01-agent-102
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+nettype afno
+log_to_wandb True
+lr 0.0005
+batch_size 16
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d False
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+N_in_channels 66
+N_out_channels 61
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp_15_levels
+num_blocks 8
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype afno
+log_to_wandb True
+lr 0.0005
+batch_size 16
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d False
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+N_in_channels 66
+N_out_channels 61
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp_15_levels
+num_blocks 8
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype afno
+log_to_wandb True
+lr 0.0005
+batch_size 16
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d False
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+N_in_channels 66
+N_out_channels 61
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp_15_levels
+num_blocks 8
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype afno
+log_to_wandb True
+lr 0.0005
+batch_size 16
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d False
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+N_in_channels 66
+N_out_channels 61
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp_15_levels
+num_blocks 8
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-28 13:14:33,021 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+2023-06-28 13:14:33,024 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2023-06-28 13:14:33,981 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2023-06-28 13:14:33,989 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2023-06-28 13:14:33,989 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:14:33,990 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:14:33,991 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:14:33,994 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-28 13:14:34,071 - root - INFO - device: cuda:2
+2023-06-28 13:14:34,071 - root - INFO - rank 2, begin data loader init
+2023-06-28 13:14:34,076 - root - INFO - device: cuda:1
+2023-06-28 13:14:34,076 - root - INFO - rank 1, begin data loader init
+2023-06-28 13:14:34,076 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:14:34,077 - root - INFO - device: cuda:3
+2023-06-28 13:14:34,077 - root - INFO - rank 3, begin data loader init
+2023-06-28 13:14:34,077 - root - INFO - Number of samples per year: 365
+2023-06-28 13:14:34,077 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,077 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,077 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,078 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:14:34,078 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:14:34,079 - root - INFO - Number of samples per year: 365
+2023-06-28 13:14:34,079 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,079 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,079 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,080 - root - INFO - Number of samples per year: 365
+2023-06-28 13:14:34,080 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,080 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,080 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,081 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:14:34,081 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:14:34,081 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:14:34,082 - root - INFO - Number of samples per year: 364
+2023-06-28 13:14:34,082 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,082 - root - INFO - Number of samples per year: 364
+2023-06-28 13:14:34,082 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,082 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,082 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,082 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,082 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,082 - root - INFO - rank 2, data loader initialized
+2023-06-28 13:14:34,082 - root - INFO - Number of samples per year: 364
+2023-06-28 13:14:34,082 - root - INFO - rank 1, data loader initialized
+2023-06-28 13:14:34,082 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:34,083 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:34,083 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:34,083 - root - INFO - rank 3, data loader initialized
+2023-06-28 13:14:34,142 - root - INFO - ------------------ Configuration ------------------
+2023-06-28 13:14:34,142 - root - INFO - Configuration file: /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model_2.yaml
+2023-06-28 13:14:34,142 - root - INFO - Configuration name: afno
+2023-06-28 13:14:34,142 - root - INFO - nettype afno
+2023-06-28 13:14:34,142 - root - INFO - log_to_wandb True
+2023-06-28 13:14:34,143 - root - INFO - lr 0.0005
+2023-06-28 13:14:34,143 - root - INFO - batch_size 1
+2023-06-28 13:14:34,143 - root - INFO - max_epochs 100
+2023-06-28 13:14:34,143 - root - INFO - scheduler CosineAnnealingLR
+2023-06-28 13:14:34,143 - root - INFO - fusion_3d_2d False
+2023-06-28 13:14:34,143 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+2023-06-28 13:14:34,143 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+2023-06-28 13:14:34,143 - root - INFO - N_in_channels 66
+2023-06-28 13:14:34,143 - root - INFO - N_out_channels 61
+2023-06-28 13:14:34,143 - root - INFO - img_size_h 720
+2023-06-28 13:14:34,143 - root - INFO - img_size_w 1440
+2023-06-28 13:14:34,143 - root - INFO - patch_size_h 5
+2023-06-28 13:14:34,144 - root - INFO - patch_size_w 5
+2023-06-28 13:14:34,144 - root - INFO - loss l2
+2023-06-28 13:14:34,144 - root - INFO - num_data_workers 0
+2023-06-28 13:14:34,144 - root - INFO - dt 1
+2023-06-28 13:14:34,144 - root - INFO - n_history 0
+2023-06-28 13:14:34,144 - root - INFO - prediction_type iterative
+2023-06-28 13:14:34,144 - root - INFO - prediction_length 41
+2023-06-28 13:14:34,144 - root - INFO - n_initial_conditions 5
+2023-06-28 13:14:34,144 - root - INFO - ics_type default
+2023-06-28 13:14:34,144 - root - INFO - date_strings ['2018-09-14 00:00:00']
+2023-06-28 13:14:34,144 - root - INFO - save_raw_forecasts True
+2023-06-28 13:14:34,144 - root - INFO - save_channel False
+2023-06-28 13:14:34,144 - root - INFO - masked_acc False
+2023-06-28 13:14:34,145 - root - INFO - maskpath None
+2023-06-28 13:14:34,145 - root - INFO - perturb False
+2023-06-28 13:14:34,145 - root - INFO - add_grid False
+2023-06-28 13:14:34,145 - root - INFO - N_grid_channels 0
+2023-06-28 13:14:34,145 - root - INFO - gridtype sinusoidal
+2023-06-28 13:14:34,145 - root - INFO - roll False
+2023-06-28 13:14:34,145 - root - INFO - enable_nhwc False
+2023-06-28 13:14:34,145 - root - INFO - optimizer_type FusedAdam
+2023-06-28 13:14:34,145 - root - INFO - exp_dir ./exp_15_levels
+2023-06-28 13:14:34,145 - root - INFO - num_blocks 8
+2023-06-28 13:14:34,145 - root - INFO - patch_size 8
+2023-06-28 13:14:34,145 - root - INFO - width 56
+2023-06-28 13:14:34,145 - root - INFO - modes 32
+2023-06-28 13:14:34,146 - root - INFO - target default
+2023-06-28 13:14:34,146 - root - INFO - train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+2023-06-28 13:14:34,146 - root - INFO - valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+2023-06-28 13:14:34,146 - root - INFO - test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+2023-06-28 13:14:34,146 - root - INFO - land_mask True
+2023-06-28 13:14:34,146 - root - INFO - land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+2023-06-28 13:14:34,146 - root - INFO - normalize True
+2023-06-28 13:14:34,146 - root - INFO - normalization zscore
+2023-06-28 13:14:34,146 - root - INFO - global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+2023-06-28 13:14:34,146 - root - INFO - global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+2023-06-28 13:14:34,146 - root - INFO - global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+2023-06-28 13:14:34,146 - root - INFO - global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+2023-06-28 13:14:34,146 - root - INFO - orography True
+2023-06-28 13:14:34,147 - root - INFO - orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+2023-06-28 13:14:34,147 - root - INFO - orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+2023-06-28 13:14:34,147 - root - INFO - add_noise False
+2023-06-28 13:14:34,147 - root - INFO - noise_std 0
+2023-06-28 13:14:34,147 - root - INFO - crop_size_x None
+2023-06-28 13:14:34,147 - root - INFO - crop_size_y None
+2023-06-28 13:14:34,147 - root - INFO - log_to_screen True
+2023-06-28 13:14:34,147 - root - INFO - save_checkpoint True
+2023-06-28 13:14:34,147 - root - INFO - plot_animations False
+2023-06-28 13:14:34,147 - root - INFO - epsilon_factor 0
+2023-06-28 13:14:34,147 - root - INFO - world_size 16
+2023-06-28 13:14:34,147 - root - INFO - local_rank 0
+2023-06-28 13:14:34,147 - root - INFO - global_batch_size 16
+2023-06-28 13:14:34,148 - root - INFO - enable_amp True
+2023-06-28 13:14:34,148 - root - INFO - experiment_dir /home/bingxing2/home/scx6115/Ocean_AI_model/exp_15_levels/afno/20230628-131420
+2023-06-28 13:14:34,148 - root - INFO - checkpoint_path ./exp_15_levels/afno/20230628-131420/training_checkpoints/ckpt.tar
+2023-06-28 13:14:34,148 - root - INFO - best_checkpoint_path ./exp_15_levels/afno/20230628-131420/training_checkpoints/best_ckpt.tar
+2023-06-28 13:14:34,148 - root - INFO - resuming False
+2023-06-28 13:14:34,148 - root - INFO - entity ocean_ai_model
+2023-06-28 13:14:34,148 - root - INFO - project ai4science
+2023-06-28 13:14:34,148 - root - INFO - group 025_daily_15_levels
+2023-06-28 13:14:34,148 - root - INFO - name afno_20230628-131420
+2023-06-28 13:14:34,148 - root - INFO - ---------------------------------------------------
+wandb: Tracking run with wandb version 0.15.3
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2023-06-28 13:14:42,054 - root - INFO - device: cuda:0
+2023-06-28 13:14:42,054 - root - INFO - rank 0, begin data loader init
+2023-06-28 13:14:42,057 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/2000.h5
+2023-06-28 13:14:42,058 - root - INFO - Number of samples per year: 365
+2023-06-28 13:14:42,058 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train. Number of examples: 4015. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:42,059 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:42,059 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:42,062 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid/2011.h5
+2023-06-28 13:14:42,063 - root - INFO - Number of samples per year: 364
+2023-06-28 13:14:42,063 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid. Number of examples: 364. Image Shape: 720 x 1440 x 66
+2023-06-28 13:14:42,063 - root - INFO - Delta t: 1 days
+2023-06-28 13:14:42,064 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-28 13:14:42,064 - root - INFO - rank 0, data loader initialized
+paraai-n32-h-01-agent-102:2175127:2175127 [0] NCCL INFO Bootstrap : Using eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175127:2175127 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-102:2175129:2175129 [2] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-102:2175130:2175130 [3] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-102:2175128:2175128 [1] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-102:2175127:2175127 [0] NCCL INFO cudaDriverVersion 11060
+NCCL version 2.14.3+cuda11.7
+paraai-n32-h-01-agent-102:2175129:2175129 [2] NCCL INFO Bootstrap : Using eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175130:2175130 [3] NCCL INFO Bootstrap : Using eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175128:2175128 [1] NCCL INFO Bootstrap : Using eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175129:2175129 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-102:2175130:2175130 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-102:2175128:2175128 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Using network IB
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Using network IB
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Using network IB
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_2:1/RoCE [RO]; OOB eth0:172.16.4.77<0>
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Using network IB
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Setting affinity for GPU 2 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO NCCL_MAX_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/10/-1->2->-1 [2] 3/-1/-1->2->1 [3] 3/-1/-1->2->6 [4] 3/-1/-1->2->1 [5] 3/10/-1->2->-1 [6] 3/-1/-1->2->1 [7] 3/-1/-1->2->6 [8] 3/-1/-1->2->1 [9] 3/10/-1->2->-1 [10] 3/-1/-1->2->1 [11] 3/-1/-1->2->6 [12] 3/-1/-1->2->1 [13] 3/10/-1->2->-1 [14] 3/-1/-1->2->1 [15] 3/-1/-1->2->6
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO NCCL_MIN_NCHANNELS set by environment to 16.
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] -1/-1/-1->1->0 [2] 2/-1/-1->1->0 [3] -1/-1/-1->1->0 [4] 2/-1/-1->1->0 [5] -1/-1/-1->1->0 [6] 2/-1/-1->1->0 [7] -1/-1/-1->1->0 [8] 2/-1/-1->1->0 [9] -1/-1/-1->1->0 [10] 2/-1/-1->1->0 [11] -1/-1/-1->1->0 [12] 2/-1/-1->1->0 [13] -1/-1/-1->1->0 [14] 2/-1/-1->1->0 [15] -1/-1/-1->1->0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] 0/-1/-1->3->2 [2] -1/-1/-1->3->2 [3] 0/-1/-1->3->2 [4] -1/-1/-1->3->2 [5] 0/-1/-1->3->2 [6] -1/-1/-1->3->2 [7] 0/-1/-1->3->2 [8] -1/-1/-1->3->2 [9] 0/-1/-1->3->2 [10] -1/-1/-1->3->2 [11] 0/-1/-1->3->2 [12] -1/-1/-1->3->2 [13] 0/-1/-1->3->2 [14] -1/-1/-1->3->2 [15] 0/-1/-1->3->2
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 00/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 01/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 02/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 03/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 04/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 00 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 05/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 01 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 00 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 06/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 02 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 02 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 07/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 03 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 04 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 08/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 04 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 06 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 09/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 05 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 08 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 10/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 06 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 10 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 11/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 00/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 07 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 12 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 12/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 08 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 14 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 13/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 09 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 14/16 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 10 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 15/16 :    0   6   7   5   4  10  11   9   8  14  15  13  12   2   3   1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 11 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Trees [0] 1/8/-1->0->-1 [1] 1/-1/-1->0->3 [2] 1/-1/-1->0->4 [3] 1/-1/-1->0->3 [4] 1/8/-1->0->-1 [5] 1/-1/-1->0->3 [6] 1/-1/-1->0->4 [7] 1/-1/-1->0->3 [8] 1/8/-1->0->-1 [9] 1/-1/-1->0->3 [10] 1/-1/-1->0->4 [11] 1/-1/-1->0->3 [12] 1/8/-1->0->-1 [13] 1/-1/-1->0->3 [14] 1/-1/-1->0->4 [15] 1/-1/-1->0->3
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 12 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 13 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 14 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 15 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 00/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 02/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 02/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 04/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 04/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 06/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 06/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 08/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 08/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 10/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 10/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 12/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 12/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 14/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 00 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 02 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 04 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 06 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 08 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 10 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 12 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 14 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 14/0 : 3[82000] -> 4[1000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2176043 [0] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 01/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175130:2176044 [3] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 03/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 05/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 07/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 01 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 03 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 05 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 07 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 09 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 11 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 13 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 15 : 3[82000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 01 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 03 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 05 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 07 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 09 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 11 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 13 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 15 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 01/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 09/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 03/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 05/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 11/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 13/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 07/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 09/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 15/0 : 12[1000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 11/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 13/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 15/0 : 0[1000] -> 6[81000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 01 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 03 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 05 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 07 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 09 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 11 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 13 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 15 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 01 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 03 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 05 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 07 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 00 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 09 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 02 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 11 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 04 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 13 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 06 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 15 : 0[1000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2176042 [2] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 08 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 01 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 10 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 03 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 12 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 05 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Channel 14 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 07 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 09 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 11 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 13 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 15 : 3[82000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 02/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 03/0 : 2[81000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 06/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 07/0 : 2[81000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 10/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 11/0 : 2[81000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 14/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 15/0 : 2[81000] -> 6[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 00/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 01/0 : 10[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 04/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 05/0 : 10[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 08/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 09/0 : 10[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 12/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 13/0 : 10[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 00/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 01/0 : 2[81000] -> 10[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 04/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 05/0 : 2[81000] -> 10[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 08/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 09/0 : 2[81000] -> 10[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 12/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 13/0 : 2[81000] -> 10[81000] [send] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 03/0 : 6[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 07/0 : 6[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 11/0 : 6[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 15/0 : 6[81000] -> 2[81000] [receive] via NET/IB/1
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 02/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 06/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 10/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Channel 14/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 00 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 02 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 04 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 06 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 08 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 10 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 12 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Channel 14 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 00 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 01 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 02 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 03 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 04 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 05 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 06 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 07 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 08 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 09 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 10 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 11 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 12 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 13 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 14 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Channel 15 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO 16 coll channels, 16 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-102:2175129:2175990 [2] NCCL INFO comm 0x459b8200 rank 2 nranks 16 cudaDev 2 busId 81000 - Init COMPLETE
+paraai-n32-h-01-agent-102:2175127:2175989 [0] NCCL INFO comm 0x4722f180 rank 0 nranks 16 cudaDev 0 busId 1000 - Init COMPLETE
+paraai-n32-h-01-agent-102:2175128:2175993 [1] NCCL INFO comm 0x2d8ecb00 rank 1 nranks 16 cudaDev 1 busId 2000 - Init COMPLETE
+paraai-n32-h-01-agent-102:2175130:2175992 [3] NCCL INFO comm 0xe205500 rank 3 nranks 16 cudaDev 3 busId 82000 - Init COMPLETE
+2023-06-28 13:14:53,454 - root - INFO - Number of trainable model parameters: 79017216
+2023-06-28 13:14:53,458 - root - INFO - Starting Training Loop...
+2023-06-28 13:28:46,262 - root - INFO - Val loss improved from 1000000.0 to 0.47166430950164795
+2023-06-28 13:28:47,158 - root - INFO - Time taken for epoch 1 is 833.699031829834 sec
+2023-06-28 13:28:47,158 - root - INFO - train data time=31.079262495040894, train step time=201.62748956680298, valid step time=64.44306254386902
+2023-06-28 13:28:47,159 - root - INFO - Train loss: 0.45120295882225037. Valid loss: 0.47166430950164795
+2023-06-28 13:42:42,130 - root - INFO - Val loss improved from 0.47166430950164795 to 0.430729478597641
+2023-06-28 13:42:43,205 - root - INFO - Time taken for epoch 2 is 836.046044588089 sec
+2023-06-28 13:42:43,206 - root - INFO - train data time=32.09062099456787, train step time=197.7745110988617, valid step time=63.32446789741516
+2023-06-28 13:42:43,206 - root - INFO - Train loss: 0.40827420353889465. Valid loss: 0.430729478597641
+2023-06-28 13:56:38,549 - root - INFO - Val loss improved from 0.430729478597641 to 0.4172176718711853
+2023-06-28 13:56:39,588 - root - INFO - Time taken for epoch 3 is 836.3814744949341 sec
+2023-06-28 13:56:39,589 - root - INFO - train data time=39.6623113155365, train step time=187.46459412574768, valid step time=64.33885788917542
+2023-06-28 13:56:39,589 - root - INFO - Train loss: 0.3945727050304413. Valid loss: 0.4172176718711853
+2023-06-28 14:10:39,823 - root - INFO - Val loss improved from 0.4172176718711853 to 0.4090464115142822
+2023-06-28 14:10:40,859 - root - INFO - Time taken for epoch 4 is 841.269829750061 sec
+2023-06-28 14:10:40,860 - root - INFO - train data time=44.48432993888855, train step time=183.37733936309814, valid step time=63.65530562400818
+2023-06-28 14:10:40,860 - root - INFO - Train loss: 0.3880142569541931. Valid loss: 0.4090464115142822
+2023-06-28 14:24:33,218 - root - INFO - Val loss improved from 0.4090464115142822 to 0.3921167850494385
+2023-06-28 14:24:34,231 - root - INFO - Time taken for epoch 5 is 833.3701746463776 sec
+2023-06-28 14:24:34,231 - root - INFO - train data time=44.477524757385254, train step time=179.16156578063965, valid step time=63.6014518737793
+2023-06-28 14:24:34,231 - root - INFO - Train loss: 0.37618106603622437. Valid loss: 0.3921167850494385
+2023-06-28 14:38:24,575 - root - INFO - Val loss improved from 0.3921167850494385 to 0.38866177201271057
+2023-06-28 14:38:25,619 - root - INFO - Time taken for epoch 6 is 831.387401342392 sec
+2023-06-28 14:38:25,620 - root - INFO - train data time=43.97881555557251, train step time=176.28952598571777, valid step time=64.50148558616638
+2023-06-28 14:38:25,620 - root - INFO - Train loss: 0.36995822191238403. Valid loss: 0.38866177201271057
+2023-06-28 14:52:15,816 - root - INFO - Val loss improved from 0.38866177201271057 to 0.3794502913951874
+2023-06-28 14:52:16,857 - root - INFO - Time taken for epoch 7 is 831.2357642650604 sec
+2023-06-28 14:52:16,857 - root - INFO - train data time=43.726091623306274, train step time=175.60565662384033, valid step time=64.3248565196991
+2023-06-28 14:52:16,857 - root - INFO - Train loss: 0.3558639585971832. Valid loss: 0.3794502913951874
+2023-06-28 15:06:11,033 - root - INFO - Val loss improved from 0.3794502913951874 to 0.37265685200691223
+2023-06-28 15:06:12,055 - root - INFO - Time taken for epoch 8 is 835.1974844932556 sec
+2023-06-28 15:06:12,055 - root - INFO - train data time=44.323094606399536, train step time=178.19260549545288, valid step time=65.53705358505249
+2023-06-28 15:06:12,056 - root - INFO - Train loss: 0.3586389720439911. Valid loss: 0.37265685200691223
+2023-06-28 15:20:02,181 - root - INFO - Val loss improved from 0.37265685200691223 to 0.37243229150772095
+2023-06-28 15:20:03,184 - root - INFO - Time taken for epoch 9 is 831.1276397705078 sec
+2023-06-28 15:20:03,184 - root - INFO - train data time=44.35882830619812, train step time=176.22623872756958, valid step time=63.97067952156067
+2023-06-28 15:20:03,184 - root - INFO - Train loss: 0.3520388603210449. Valid loss: 0.37243229150772095
+2023-06-28 15:33:51,164 - root - INFO - Val loss improved from 0.37243229150772095 to 0.3654281795024872
+2023-06-28 15:33:52,208 - root - INFO - Time taken for epoch 10 is 829.0236306190491 sec
+2023-06-28 15:33:52,209 - root - INFO - train data time=43.576366662979126, train step time=177.14620304107666, valid step time=63.234978675842285
+2023-06-28 15:33:52,209 - root - INFO - Train loss: 0.34437140822410583. Valid loss: 0.3654281795024872
+2023-06-28 15:47:47,106 - root - INFO - Val loss improved from 0.3654281795024872 to 0.3617001473903656
+2023-06-28 15:47:48,140 - root - INFO - Time taken for epoch 11 is 835.9310643672943 sec
+2023-06-28 15:47:48,141 - root - INFO - train data time=43.361228227615356, train step time=182.1694860458374, valid step time=64.39184236526489
+2023-06-28 15:47:48,141 - root - INFO - Train loss: 0.3430209159851074. Valid loss: 0.3617001473903656
+2023-06-28 16:01:47,178 - root - INFO - Time taken for epoch 12 is 839.0364310741425 sec
+2023-06-28 16:01:47,180 - root - INFO - train data time=34.522377490997314, train step time=196.57919430732727, valid step time=64.0259120464325
+2023-06-28 16:01:47,180 - root - INFO - Train loss: 0.3593694567680359. Valid loss: 0.3718773424625397
+2023-06-28 16:15:43,755 - root - INFO - Time taken for epoch 13 is 836.574609041214 sec
+2023-06-28 16:15:43,756 - root - INFO - train data time=41.271031618118286, train step time=184.41995120048523, valid step time=64.21420478820801
+2023-06-28 16:15:43,756 - root - INFO - Train loss: 0.37193378806114197. Valid loss: 0.3649633526802063
+2023-06-28 16:29:46,520 - root - INFO - Val loss improved from 0.3617001473903656 to 0.348151832818985
+2023-06-28 16:29:47,544 - root - INFO - Time taken for epoch 14 is 843.7883653640747 sec
+2023-06-28 16:29:47,545 - root - INFO - train data time=44.23960328102112, train step time=188.04158759117126, valid step time=64.85476517677307
+2023-06-28 16:29:47,545 - root - INFO - Train loss: 0.3323855400085449. Valid loss: 0.348151832818985
+2023-06-28 16:43:38,000 - root - INFO - Val loss improved from 0.348151832818985 to 0.3432464599609375
+2023-06-28 16:43:39,094 - root - INFO - Time taken for epoch 15 is 831.5487344264984 sec
+2023-06-28 16:43:39,095 - root - INFO - train data time=43.92147207260132, train step time=177.5960795879364, valid step time=63.54497742652893
+2023-06-28 16:43:39,095 - root - INFO - Train loss: 0.32559913396835327. Valid loss: 0.3432464599609375
+2023-06-28 16:57:34,423 - root - INFO - Val loss improved from 0.3432464599609375 to 0.3401470482349396
+2023-06-28 16:57:35,444 - root - INFO - Time taken for epoch 16 is 836.3486816883087 sec
+2023-06-28 16:57:35,444 - root - INFO - train data time=44.2246356010437, train step time=183.3794503211975, valid step time=63.907755851745605
+2023-06-28 16:57:35,445 - root - INFO - Train loss: 0.3249759078025818. Valid loss: 0.3401470482349396
+2023-06-28 17:11:19,656 - root - INFO - Time taken for epoch 17 is 824.2111008167267 sec
+2023-06-28 17:11:19,657 - root - INFO - train data time=43.34220552444458, train step time=173.090637922287, valid step time=63.15905952453613
+2023-06-28 17:11:19,657 - root - INFO - Train loss: 0.3251955211162567. Valid loss: 0.34488722681999207
+2023-06-28 17:25:12,376 - root - INFO - Time taken for epoch 18 is 832.7178807258606 sec
+2023-06-28 17:25:12,376 - root - INFO - train data time=44.07968306541443, train step time=175.73301935195923, valid step time=64.77888512611389
+2023-06-28 17:25:12,376 - root - INFO - Train loss: 0.37211552262306213. Valid loss: 0.39605236053466797
+2023-06-28 17:39:09,156 - root - INFO - Val loss improved from 0.3401470482349396 to 0.3355535566806793
+2023-06-28 17:39:10,070 - root - INFO - Time taken for epoch 19 is 837.6931533813477 sec
+2023-06-28 17:39:10,070 - root - INFO - train data time=41.02937459945679, train step time=180.3086338043213, valid step time=64.96244859695435
+2023-06-28 17:39:10,071 - root - INFO - Train loss: 0.3238641023635864. Valid loss: 0.3355535566806793
+2023-06-28 17:53:01,739 - root - INFO - Val loss improved from 0.3355535566806793 to 0.322828084230423
+2023-06-28 17:53:02,761 - root - INFO - Time taken for epoch 20 is 832.6903915405273 sec
+2023-06-28 17:53:02,762 - root - INFO - train data time=32.56246471405029, train step time=201.6260805130005, valid step time=63.6534469127655
+2023-06-28 17:53:02,762 - root - INFO - Train loss: 0.31020715832710266. Valid loss: 0.322828084230423
+2023-06-28 18:07:04,883 - root - INFO - Val loss improved from 0.322828084230423 to 0.31844040751457214
+2023-06-28 18:07:05,908 - root - INFO - Time taken for epoch 21 is 843.1451737880707 sec
+2023-06-28 18:07:05,908 - root - INFO - train data time=43.956305742263794, train step time=184.8437099456787, valid step time=65.64475870132446
+2023-06-28 18:07:05,908 - root - INFO - Train loss: 0.30563101172447205. Valid loss: 0.31844040751457214
+2023-06-28 18:20:56,905 - root - INFO - Time taken for epoch 22 is 830.9963226318359 sec
+2023-06-28 18:20:56,905 - root - INFO - train data time=44.21742534637451, train step time=176.3248589038849, valid step time=63.6993567943573
+2023-06-28 18:20:56,906 - root - INFO - Train loss: 0.35622429847717285. Valid loss: 0.40603065490722656
+2023-06-28 18:34:50,855 - root - INFO - Val loss improved from 0.31844040751457214 to 0.31237584352493286
+2023-06-28 18:34:51,878 - root - INFO - Time taken for epoch 23 is 834.9720706939697 sec
+2023-06-28 18:34:51,878 - root - INFO - train data time=44.54520773887634, train step time=176.95407557487488, valid step time=64.7207658290863
+2023-06-28 18:34:51,879 - root - INFO - Train loss: 0.30032652616500854. Valid loss: 0.31237584352493286
+2023-06-28 18:48:42,249 - root - INFO - Val loss improved from 0.31237584352493286 to 0.3113642632961273
+2023-06-28 18:48:43,463 - root - INFO - Time taken for epoch 24 is 831.5838825702667 sec
+2023-06-28 18:48:43,464 - root - INFO - train data time=40.59302854537964, train step time=181.00054168701172, valid step time=63.85346579551697
+2023-06-28 18:48:43,464 - root - INFO - Train loss: 0.29461467266082764. Valid loss: 0.3113642632961273
+2023-06-28 19:02:45,059 - root - INFO - Val loss improved from 0.3113642632961273 to 0.3070066571235657
+2023-06-28 19:02:45,963 - root - INFO - Time taken for epoch 25 is 842.4982507228851 sec
+2023-06-28 19:02:45,963 - root - INFO - train data time=31.522634983062744, train step time=205.69554328918457, valid step time=64.4451355934143
+2023-06-28 19:02:45,964 - root - INFO - Train loss: 0.3008296489715576. Valid loss: 0.3070066571235657
+2023-06-28 19:16:42,184 - root - INFO - Val loss improved from 0.3070066571235657 to 0.30597275495529175
+2023-06-28 19:16:43,115 - root - INFO - Time taken for epoch 26 is 837.1508820056915 sec
+2023-06-28 19:16:43,115 - root - INFO - train data time=32.23099088668823, train step time=197.64966344833374, valid step time=65.96287798881531
+2023-06-28 19:16:43,116 - root - INFO - Train loss: 0.299342542886734. Valid loss: 0.30597275495529175
+2023-06-28 19:30:41,592 - root - INFO - Time taken for epoch 27 is 838.4761109352112 sec
+2023-06-28 19:30:41,593 - root - INFO - train data time=43.02601671218872, train step time=179.74769759178162, valid step time=64.8434796333313
+2023-06-28 19:30:41,593 - root - INFO - Train loss: 0.38636988401412964. Valid loss: 0.37701499462127686
+2023-06-28 19:44:37,940 - root - INFO - Val loss improved from 0.30597275495529175 to 0.300199955701828
+2023-06-28 19:44:38,857 - root - INFO - Time taken for epoch 28 is 837.2637791633606 sec
+2023-06-28 19:44:38,857 - root - INFO - train data time=33.46744751930237, train step time=197.34091091156006, valid step time=63.70207667350769
+2023-06-28 19:44:38,858 - root - INFO - Train loss: 0.2883816361427307. Valid loss: 0.300199955701828
+2023-06-28 19:58:33,283 - root - INFO - Time taken for epoch 29 is 834.4250648021698 sec
+2023-06-28 19:58:33,285 - root - INFO - train data time=40.66623568534851, train step time=182.39122676849365, valid step time=63.84943723678589
+2023-06-28 19:58:33,286 - root - INFO - Train loss: 0.31513264775276184. Valid loss: 0.326638787984848
+2023-06-28 20:12:21,451 - root - INFO - Val loss improved from 0.300199955701828 to 0.2974494397640228
+2023-06-28 20:12:22,451 - root - INFO - Time taken for epoch 30 is 829.1654748916626 sec
+2023-06-28 20:12:22,452 - root - INFO - train data time=42.06050181388855, train step time=175.94508051872253, valid step time=64.74299263954163
+2023-06-28 20:12:22,452 - root - INFO - Train loss: 0.29609525203704834. Valid loss: 0.2974494397640228
+2023-06-28 20:26:14,347 - root - INFO - Val loss improved from 0.2974494397640228 to 0.2974027693271637
+2023-06-28 20:26:15,358 - root - INFO - Time taken for epoch 31 is 832.9061508178711 sec
+2023-06-28 20:26:15,359 - root - INFO - train data time=43.16378736495972, train step time=179.69848704338074, valid step time=64.53600549697876
+2023-06-28 20:26:15,359 - root - INFO - Train loss: 0.29767417907714844. Valid loss: 0.2974027693271637
+2023-06-28 20:40:12,419 - root - INFO - Val loss improved from 0.2974027693271637 to 0.2941190302371979
+2023-06-28 20:40:13,420 - root - INFO - Time taken for epoch 32 is 838.0608758926392 sec
+2023-06-28 20:40:13,421 - root - INFO - train data time=43.84042978286743, train step time=184.125803232193, valid step time=63.544838190078735
+2023-06-28 20:40:13,421 - root - INFO - Train loss: 0.28532853722572327. Valid loss: 0.2941190302371979
+2023-06-28 20:54:04,124 - root - INFO - Time taken for epoch 33 is 830.702791929245 sec
+2023-06-28 20:54:04,124 - root - INFO - train data time=43.534940242767334, train step time=177.81737279891968, valid step time=63.393147706985474
+2023-06-28 20:54:04,125 - root - INFO - Train loss: 0.28090476989746094. Valid loss: 0.2999851703643799
+2023-06-28 21:08:09,360 - root - INFO - Val loss improved from 0.2941190302371979 to 0.2927567660808563
+2023-06-28 21:08:10,409 - root - INFO - Time taken for epoch 34 is 846.284343957901 sec
+2023-06-28 21:08:10,410 - root - INFO - train data time=44.60323429107666, train step time=188.89488196372986, valid step time=65.04134702682495
+2023-06-28 21:08:10,410 - root - INFO - Train loss: 0.2819250226020813. Valid loss: 0.2927567660808563
+2023-06-28 21:22:06,990 - root - INFO - Time taken for epoch 35 is 836.5801818370819 sec
+2023-06-28 21:22:06,991 - root - INFO - train data time=43.13799023628235, train step time=175.53787636756897, valid step time=64.27804183959961
+2023-06-28 21:22:06,991 - root - INFO - Train loss: 0.2866462767124176. Valid loss: 0.29549750685691833
+2023-06-28 21:36:14,489 - root - INFO - Time taken for epoch 36 is 847.4975101947784 sec
+2023-06-28 21:36:14,490 - root - INFO - train data time=42.49137878417969, train step time=187.57014393806458, valid step time=64.03715419769287
+2023-06-28 21:36:14,490 - root - INFO - Train loss: 0.29101091623306274. Valid loss: 0.2972991168498993
+2023-06-28 21:50:14,672 - root - INFO - Val loss improved from 0.2927567660808563 to 0.28761452436447144
+2023-06-28 21:50:15,800 - root - INFO - Time taken for epoch 37 is 841.3099598884583 sec
+2023-06-28 21:50:15,801 - root - INFO - train data time=31.421253204345703, train step time=205.0838918685913, valid step time=64.12617754936218
+2023-06-28 21:50:15,801 - root - INFO - Train loss: 0.27593758702278137. Valid loss: 0.28761452436447144
+2023-06-28 22:04:12,246 - root - INFO - Val loss improved from 0.28761452436447144 to 0.2833690047264099
+2023-06-28 22:04:13,194 - root - INFO - Time taken for epoch 38 is 837.3924741744995 sec
+2023-06-28 22:04:13,194 - root - INFO - train data time=35.24306797981262, train step time=187.91597771644592, valid step time=63.490737199783325
+2023-06-28 22:04:13,195 - root - INFO - Train loss: 0.2737647593021393. Valid loss: 0.2833690047264099
+2023-06-28 22:18:06,162 - root - INFO - Time taken for epoch 39 is 832.9665851593018 sec
+2023-06-28 22:18:06,163 - root - INFO - train data time=32.11254143714905, train step time=195.34644746780396, valid step time=63.512579917907715
+2023-06-28 22:18:06,164 - root - INFO - Train loss: 0.27579766511917114. Valid loss: 0.2856835722923279
+2023-06-28 22:32:07,842 - root - INFO - Val loss improved from 0.2833690047264099 to 0.28084883093833923
+2023-06-28 22:32:08,746 - root - INFO - Time taken for epoch 40 is 842.5820231437683 sec
+2023-06-28 22:32:08,746 - root - INFO - train data time=31.48453450202942, train step time=205.50669407844543, valid step time=63.66554498672485
+2023-06-28 22:32:08,747 - root - INFO - Train loss: 0.2685941755771637. Valid loss: 0.28084883093833923
+2023-06-28 22:46:16,750 - root - INFO - Time taken for epoch 41 is 848.0029442310333 sec
+2023-06-28 22:46:16,751 - root - INFO - train data time=38.14053130149841, train step time=197.65546035766602, valid step time=64.75847792625427
+2023-06-28 22:46:16,751 - root - INFO - Train loss: 0.27331990003585815. Valid loss: 0.28105196356773376
+2023-06-28 23:00:12,692 - root - INFO - Val loss improved from 0.28084883093833923 to 0.2789461612701416
+2023-06-28 23:00:13,732 - root - INFO - Time taken for epoch 42 is 836.9806530475616 sec
+2023-06-28 23:00:13,732 - root - INFO - train data time=44.01126670837402, train step time=183.4750792980194, valid step time=63.91224551200867
+2023-06-28 23:00:13,733 - root - INFO - Train loss: 0.26669326424598694. Valid loss: 0.2789461612701416
+2023-06-28 23:14:09,631 - root - INFO - Val loss improved from 0.2789461612701416 to 0.2775864899158478
+2023-06-28 23:14:10,652 - root - INFO - Time taken for epoch 43 is 836.9193642139435 sec
+2023-06-28 23:14:10,653 - root - INFO - train data time=43.67147445678711, train step time=183.37996912002563, valid step time=63.91049671173096
+2023-06-28 23:14:10,653 - root - INFO - Train loss: 0.2641547918319702. Valid loss: 0.2775864899158478
+2023-06-28 23:28:07,210 - root - INFO - Time taken for epoch 44 is 836.5565321445465 sec
+2023-06-28 23:28:07,210 - root - INFO - train data time=44.09586143493652, train step time=182.40020060539246, valid step time=63.60228872299194
+2023-06-28 23:28:07,210 - root - INFO - Train loss: 0.2671458423137665. Valid loss: 0.2790229916572571
+2023-06-28 23:42:04,359 - root - INFO - Val loss improved from 0.2775864899158478 to 0.2760918438434601
+2023-06-28 23:42:05,401 - root - INFO - Time taken for epoch 45 is 838.1900761127472 sec
+2023-06-28 23:42:05,401 - root - INFO - train data time=43.961958169937134, train step time=183.55570077896118, valid step time=63.439496755599976
+2023-06-28 23:42:05,402 - root - INFO - Train loss: 0.26384755969047546. Valid loss: 0.2760918438434601
+2023-06-28 23:55:59,413 - root - INFO - Val loss improved from 0.2760918438434601 to 0.27457529306411743
+2023-06-28 23:56:00,426 - root - INFO - Time taken for epoch 46 is 835.0243849754333 sec
+2023-06-28 23:56:00,427 - root - INFO - train data time=44.173611640930176, train step time=181.63340854644775, valid step time=63.373043060302734
+2023-06-28 23:56:00,427 - root - INFO - Train loss: 0.25871148705482483. Valid loss: 0.27457529306411743
+2023-06-29 00:09:53,451 - root - INFO - Val loss improved from 0.27457529306411743 to 0.27293500304222107
+2023-06-29 00:09:54,503 - root - INFO - Time taken for epoch 47 is 834.0759012699127 sec
+2023-06-29 00:09:54,504 - root - INFO - train data time=43.77177333831787, train step time=179.84563064575195, valid step time=63.66798543930054
+2023-06-29 00:09:54,504 - root - INFO - Train loss: 0.26398688554763794. Valid loss: 0.27293500304222107
+2023-06-29 00:23:47,795 - root - INFO - Val loss improved from 0.27293500304222107 to 0.2725580334663391
+2023-06-29 00:23:48,858 - root - INFO - Time taken for epoch 48 is 834.3542556762695 sec
+2023-06-29 00:23:48,859 - root - INFO - train data time=44.29489278793335, train step time=180.59578943252563, valid step time=63.412325620651245
+2023-06-29 00:23:48,859 - root - INFO - Train loss: 0.262931764125824. Valid loss: 0.2725580334663391
+2023-06-29 00:37:41,771 - root - INFO - Val loss improved from 0.2725580334663391 to 0.27107420563697815
+2023-06-29 00:37:42,803 - root - INFO - Time taken for epoch 49 is 833.9437229633331 sec
+2023-06-29 00:37:42,803 - root - INFO - train data time=44.54746460914612, train step time=176.31828212738037, valid step time=66.67529654502869
+2023-06-29 00:37:42,804 - root - INFO - Train loss: 0.26686549186706543. Valid loss: 0.27107420563697815
+2023-06-29 00:51:36,087 - root - INFO - Val loss improved from 0.27107420563697815 to 0.2703718841075897
+2023-06-29 00:51:37,137 - root - INFO - Time taken for epoch 50 is 834.332736492157 sec
+2023-06-29 00:51:37,137 - root - INFO - train data time=44.23399567604065, train step time=178.637948513031, valid step time=64.12665677070618
+2023-06-29 00:51:37,137 - root - INFO - Train loss: 0.2636123597621918. Valid loss: 0.2703718841075897
+2023-06-29 01:05:30,182 - root - INFO - Val loss improved from 0.2703718841075897 to 0.2686721682548523
+2023-06-29 01:05:31,264 - root - INFO - Time taken for epoch 51 is 834.1260409355164 sec
+2023-06-29 01:05:31,264 - root - INFO - train data time=42.2301230430603, train step time=180.53839564323425, valid step time=63.61094617843628
+2023-06-29 01:05:31,264 - root - INFO - Train loss: 0.26478099822998047. Valid loss: 0.2686721682548523
+2023-06-29 01:19:26,830 - root - INFO - Val loss improved from 0.2686721682548523 to 0.2682351768016815
+2023-06-29 01:19:27,730 - root - INFO - Time taken for epoch 52 is 836.4656479358673 sec
+2023-06-29 01:19:27,731 - root - INFO - train data time=42.49646234512329, train step time=176.52847123146057, valid step time=65.01709771156311
+2023-06-29 01:19:27,731 - root - INFO - Train loss: 0.25685128569602966. Valid loss: 0.2682351768016815
+2023-06-29 01:33:28,027 - root - INFO - Val loss improved from 0.2682351768016815 to 0.2679874300956726
+2023-06-29 01:33:28,924 - root - INFO - Time taken for epoch 53 is 841.1928358078003 sec
+2023-06-29 01:33:28,925 - root - INFO - train data time=31.84644627571106, train step time=206.13191628456116, valid step time=64.54159903526306
+2023-06-29 01:33:28,925 - root - INFO - Train loss: 0.2581006586551666. Valid loss: 0.2679874300956726
+2023-06-29 01:47:21,183 - root - INFO - Val loss improved from 0.2679874300956726 to 0.26600441336631775
+2023-06-29 01:47:22,105 - root - INFO - Time taken for epoch 54 is 833.1795692443848 sec
+2023-06-29 01:47:22,105 - root - INFO - train data time=31.574830293655396, train step time=198.08523893356323, valid step time=64.48784232139587
+2023-06-29 01:47:22,106 - root - INFO - Train loss: 0.2604096233844757. Valid loss: 0.26600441336631775
+2023-06-29 02:01:17,292 - root - INFO - Val loss improved from 0.26600441336631775 to 0.265207439661026
+2023-06-29 02:01:18,321 - root - INFO - Time taken for epoch 55 is 836.2154841423035 sec
+2023-06-29 02:01:18,322 - root - INFO - train data time=33.85136914253235, train step time=196.78369116783142, valid step time=63.93062448501587
+2023-06-29 02:01:18,322 - root - INFO - Train loss: 0.25210481882095337. Valid loss: 0.265207439661026
+2023-06-29 02:15:19,541 - root - INFO - Val loss improved from 0.265207439661026 to 0.26438307762145996
+2023-06-29 02:15:20,550 - root - INFO - Time taken for epoch 56 is 842.2276976108551 sec
+2023-06-29 02:15:20,550 - root - INFO - train data time=43.90948486328125, train step time=185.24766087532043, valid step time=65.9571602344513
+2023-06-29 02:15:20,551 - root - INFO - Train loss: 0.24785886704921722. Valid loss: 0.26438307762145996
+2023-06-29 02:29:20,746 - root - INFO - Val loss improved from 0.26438307762145996 to 0.2633325457572937
+2023-06-29 02:29:21,825 - root - INFO - Time taken for epoch 57 is 841.2740545272827 sec
+2023-06-29 02:29:21,825 - root - INFO - train data time=43.702982902526855, train step time=183.14735984802246, valid step time=64.49288892745972
+2023-06-29 02:29:21,826 - root - INFO - Train loss: 0.2535695731639862. Valid loss: 0.2633325457572937
+2023-06-29 02:43:11,563 - root - INFO - Val loss improved from 0.2633325457572937 to 0.2624904215335846
+2023-06-29 02:43:12,539 - root - INFO - Time taken for epoch 58 is 830.7130093574524 sec
+2023-06-29 02:43:12,539 - root - INFO - train data time=42.96562957763672, train step time=176.12844944000244, valid step time=64.02633285522461
+2023-06-29 02:43:12,540 - root - INFO - Train loss: 0.25290462374687195. Valid loss: 0.2624904215335846
+2023-06-29 02:57:13,862 - root - INFO - Time taken for epoch 59 is 841.3217315673828 sec
+2023-06-29 02:57:13,862 - root - INFO - train data time=31.846564769744873, train step time=206.06737637519836, valid step time=64.44992733001709
+2023-06-29 02:57:13,863 - root - INFO - Train loss: 0.2558436691761017. Valid loss: 0.2626490890979767
+2023-06-29 03:11:10,560 - root - INFO - Val loss improved from 0.2624904215335846 to 0.2617245018482208
+2023-06-29 03:11:11,580 - root - INFO - Time taken for epoch 60 is 837.7170357704163 sec
+2023-06-29 03:11:11,581 - root - INFO - train data time=43.96037483215332, train step time=180.93417835235596, valid step time=63.16778540611267
+2023-06-29 03:11:11,581 - root - INFO - Train loss: 0.25511622428894043. Valid loss: 0.2617245018482208
+2023-06-29 03:25:09,750 - root - INFO - Val loss improved from 0.2617245018482208 to 0.26028576493263245
+2023-06-29 03:25:10,787 - root - INFO - Time taken for epoch 61 is 839.2061803340912 sec
+2023-06-29 03:25:10,788 - root - INFO - train data time=43.7918336391449, train step time=183.34473752975464, valid step time=64.30476236343384
+2023-06-29 03:25:10,788 - root - INFO - Train loss: 0.25627270340919495. Valid loss: 0.26028576493263245
+2023-06-29 03:39:04,201 - root - INFO - Val loss improved from 0.26028576493263245 to 0.25949791073799133
+2023-06-29 03:39:05,253 - root - INFO - Time taken for epoch 62 is 834.464732170105 sec
+2023-06-29 03:39:05,253 - root - INFO - train data time=43.53393626213074, train step time=179.56940054893494, valid step time=63.70459794998169
+2023-06-29 03:39:05,254 - root - INFO - Train loss: 0.25073257088661194. Valid loss: 0.25949791073799133
+2023-06-29 03:52:59,181 - root - INFO - Val loss improved from 0.25949791073799133 to 0.25925156474113464
+2023-06-29 03:53:00,237 - root - INFO - Time taken for epoch 63 is 834.982675075531 sec
+2023-06-29 03:53:00,237 - root - INFO - train data time=44.121315240859985, train step time=175.65565657615662, valid step time=63.861891984939575
+2023-06-29 03:53:00,237 - root - INFO - Train loss: 0.258937269449234. Valid loss: 0.25925156474113464
+2023-06-29 04:07:02,814 - root - INFO - Val loss improved from 0.25925156474113464 to 0.2587966024875641
+2023-06-29 04:07:03,844 - root - INFO - Time taken for epoch 64 is 843.6063599586487 sec
+2023-06-29 04:07:03,845 - root - INFO - train data time=43.62425112724304, train step time=184.28437066078186, valid step time=64.37091588973999
+2023-06-29 04:07:03,845 - root - INFO - Train loss: 0.24923880398273468. Valid loss: 0.2587966024875641
+2023-06-29 04:20:52,244 - root - INFO - Val loss improved from 0.2587966024875641 to 0.25810956954956055
+2023-06-29 04:20:53,262 - root - INFO - Time taken for epoch 65 is 829.4169292449951 sec
+2023-06-29 04:20:53,263 - root - INFO - train data time=44.0586462020874, train step time=169.8753321170807, valid step time=63.459837436676025
+2023-06-29 04:20:53,263 - root - INFO - Train loss: 0.24929793179035187. Valid loss: 0.25810956954956055
+2023-06-29 04:34:47,369 - root - INFO - Val loss improved from 0.25810956954956055 to 0.2571510970592499
+2023-06-29 04:34:48,299 - root - INFO - Time taken for epoch 66 is 835.0364887714386 sec
+2023-06-29 04:34:48,300 - root - INFO - train data time=38.27917671203613, train step time=188.88295364379883, valid step time=64.05622291564941
+2023-06-29 04:34:48,300 - root - INFO - Train loss: 0.25846487283706665. Valid loss: 0.2571510970592499
+2023-06-29 04:48:48,945 - root - INFO - Time taken for epoch 67 is 840.6445960998535 sec
+2023-06-29 04:48:48,947 - root - INFO - train data time=33.00358724594116, train step time=204.109801530838, valid step time=64.33649826049805
+2023-06-29 04:48:48,947 - root - INFO - Train loss: 0.24639031291007996. Valid loss: 0.25924625992774963
+2023-06-29 05:02:50,056 - root - INFO - Val loss improved from 0.2571510970592499 to 0.25613638758659363
+2023-06-29 05:02:50,974 - root - INFO - Time taken for epoch 68 is 842.0261278152466 sec
+2023-06-29 05:02:50,974 - root - INFO - train data time=31.118000984191895, train step time=208.02039909362793, valid step time=64.78106141090393
+2023-06-29 05:02:50,974 - root - INFO - Train loss: 0.23912625014781952. Valid loss: 0.25613638758659363
+2023-06-29 05:16:48,644 - root - INFO - Val loss improved from 0.25613638758659363 to 0.2556890845298767
+2023-06-29 05:16:49,680 - root - INFO - Time taken for epoch 69 is 838.7058827877045 sec
+2023-06-29 05:16:49,681 - root - INFO - train data time=37.007508993148804, train step time=191.71202969551086, valid step time=63.485076665878296
+2023-06-29 05:16:49,681 - root - INFO - Train loss: 0.24922361969947815. Valid loss: 0.2556890845298767
+2023-06-29 05:30:46,000 - root - INFO - Time taken for epoch 70 is 836.318140745163 sec
+2023-06-29 05:30:46,001 - root - INFO - train data time=43.328368186950684, train step time=185.22964477539062, valid step time=63.52191495895386
+2023-06-29 05:30:46,001 - root - INFO - Train loss: 0.24023856222629547. Valid loss: 0.2558555603027344
+2023-06-29 05:44:44,579 - root - INFO - Val loss improved from 0.2556890845298767 to 0.2552308142185211
+2023-06-29 05:44:45,612 - root - INFO - Time taken for epoch 71 is 839.6104073524475 sec
+2023-06-29 05:44:45,613 - root - INFO - train data time=44.21007680892944, train step time=181.91687417030334, valid step time=64.16025853157043
+2023-06-29 05:44:45,613 - root - INFO - Train loss: 0.2512666583061218. Valid loss: 0.2552308142185211
+2023-06-29 05:58:45,592 - root - INFO - Val loss improved from 0.2552308142185211 to 0.2543032169342041
+2023-06-29 05:58:46,646 - root - INFO - Time taken for epoch 72 is 841.0332536697388 sec
+2023-06-29 05:58:46,647 - root - INFO - train data time=44.16608119010925, train step time=181.47281289100647, valid step time=64.52375650405884
+2023-06-29 05:58:46,647 - root - INFO - Train loss: 0.24070487916469574. Valid loss: 0.2543032169342041
+2023-06-29 06:12:50,507 - root - INFO - Val loss improved from 0.2543032169342041 to 0.2542547881603241
+2023-06-29 06:12:51,421 - root - INFO - Time taken for epoch 73 is 844.7737390995026 sec
+2023-06-29 06:12:51,422 - root - INFO - train data time=41.19897246360779, train step time=191.44507336616516, valid step time=63.742910385131836
+2023-06-29 06:12:51,422 - root - INFO - Train loss: 0.23881669342517853. Valid loss: 0.2542547881603241
+2023-06-29 06:26:44,096 - root - INFO - Val loss improved from 0.2542547881603241 to 0.2538289725780487
+2023-06-29 06:26:45,142 - root - INFO - Time taken for epoch 74 is 833.7198050022125 sec
+2023-06-29 06:26:45,143 - root - INFO - train data time=35.00164532661438, train step time=187.7043752670288, valid step time=64.32024025917053
+2023-06-29 06:26:45,143 - root - INFO - Train loss: 0.24657654762268066. Valid loss: 0.2538289725780487
+2023-06-29 06:40:39,192 - root - INFO - Time taken for epoch 75 is 834.0493850708008 sec
+2023-06-29 06:40:39,193 - root - INFO - train data time=39.770954608917236, train step time=187.77552032470703, valid step time=63.93822455406189
+2023-06-29 06:40:39,193 - root - INFO - Train loss: 0.24547070264816284. Valid loss: 0.25413239002227783
+2023-06-29 06:54:32,434 - root - INFO - Val loss improved from 0.2538289725780487 to 0.25313860177993774
+2023-06-29 06:54:33,408 - root - INFO - Time taken for epoch 76 is 834.2145438194275 sec
+2023-06-29 06:54:33,409 - root - INFO - train data time=36.662545680999756, train step time=187.64894461631775, valid step time=64.40281534194946
+2023-06-29 06:54:33,409 - root - INFO - Train loss: 0.24101048707962036. Valid loss: 0.25313860177993774
+2023-06-29 07:08:30,633 - root - INFO - Val loss improved from 0.25313860177993774 to 0.2528398633003235
+2023-06-29 07:08:31,660 - root - INFO - Time taken for epoch 77 is 838.2510170936584 sec
+2023-06-29 07:08:31,661 - root - INFO - train data time=43.784470558166504, train step time=178.187016248703, valid step time=63.27634882926941
+2023-06-29 07:08:31,661 - root - INFO - Train loss: 0.23677918314933777. Valid loss: 0.2528398633003235
+2023-06-29 07:22:37,265 - root - INFO - Time taken for epoch 78 is 845.6036658287048 sec
+2023-06-29 07:22:37,265 - root - INFO - train data time=44.34167194366455, train step time=181.382230758667, valid step time=63.825281620025635
+2023-06-29 07:22:37,266 - root - INFO - Train loss: 0.23561032116413116. Valid loss: 0.2531716525554657
+2023-06-29 07:36:33,177 - root - INFO - Val loss improved from 0.2528398633003235 to 0.25234341621398926
+2023-06-29 07:36:34,190 - root - INFO - Time taken for epoch 79 is 836.9238104820251 sec
+2023-06-29 07:36:34,190 - root - INFO - train data time=44.148484230041504, train step time=179.9642539024353, valid step time=64.36286664009094
+2023-06-29 07:36:34,190 - root - INFO - Train loss: 0.24219614267349243. Valid loss: 0.25234341621398926
+2023-06-29 07:50:29,956 - root - INFO - Time taken for epoch 80 is 835.7657825946808 sec
+2023-06-29 07:50:29,957 - root - INFO - train data time=43.66329860687256, train step time=178.73205018043518, valid step time=65.47719645500183
+2023-06-29 07:50:29,957 - root - INFO - Train loss: 0.2335873544216156. Valid loss: 0.2529846429824829
+2023-06-29 08:04:25,534 - root - INFO - Val loss improved from 0.25234341621398926 to 0.25204458832740784
+2023-06-29 08:04:26,591 - root - INFO - Time taken for epoch 81 is 836.6334161758423 sec
+2023-06-29 08:04:26,591 - root - INFO - train data time=44.826664686203, train step time=177.97980403900146, valid step time=64.56339049339294
+2023-06-29 08:04:26,592 - root - INFO - Train loss: 0.24017316102981567. Valid loss: 0.25204458832740784
+2023-06-29 08:18:16,084 - root - INFO - Val loss improved from 0.25204458832740784 to 0.2514982521533966
+2023-06-29 08:18:17,107 - root - INFO - Time taken for epoch 82 is 830.5154838562012 sec
+2023-06-29 08:18:17,108 - root - INFO - train data time=44.129013538360596, train step time=174.57422590255737, valid step time=64.09647917747498
+2023-06-29 08:18:17,108 - root - INFO - Train loss: 0.24117328226566315. Valid loss: 0.2514982521533966
+2023-06-29 08:32:17,880 - root - INFO - Val loss improved from 0.2514982521533966 to 0.251201331615448
+2023-06-29 08:32:18,786 - root - INFO - Time taken for epoch 83 is 841.6777741909027 sec
+2023-06-29 08:32:18,787 - root - INFO - train data time=33.944671630859375, train step time=197.79614400863647, valid step time=65.1205050945282
+2023-06-29 08:32:18,787 - root - INFO - Train loss: 0.2313767671585083. Valid loss: 0.251201331615448
+2023-06-29 08:46:08,768 - root - INFO - Val loss improved from 0.251201331615448 to 0.2510117292404175
+2023-06-29 08:46:09,683 - root - INFO - Time taken for epoch 84 is 830.8962080478668 sec
+2023-06-29 08:46:09,684 - root - INFO - train data time=30.586660385131836, train step time=201.09292435646057, valid step time=63.97581768035889
+2023-06-29 08:46:09,684 - root - INFO - Train loss: 0.23555079102516174. Valid loss: 0.2510117292404175
+2023-06-29 09:00:09,431 - root - INFO - Val loss improved from 0.2510117292404175 to 0.250931054353714
+2023-06-29 09:00:10,339 - root - INFO - Time taken for epoch 85 is 840.6547467708588 sec
+2023-06-29 09:00:10,340 - root - INFO - train data time=30.59080958366394, train step time=207.87398314476013, valid step time=64.40085005760193
+2023-06-29 09:00:10,340 - root - INFO - Train loss: 0.2353958785533905. Valid loss: 0.250931054353714
+2023-06-29 09:14:27,737 - root - INFO - Val loss improved from 0.250931054353714 to 0.2509298324584961
+2023-06-29 09:14:28,660 - root - INFO - Time taken for epoch 86 is 858.3193509578705 sec
+2023-06-29 09:14:28,660 - root - INFO - train data time=30.628146648406982, train step time=210.56286668777466, valid step time=83.21899032592773
+2023-06-29 09:14:28,661 - root - INFO - Train loss: 0.23478148877620697. Valid loss: 0.2509298324584961
+2023-06-29 09:28:31,257 - root - INFO - Time taken for epoch 87 is 842.5959198474884 sec
+2023-06-29 09:28:31,257 - root - INFO - train data time=31.653727293014526, train step time=206.26516103744507, valid step time=64.25266337394714
+2023-06-29 09:28:31,258 - root - INFO - Train loss: 0.23462289571762085. Valid loss: 0.2515958845615387
+2023-06-29 09:42:34,156 - root - INFO - Val loss improved from 0.2509298324584961 to 0.2505141794681549
+2023-06-29 09:42:35,068 - root - INFO - Time taken for epoch 88 is 843.8101987838745 sec
+2023-06-29 09:42:35,069 - root - INFO - train data time=31.41644811630249, train step time=205.66011810302734, valid step time=63.806599855422974
+2023-06-29 09:42:35,069 - root - INFO - Train loss: 0.2368219643831253. Valid loss: 0.2505141794681549
+2023-06-29 09:56:31,030 - root - INFO - Val loss improved from 0.2505141794681549 to 0.2503688335418701
+2023-06-29 09:56:31,916 - root - INFO - Time taken for epoch 89 is 836.847425699234 sec
+2023-06-29 09:56:31,917 - root - INFO - train data time=30.612351417541504, train step time=204.05475687980652, valid step time=63.4339439868927
+2023-06-29 09:56:31,917 - root - INFO - Train loss: 0.2410902976989746. Valid loss: 0.2503688335418701
+2023-06-29 10:10:45,872 - root - INFO - Val loss improved from 0.2503688335418701 to 0.25015363097190857
+2023-06-29 10:10:46,796 - root - INFO - Time taken for epoch 90 is 854.878424167633 sec
+2023-06-29 10:10:46,796 - root - INFO - train data time=34.50243425369263, train step time=207.52967429161072, valid step time=64.38297486305237
+2023-06-29 10:10:46,797 - root - INFO - Train loss: 0.23659273982048035. Valid loss: 0.25015363097190857
+2023-06-29 10:24:39,863 - root - INFO - Time taken for epoch 91 is 833.0662634372711 sec
+2023-06-29 10:24:39,864 - root - INFO - train data time=31.573890924453735, train step time=199.3391411304474, valid step time=63.8101692199707
+2023-06-29 10:24:39,864 - root - INFO - Train loss: 0.24398735165596008. Valid loss: 0.25020337104797363
+2023-06-29 10:38:37,977 - root - INFO - Time taken for epoch 92 is 838.1121768951416 sec
+2023-06-29 10:38:37,978 - root - INFO - train data time=43.619730949401855, train step time=181.51806712150574, valid step time=64.38320302963257
+2023-06-29 10:38:37,978 - root - INFO - Train loss: 0.23911595344543457. Valid loss: 0.2501658499240875
+2023-06-29 10:52:31,154 - root - INFO - Val loss improved from 0.25015363097190857 to 0.2500305473804474
+2023-06-29 10:52:32,081 - root - INFO - Time taken for epoch 93 is 834.1020395755768 sec
+2023-06-29 10:52:32,083 - root - INFO - train data time=32.81711721420288, train step time=193.81239986419678, valid step time=63.66490602493286
+2023-06-29 10:52:32,083 - root - INFO - Train loss: 0.23629485070705414. Valid loss: 0.2500305473804474
+2023-06-29 11:06:28,390 - root - INFO - Val loss improved from 0.2500305473804474 to 0.24986876547336578
+2023-06-29 11:06:29,311 - root - INFO - Time taken for epoch 94 is 837.2274308204651 sec
+2023-06-29 11:06:29,311 - root - INFO - train data time=30.524911165237427, train step time=207.27910494804382, valid step time=64.2115523815155
+2023-06-29 11:06:29,311 - root - INFO - Train loss: 0.24216069281101227. Valid loss: 0.24986876547336578
+2023-06-29 11:20:29,488 - root - INFO - Time taken for epoch 95 is 840.1764245033264 sec
+2023-06-29 11:20:29,489 - root - INFO - train data time=43.201743602752686, train step time=185.48467707633972, valid step time=64.79788947105408
+2023-06-29 11:20:29,489 - root - INFO - Train loss: 0.2383662313222885. Valid loss: 0.2501462399959564
+2023-06-29 11:34:22,447 - root - INFO - Val loss improved from 0.24986876547336578 to 0.24979616701602936
+2023-06-29 11:34:23,447 - root - INFO - Time taken for epoch 96 is 833.9580609798431 sec
+2023-06-29 11:34:23,448 - root - INFO - train data time=44.09168362617493, train step time=178.23785090446472, valid step time=64.03282117843628
+2023-06-29 11:34:23,448 - root - INFO - Train loss: 0.2432785928249359. Valid loss: 0.24979616701602936
+2023-06-29 11:48:14,375 - root - INFO - Time taken for epoch 97 is 830.9264442920685 sec
+2023-06-29 11:48:14,378 - root - INFO - train data time=43.68510580062866, train step time=176.30491280555725, valid step time=63.97368025779724
+2023-06-29 11:48:14,378 - root - INFO - Train loss: 0.2388915717601776. Valid loss: 0.24979978799819946
+2023-06-29 12:02:10,316 - root - INFO - Val loss improved from 0.24979616701602936 to 0.24969708919525146
+2023-06-29 12:02:11,343 - root - INFO - Time taken for epoch 98 is 836.9646446704865 sec
+2023-06-29 12:02:11,343 - root - INFO - train data time=43.56729054450989, train step time=183.1452658176422, valid step time=64.45023322105408
+2023-06-29 12:02:11,343 - root - INFO - Train loss: 0.24218808114528656. Valid loss: 0.24969708919525146
+2023-06-29 12:16:09,233 - root - INFO - Time taken for epoch 99 is 837.8889601230621 sec
+2023-06-29 12:16:09,233 - root - INFO - train data time=44.024675130844116, train step time=184.40417289733887, valid step time=64.2082211971283
+2023-06-29 12:16:09,233 - root - INFO - Train loss: 0.2412015050649643. Valid loss: 0.2501416802406311
+2023-06-29 12:30:01,974 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 12:30:01,974 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 12:30:01,974 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+2023-06-29 12:30:01,974 - root - INFO - Terminating training after reaching params.max_epochs while LR scheduler is set to CosineAnnealingLR
+wandb: Waiting for W&B process to finish... (success).
+paraai-n32-h-01-agent-102:2175129:2176042 [2] NCCL INFO [Service thread] Connection closed by localRank 2
+paraai-n32-h-01-agent-102:2175128:2176045 [1] NCCL INFO [Service thread] Connection closed by localRank 1
+paraai-n32-h-01-agent-102:2175129:2175129 [2] NCCL INFO comm 0x459b8200 rank 2 nranks 16 cudaDev 2 busId 81000 - Abort COMPLETE
+paraai-n32-h-01-agent-102:2175128:2175128 [1] NCCL INFO comm 0x2d8ecb00 rank 1 nranks 16 cudaDev 1 busId 2000 - Abort COMPLETE
+paraai-n32-h-01-agent-102:2175130:2176044 [3] NCCL INFO [Service thread] Connection closed by localRank 3
+paraai-n32-h-01-agent-102:2175130:2175130 [3] NCCL INFO comm 0xe205500 rank 3 nranks 16 cudaDev 3 busId 82000 - Abort COMPLETE
+wandb: 
+wandb: Run history:
+wandb:         lr ███████▇▇▇▇▇▆▆▆▆▅▅▅▅▄▄▄▄▃▃▃▃▂▂▂▂▂▁▁▁▁▁▁▁
+wandb: train_loss █▆▅▅▅▅▄▅▃▃▃▃▃▃▃▂▂▂▂▂▂▂▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:   valid_l1 █▆▅▄▄▅▃▇▃▃▃▂▂▂▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: valid_loss █▆▅▅▅▅▄▆▃▃▃▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:         lr 0.0
+wandb: train_loss 0.23936
+wandb:   valid_l1 0.10013
+wandb: valid_loss 0.24985
+wandb: 
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /home/bingxing2/home/scx6115/Ocean_AI_model/wandb/offline-run-20230628_131435-xlh7lu7z
+wandb: Find logs at: ./wandb/offline-run-20230628_131435-xlh7lu7z/logs
+paraai-n32-h-01-agent-102:2175127:2176043 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+paraai-n32-h-01-agent-102:2175127:2175127 [0] NCCL INFO comm 0x4722f180 rank 0 nranks 16 cudaDev 0 busId 1000 - Abort COMPLETE

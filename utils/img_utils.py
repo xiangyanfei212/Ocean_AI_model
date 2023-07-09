@@ -92,7 +92,12 @@ def reshape_fields(img, inp_or_tar, params, train, normalize=True, orog=None, ad
     img_shape_x = np.shape(img)[-2]
     img_shape_y = np.shape(img)[-1]
     n_channels = np.shape(img)[1] # this will either be N_in_channels or N_out_channels
-    channels = params.in_channels if inp_or_tar =='inp' else params.out_channels
+
+
+    if params.multi_steps_finetune > 1:
+        channels = params.in_channels
+    else:
+        channels = params.in_channels if inp_or_tar =='inp' else params.out_channels
 
     if normalize and params.normalization == 'minmax':
         maxs = np.load(params.global_maxs_path)[:, channels]

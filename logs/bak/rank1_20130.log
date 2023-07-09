@@ -1,0 +1,507 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+paraai-n32-h-01-agent-33
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+paraai-n32-h-01-agent-33
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+paraai-n32-h-01-agent-33
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+paraai-n32-h-01-agent-33
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+log_to_wandb True
+lr 0.0005
+batch_size 32
+max_epochs 500
+scheduler CosineAnnealingLR
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+N_in_channels 31
+N_out_channels 25
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 30
+n_initial_conditions 5
+ics_type default
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+num_blocks 8
+nettype afno
+patch_size 8
+width 56
+modes 32
+target default
+enable_nhwc False
+optimizer_type FusedAdam
+normalize True
+normalization zscore
+global_mins_path ./sample_00/train/global_mins.npy
+global_maxs_path ./sample_00/train/global_maxs.npy
+global_means_path ./sample_00/train/global_means.npy
+global_stds_path ./sample_00/train/global_stds.npy
+train_data_path ./sample_00/train
+valid_data_path ./sample_00/valid
+test_data_path ./sample_00/test
+land_mask True
+land_mask_path ./sample_00/land_mask.h5
+orography True
+orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+exp_dir ./exp
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...log_to_wandb
+ True
+lr 0.0005
+batch_size 32
+max_epochs 500
+scheduler CosineAnnealingLR
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+N_in_channels 31
+N_out_channels 25
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 30
+n_initial_conditions 5
+ics_type default
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+num_blocks 8
+nettype afno
+patch_size 8
+width 56
+modes 32
+target default
+enable_nhwc False
+optimizer_type FusedAdam
+normalize True
+normalization zscore
+global_mins_path ./sample_00/train/global_mins.npy
+global_maxs_path ./sample_00/train/global_maxs.npy
+global_means_path ./sample_00/train/global_means.npy
+global_stds_path ./sample_00/train/global_stds.npy
+train_data_path ./sample_00/train
+valid_data_path ./sample_00/valid
+test_data_path ./sample_00/test
+land_mask True
+land_mask_path ./sample_00/land_mask.h5
+orography True
+orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+exp_dir ./exp
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+log_to_wandb True
+lr 0.0005
+batch_size 32
+max_epochs 500
+scheduler CosineAnnealingLR
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+N_in_channels 31
+N_out_channels 25
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 30
+n_initial_conditions 5
+ics_type default
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+num_blocks 8
+nettype afno
+patch_size 8
+width 56
+modes 32
+target default
+enable_nhwc False
+optimizer_type FusedAdam
+normalize True
+normalization zscore
+global_mins_path ./sample_00/train/global_mins.npy
+global_maxs_path ./sample_00/train/global_maxs.npy
+global_means_path ./sample_00/train/global_means.npy
+global_stds_path ./sample_00/train/global_stds.npy
+train_data_path ./sample_00/train
+valid_data_path ./sample_00/valid
+test_data_path ./sample_00/test
+land_mask True
+land_mask_path ./sample_00/land_mask.h5
+orography True
+orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+exp_dir ./exp
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-09 11:13:19,188 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2023-06-09 11:13:19,188 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+log_to_wandb True
+lr 0.0005
+batch_size 32
+max_epochs 500
+scheduler CosineAnnealingLR
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+N_in_channels 31
+N_out_channels 25
+img_size_h 720
+img_size_w 1440
+patch_size_h 5
+patch_size_w 5
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 30
+n_initial_conditions 5
+ics_type default
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+num_blocks 8
+nettype afno
+patch_size 8
+width 56
+modes 32
+target default
+enable_nhwc False
+optimizer_type FusedAdam
+normalize True
+normalization zscore
+global_mins_path ./sample_00/train/global_mins.npy
+global_maxs_path ./sample_00/train/global_maxs.npy
+global_means_path ./sample_00/train/global_means.npy
+global_stds_path ./sample_00/train/global_stds.npy
+train_data_path ./sample_00/train
+valid_data_path ./sample_00/valid
+test_data_path ./sample_00/test
+land_mask True
+land_mask_path ./sample_00/land_mask.h5
+orography True
+orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+exp_dir ./exp
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-09 11:13:19,195 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2023-06-09 11:13:23,234 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2023-06-09 11:13:23,234 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 11:13:23,243 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 11:13:23,243 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 11:13:23,244 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-09 11:13:23,293 - root - INFO - device: cuda:2
+2023-06-09 11:13:23,293 - root - INFO - rank 2, begin data loader init
+2023-06-09 11:13:23,295 - root - INFO - device: cuda:1
+2023-06-09 11:13:23,295 - root - INFO - rank 1, begin data loader init
+2023-06-09 11:13:23,298 - root - INFO - device: cuda:3
+2023-06-09 11:13:23,298 - root - INFO - rank 3, begin data loader init
+2023-06-09 11:13:23,336 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 11:13:23,336 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 11:13:23,337 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 11:13:23,338 - root - INFO - Number of samples per year: 365
+2023-06-09 11:13:23,338 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,338 - root - INFO - Number of samples per year: 365
+2023-06-09 11:13:23,338 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,338 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,338 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,338 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,338 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,339 - root - INFO - Number of samples per year: 365
+2023-06-09 11:13:23,339 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,339 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,339 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,356 - root - INFO - ------------------ Configuration ------------------
+2023-06-09 11:13:23,358 - root - INFO - Configuration file: /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+2023-06-09 11:13:23,358 - root - INFO - Configuration name: afno_backbone
+2023-06-09 11:13:23,358 - root - INFO - log_to_wandb True
+2023-06-09 11:13:23,358 - root - INFO - lr 0.0005
+2023-06-09 11:13:23,359 - root - INFO - batch_size 2
+2023-06-09 11:13:23,359 - root - INFO - max_epochs 500
+2023-06-09 11:13:23,359 - root - INFO - scheduler CosineAnnealingLR
+2023-06-09 11:13:23,359 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+2023-06-09 11:13:23,359 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+2023-06-09 11:13:23,359 - root - INFO - N_in_channels 31
+2023-06-09 11:13:23,359 - root - INFO - N_out_channels 25
+2023-06-09 11:13:23,359 - root - INFO - img_size_h 720
+2023-06-09 11:13:23,359 - root - INFO - img_size_w 1440
+2023-06-09 11:13:23,359 - root - INFO - patch_size_h 5
+2023-06-09 11:13:23,359 - root - INFO - patch_size_w 5
+2023-06-09 11:13:23,359 - root - INFO - loss l2
+2023-06-09 11:13:23,359 - root - INFO - num_data_workers 0
+2023-06-09 11:13:23,359 - root - INFO - dt 1
+2023-06-09 11:13:23,360 - root - INFO - n_history 0
+2023-06-09 11:13:23,360 - root - INFO - prediction_type iterative
+2023-06-09 11:13:23,360 - root - INFO - prediction_length 30
+2023-06-09 11:13:23,360 - root - INFO - n_initial_conditions 5
+2023-06-09 11:13:23,360 - root - INFO - ics_type default
+2023-06-09 11:13:23,360 - root - INFO - save_raw_forecasts True
+2023-06-09 11:13:23,360 - root - INFO - save_channel False
+2023-06-09 11:13:23,360 - root - INFO - masked_acc False
+2023-06-09 11:13:23,360 - root - INFO - maskpath None
+2023-06-09 11:13:23,360 - root - INFO - perturb False
+2023-06-09 11:13:23,360 - root - INFO - add_grid False
+2023-06-09 11:13:23,360 - root - INFO - N_grid_channels 0
+2023-06-09 11:13:23,360 - root - INFO - gridtype sinusoidal
+2023-06-09 11:13:23,360 - root - INFO - roll False
+2023-06-09 11:13:23,360 - root - INFO - num_blocks 8
+2023-06-09 11:13:23,361 - root - INFO - nettype afno
+2023-06-09 11:13:23,361 - root - INFO - patch_size 8
+2023-06-09 11:13:23,361 - root - INFO - width 56
+2023-06-09 11:13:23,361 - root - INFO - modes 32
+2023-06-09 11:13:23,361 - root - INFO - target default
+2023-06-09 11:13:23,361 - root - INFO - enable_nhwc False
+2023-06-09 11:13:23,361 - root - INFO - optimizer_type FusedAdam
+2023-06-09 11:13:23,361 - root - INFO - normalize True
+2023-06-09 11:13:23,361 - root - INFO - normalization zscore
+2023-06-09 11:13:23,361 - root - INFO - global_mins_path ./sample_00/train/global_mins.npy
+2023-06-09 11:13:23,361 - root - INFO - global_maxs_path ./sample_00/train/global_maxs.npy
+2023-06-09 11:13:23,361 - root - INFO - global_means_path ./sample_00/train/global_means.npy
+2023-06-09 11:13:23,361 - root - INFO - global_stds_path ./sample_00/train/global_stds.npy
+2023-06-09 11:13:23,361 - root - INFO - train_data_path ./sample_00/train
+2023-06-09 11:13:23,362 - root - INFO - valid_data_path ./sample_00/valid
+2023-06-09 11:13:23,362 - root - INFO - test_data_path ./sample_00/test
+2023-06-09 11:13:23,362 - root - INFO - land_mask True
+2023-06-09 11:13:23,362 - root - INFO - land_mask_path ./sample_00/land_mask.h5
+2023-06-09 11:13:23,362 - root - INFO - orography True
+2023-06-09 11:13:23,362 - root - INFO - orography_norm_zscore_path ./sample_00/orography_norm_zscore.h5
+2023-06-09 11:13:23,362 - root - INFO - orography_norm_maxmin_path ./sample_00/orography_norm_maxmin.h5
+2023-06-09 11:13:23,362 - root - INFO - exp_dir ./exp
+2023-06-09 11:13:23,362 - root - INFO - add_noise False
+2023-06-09 11:13:23,362 - root - INFO - noise_std 0
+2023-06-09 11:13:23,362 - root - INFO - crop_size_x None
+2023-06-09 11:13:23,362 - root - INFO - crop_size_y None
+2023-06-09 11:13:23,362 - root - INFO - log_to_screen True
+2023-06-09 11:13:23,362 - root - INFO - save_checkpoint True
+2023-06-09 11:13:23,362 - root - INFO - plot_animations False
+2023-06-09 11:13:23,363 - root - INFO - epsilon_factor 0
+2023-06-09 11:13:23,363 - root - INFO - world_size 16
+2023-06-09 11:13:23,363 - root - INFO - local_rank 0
+2023-06-09 11:13:23,363 - root - INFO - global_batch_size 32
+2023-06-09 11:13:23,363 - root - INFO - enable_amp True
+2023-06-09 11:13:23,363 - root - INFO - experiment_dir /home/bingxing2/home/scx6115/Ocean_AI_model/exp/afno_backbone/20230609-111259
+2023-06-09 11:13:23,363 - root - INFO - checkpoint_path ./exp/afno_backbone/20230609-111259/training_checkpoints/ckpt.tar
+2023-06-09 11:13:23,363 - root - INFO - best_checkpoint_path ./exp/afno_backbone/20230609-111259/training_checkpoints/best_ckpt.tar
+2023-06-09 11:13:23,363 - root - INFO - resuming False
+2023-06-09 11:13:23,363 - root - INFO - entity ocean_ai_model
+2023-06-09 11:13:23,363 - root - INFO - project ai4science
+2023-06-09 11:13:23,363 - root - INFO - group 025_daily
+2023-06-09 11:13:23,363 - root - INFO - name afno_backbone_20230609-111259
+2023-06-09 11:13:23,363 - root - INFO - ---------------------------------------------------
+2023-06-09 11:13:23,382 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 11:13:23,382 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 11:13:23,382 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 11:13:23,383 - root - INFO - Number of samples per year: 364
+2023-06-09 11:13:23,383 - root - INFO - Number of samples per year: 364
+2023-06-09 11:13:23,383 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,383 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,383 - root - INFO - Number of samples per year: 364
+2023-06-09 11:13:23,383 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,384 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,384 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:23,384 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,384 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,384 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:23,384 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:23,384 - root - INFO - rank 1, data loader initialized
+2023-06-09 11:13:23,384 - root - INFO - rank 2, data loader initialized
+2023-06-09 11:13:23,384 - root - INFO - rank 3, data loader initialized
+wandb: Tracking run with wandb version 0.15.3
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2023-06-09 11:13:33,322 - root - INFO - device: cuda:0
+2023-06-09 11:13:33,322 - root - INFO - rank 0, begin data loader init
+2023-06-09 11:13:33,325 - root - INFO - Getting file stats from ./sample_00/train/2000.h5
+2023-06-09 11:13:33,326 - root - INFO - Number of samples per year: 365
+2023-06-09 11:13:33,326 - root - INFO - Found data at path ./sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:33,326 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:33,326 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:33,329 - root - INFO - Getting file stats from ./sample_00/valid/2011.h5
+2023-06-09 11:13:33,330 - root - INFO - Number of samples per year: 364
+2023-06-09 11:13:33,330 - root - INFO - Found data at path ./sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-09 11:13:33,330 - root - INFO - Delta t: 1 days
+2023-06-09 11:13:33,330 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-09 11:13:33,331 - root - INFO - rank 0, data loader initialized
+paraai-n32-h-01-agent-33:2283728:2283728 [0] NCCL INFO Bootstrap : Using eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283728:2283728 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-33:2283728:2283728 [0] NCCL INFO cudaDriverVersion 11060
+NCCL version 2.14.3+cuda11.7
+paraai-n32-h-01-agent-33:2283729:2283729 [1] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-33:2283730:2283730 [2] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-33:2283731:2283731 [3] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-33:2283729:2283729 [1] NCCL INFO Bootstrap : Using eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283730:2283730 [2] NCCL INFO Bootstrap : Using eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283731:2283731 [3] NCCL INFO Bootstrap : Using eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283731:2283731 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-33:2283730:2283730 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-33:2283729:2283729 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Using network IB
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Using network IB
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Using network IB
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.5.204<0>
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Using network IB
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Setting affinity for GPU 2 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 00/02 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 01/02 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Trees [0] 1/8/-1->0->-1 [1] 1/-1/-1->0->4
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 00/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Channel 00 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Channel 01 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Channel 00 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Channel 01 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 01/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 00 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 01 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Channel 00 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Channel 01 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283728:2284930 [0] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-33:2283728:2284930 [0] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-33:2283728:2284930 [0] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Channel 00/0 : 3[82000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Channel 01/0 : 3[82000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 01/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-33:2283731:2284931 [3] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Channel 00 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Channel 01 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Channel 00 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Channel 01 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 00/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 00/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Channel 01/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-33:2283730:2284909 [2] NCCL INFO comm 0xec8eac0 rank 2 nranks 16 cudaDev 2 busId 81000 - Init COMPLETE
+paraai-n32-h-01-agent-33:2283729:2284910 [1] NCCL INFO comm 0x53ef67b0 rank 1 nranks 16 cudaDev 1 busId 2000 - Init COMPLETE
+paraai-n32-h-01-agent-33:2283728:2284907 [0] NCCL INFO comm 0x40f63c80 rank 0 nranks 16 cudaDev 0 busId 1000 - Init COMPLETE
+paraai-n32-h-01-agent-33:2283731:2284911 [3] NCCL INFO comm 0x3aac5c00 rank 3 nranks 16 cudaDev 3 busId 82000 - Init COMPLETE
+paraai-n32-h-01-agent-33:2283731:2284934 [3] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-33:2283731:2284934 [3] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+2023-06-09 11:13:42,456 - root - INFO - Number of trainable model parameters: 75478272
+2023-06-09 11:13:42,456 - root - INFO - Starting Training Loop...
+2023-06-09 11:27:04,130 - root - INFO - Val loss improved from 1000000.0 to 0.4953174293041229
+2023-06-09 11:27:05,157 - root - INFO - Time taken for epoch 1 is 802.7000958919525 sec
+2023-06-09 11:27:05,157 - root - INFO - train data time=14.071372747421265, train step time=79.56403303146362, valid step time=464.0729286670685
+2023-06-09 11:27:05,157 - root - INFO - Train loss: 0.4870778024196625. Valid loss: 0.4953174293041229
+2023-06-09 11:40:13,788 - root - INFO - Val loss improved from 0.4953174293041229 to 0.4400230348110199
+2023-06-09 11:40:15,118 - root - INFO - Time taken for epoch 2 is 789.9604444503784 sec
+2023-06-09 11:40:15,119 - root - INFO - train data time=20.72697639465332, train step time=70.26155066490173, valid step time=455.7896234989166
+2023-06-09 11:40:15,119 - root - INFO - Train loss: 0.41986513137817383. Valid loss: 0.4400230348110199
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 20130.1 ON paraai-n32-h-01-agent-33 CANCELLED AT 2023-06-09T11:41:51 ***
+WARNING:torch.distributed.elastic.agent.server.api:Received 15 death signal, shutting down workers
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2283728 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2283729 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2283730 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2283731 closing signal SIGTERM

@@ -1,26 +1,21 @@
 import torch
 import torch.nn as nn
-# from fourier_block import Block
-# from utils import get_2d_sincos_pos_embed
-from functools import partial
 from timm.models.vision_transformer import PatchEmbed
+from einops import rearrange
 from networks.fourier_block_Masked_AE_Ocean import Block
-from networks.t_block_Masked_AE_Ocean import Temporal_Convolution_1d
 from networks.basic_modules_Masked_AE_Ocean import get_2d_sincos_pos_embed
 
-class Masked_AFNO(nn.Module):
-    """ Masked Autoencoder with VisionTransformer backbone
-    """
+class Masked_Ocean(nn.Module):
     def __init__(self, params, img_size=(720, 1440), patch_size=(8,8), in_chans=31, out_chans=25,
-                 embed_dim=256, depth=24, num_heads=16, time_bolck = False,
+                 embed_dim=256, depth=24, num_heads=16,
                  decoder_embed_dim=256, decoder_depth=8, decoder_num_heads=16,
                  mlp_ratio=4., norm_layer=nn.LayerNorm, norm_pix_loss=False,
                  global_pool=False, drop_path_rate=0., sparsity_threshold=0.01,
-                 hard_thresholding_fraction=1.0, num_blocks=8, drop_rate = 0.):
+                 hard_thresholding_fraction=1.0, drop_rate = 0.):
         super().__init__()
         # MAE
-        self.in_chans = params.in_chans
-        self.out_chans = params.out_chans
+        self.N_in_channels = params.N_in_channels
+        self.N_out_channels = params.N_out_channels
         # --------------------------------------------------------------------------
         # MAE encoder specifics
         self.img_size = (params.img_size_h, params.img_size_w)
@@ -28,7 +23,7 @@ class Masked_AFNO(nn.Module):
         self.h = self.img_size[0] // self.patch_size[0]
         self.w = self.img_size[1] // self.patch_size[1]
         self.embed_dim = params.embed_dim
-        self.patch_embed = PatchEmbed(img_size, patch_size, self.in_chans, self.embed_dim)
+        self.patch_embed = PatchEmbed(img_size, patch_size, self.N_in_channels, self.embed_dim)
         self.num_patches = self.patch_embed.num_patches
 
         self.pos_embed = nn.Parameter(torch.zeros(1, self.num_patches, self.embed_dim), requires_grad=False)  # fixed sin-cos embedding
@@ -65,7 +60,8 @@ class Masked_AFNO(nn.Module):
 
 
         self.decoder_norm = norm_layer(self.decoder_embed_dim)
-        self.decoder_pred = nn.Linear(self.decoder_embed_dim, patch_size[0]*patch_size[1] * self.out_chans, bias=True) # decoder to patch
+        # self.decoder_pred = nn.Linear(self.decoder_embed_dim, patch_size[0]*patch_size[1] * self.N_out_channels, bias=True) # decoder to patch
+        self.decoder_pred = nn.ConvTranspose2d(self.decoder_embed_dim, self.N_out_channels, kernel_size=self.patch_size, stride=self.patch_size)
         # --------------------------------------------------------------------------
 
         self.norm_pix_loss = norm_pix_loss
@@ -76,11 +72,6 @@ class Masked_AFNO(nn.Module):
         self.fc_norm = norm_layer(self.embed_dim)
         
         self.L1_error = torch.nn.L1Loss(reduction='mean')
-        
-        # Time Evolution
-        self.time_bolck = time_bolck
-        if self.time_bolck:
-            self.temporal_evolution = Temporal_Convolution_1d(channel_in = self.embed_dim, channel_hid = self.embed_dim, N_T = 1)
 
     def initialize_weights(self):
         # initialization
@@ -117,12 +108,6 @@ class Masked_AFNO(nn.Module):
         imgs: (N, channel, H, W)
         x: (N, L, patch_size[0]*patch_size[1] * channel)
         """
-#         p1 = self.patch_embed.patch_size[0]
-#         p2 = self.patch_embed.patch_size[1]
-#         assert imgs.shape[2] == imgs.shape[3] and imgs.shape[2] % p == 0
-
-#         h = imgs.shape[2] // p1
-#         w = imgs.shape[3] // p2
         x = imgs.reshape(shape=(imgs.shape[0], channel, self.h, self.patch_size[0], self.w, self.patch_size[1]))
         x = torch.einsum('nchpwq->nhwpqc', x)
         x = x.reshape(shape=(imgs.shape[0], self.h * self.w, self.patch_size[0]*self.patch_size[1] * channel))
@@ -198,8 +183,6 @@ class Masked_AFNO(nn.Module):
         # embed patches [1,T,64,64] patchsize
         x = self.patch_embed(x)
         # B = x.shape[0] # [1,T,H,W]
-
-        # add pos embed w/o cls token
         x = x + self.pos_embed
         # [1,T->embeding dimension,H/ps_h * W/ps_w]
         # masking: length -> length * mask_ratio
@@ -213,6 +196,7 @@ class Masked_AFNO(nn.Module):
         return x, mask, ids_restore
 
     def forward_decoder(self, x, ids_restore):
+        B = x.shape[0]
         # embed tokens
         x = self.decoder_embed(x)
 
@@ -227,27 +211,16 @@ class Masked_AFNO(nn.Module):
         for blk in self.decoder_blocks:
             x = blk(x)
         x = self.decoder_norm(x)
-        # predictor projection
+        # predictor
+        x = x.reshape(B, self.h, self.w, self.decoder_embed_dim)
+        x = rearrange(x, "B H W C -> B C H W")
         x = self.decoder_pred(x)
-
-        # remove cls token
-#         x = x[:, 1:, :]
         
-        # prediction
-        x = self.unpatchify(x,self.out_chans)
+        # x = self.unpatchify(x,self.N_out_channels)
         return x
 
 
     def forward(self, x, mask_ratio=0.0):
-        # Patch_Embeding
         x, _, ids_restore = self.forward_encoder(x, mask_ratio)
-        
-        if self.time_bolck:
-            # Time Evolution
-            x_t = x.permute([0,2,1])
-            x_t = self.temporal_evolution(x_t)
-            x_t = x_t.permute([0,2,1])
-            x = x + x_t
-        
-        x = self.forward_decoder(x, ids_restore)  # [N, L, p*p*3]
+        x = self.forward_decoder(x, ids_restore)
         return x

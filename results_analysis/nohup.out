@@ -1,0 +1,106 @@
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 315, in <module>
+    def plot_kuroshio_ssh_diff_between_pred_truth(file_path      = file_path,
+NameError: name 'file_path' is not defined
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 315, in <module>
+    def plot_kuroshio_ssh_diff_between_pred_truth(file_path      = file_path,
+NameError: name 'file_path' is not defined
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 425, in <module>
+    plot_global_ssh(file_path           = file_path,
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 91, in plot_global_ssh
+    fig.savefig('./Figure/SSH_global.png', dpi=2000, bbox_inches='tight', pad_inches=0.1)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/figure.py", line 3343, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2366, in print_figure
+    result = print_method(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 458, in _print_pil
+    mpl.image.imsave(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/image.py", line 1689, in imsave
+    image.save(fname, **pil_kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/PIL/Image.py", line 2428, in save
+    fp = builtins.open(filename, "w+b")
+FileNotFoundError: [Errno 2] No such file or directory: './Figure/SSH_global.png'
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 5, in <module>
+    import matplotlib as mpl
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/__init__.py", line 127, in <module>
+    from packaging.version import parse as parse_version
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 975, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_data
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 404, in <module>
+    plot_global_ssh_diff_between_pred_truth( file_path       = file_path,
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 195, in plot_global_ssh_diff_between_pred_truth
+    fig.savefig(save_path, dpi=2000, bbox_inches='tight', pad_inches=0.1)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/figure.py", line 3343, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2336, in print_figure
+    renderer = _get_renderer(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 1598, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 457, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 394, in draw
+    self.renderer = self.get_renderer()
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_api/deprecation.py", line 384, in wrapper
+    return func(*inner_args, **inner_kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 411, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 84, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+MemoryError: In RendererAgg: Out of memory
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 410, in <module>
+    plot_global_ssh_diff_between_pred_truth( file_path       = file_path,
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 193, in plot_global_ssh_diff_between_pred_truth
+    c.set_ticks(np.arange(vmin, vmax+v_interval, v_interval))  # 自定义数字间隔
+NameError: name 'v_interval' is not defined. Did you mean: 'vinterval'?
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 410, in <module>
+    plot_global_ssh_diff_between_pred_truth( file_path       = file_path,
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/SSH_plot.py", line 196, in plot_global_ssh_diff_between_pred_truth
+    fig.savefig(save_path, dpi=2000, bbox_inches='tight', pad_inches=0.1)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/figure.py", line 3343, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2336, in print_figure
+    renderer = _get_renderer(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 1598, in _get_renderer
+    print_method(io.BytesIO())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 2232, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 509, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 457, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 394, in draw
+    self.renderer = self.get_renderer()
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_api/deprecation.py", line 384, in wrapper
+    return func(*inner_args, **inner_kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 411, in get_renderer
+    self.renderer = RendererAgg(w, h, self.figure.dpi)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 84, in __init__
+    self._renderer = _RendererAgg(int(width), int(height), dpi)
+MemoryError: In RendererAgg: Out of memory
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/stream_plot.py", line 515, in <module>
+    plot_global_stream_diff_between_pred_truth(file_path           = file_path,
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/results_analysis/stream_plot.py", line 179, in plot_global_stream_diff_between_pred_truth
+    pre_data_u = tfid.variables['predicted'][init_condition, time_step, u_var_idx, :, :] 
+  File "src/netCDF4/_netCDF4.pyx", line 4973, in netCDF4._netCDF4.Variable.__getitem__
+  File "src/netCDF4/_netCDF4.pyx", line 5928, in netCDF4._netCDF4.Variable._get
+IndexError: index exceeds dimension bounds

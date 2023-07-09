@@ -3,33 +3,34 @@
 
 import os
 import math
-import matplotlib
 import numpy as np
 import netCDF4 as nc
+
 import cartopy.crs as ccrs
-import cartopy.mpl.ticker as mticker
+import cartopy.feature as cfeature
 from cartopy.util import add_cyclic_point
+from cartopy.mpl.ticker import LongitudeFormatter, LatitudeFormatter
+from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 
 from datetime import datetime
-
-total_var_names = {
-    "T0":0,  "T50":1,  "T100":2,  "T300":3,  "T500":4,  "T1000":5,
-    "S0":6,  "S50":7,  "S100":8,  "S300":9,  "S500":10, "S1000":11,
-    "U0":12, "U50":13, "U100":14, "U300":15, "U500":16, "U1000":17,
-    "V0":18, "V50":19, "V100":20, "V300":21, "V500":22, "V1000":23,
-    "ssh": 24,
-}
-
-global_means_path = "/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_means.npy"
-global_stds_path = "/work/home/acrzcyisbk/Ocean_AI_model/sample_03/train/global_stds.npy"
+from icecream import ic
 
 
-def read_pre_tru_from_h5(file_path, var_name, time_step):
-    var_idx = total_var_names[var_name]
+def read_pre_tru_from_h5(levels:int, file_path, var_name, time_step):
 
-    means = np.load(global_means_path)
-    stds = np.load(global_stds_path)
+    if levels == 6:
+        var_idx = VAR_INDEX_6_levels[var_name]
+        means = np.load(levels_6_stats['global_means_path'])
+        stds = np.load(levels_6_stats['global_stds_path'])
+    if levels == 15:
+        var_idx = VAR_INDEX_15_levels[var_name]
+        means = np.load(levels_15_stats['global_means_path'])
+        stds = np.load(levels_15_stats['global_stds_path'])
+
     print('means: ', means.shape, 'stds: ', stds.shape)
     means = means[0, var_idx, 0, 0]
     stds = stds[0, var_idx, 0, 0]
@@ -70,14 +71,13 @@ def get_land_mask(depth):
     depth_list = [0, 50, 100, 300, 500, 1000]
     depth_idx = depth_list.index(depth)
 
-    land_mask_file = '../sample_03/land_mask.h5'
-    dt = nc.Dataset(land_mask_file)
+    dt = nc.Dataset(levels_6_stats['land_mask_file'])
     # print(tfid.variables)
     mask = dt.variables['fields'][0, depth_idx, :, :] 
     return mask
 
 
-def plot_global_pre_gt(in_dir, var_name='ssh', units='m', time_step=5):
+def plot_global_pre_gt(levels:int, in_dir, model_name, var_name='ssh', depth:int, units='m', time_step=5):
     init_time = ''
 
     lon = np.arange(0, 360, 0.25)    # lontitude
@@ -86,13 +86,13 @@ def plot_global_pre_gt(in_dir, var_name='ssh', units='m', time_step=5):
     print('lat:', len(lat))
 
     file_path = os.path.join(in_dir, 'autoregressive_predictions.h5')
-    pre, tru = read_pre_tru_from_h5(file_path, var_name, time_step)
+    pre, tru = read_pre_tru_from_h5(levels, file_path, var_name, time_step)
 
     # for colorbar
-    levels = np.arange(np.min(tru), np.max(tru) * 1.1, (np.max(tru)*1.1-np.min(tru))/100)
+    color_levels = np.arange(np.min(tru), np.max(tru) * 1.1, (np.max(tru)*1.1-np.min(tru))/100)
     
     # mask land
-    land_mask = get_land_mask(0) # 0:land, 1:ocean 
+    land_mask = get_land_mask(depth) # 0:land, 1:ocean 
     pre[land_mask==0] = np.nan
     tru[land_mask==0] = np.nan
 
@@ -106,7 +106,8 @@ def plot_global_pre_gt(in_dir, var_name='ssh', units='m', time_step=5):
 
     # prediction
     ax1 = fig.add_subplot(2, 1, 1, projection=proj)
-    cs1 = ax1.contourf(lons, lat, pre, levels=levels, 
+    cs1 = ax1.contourf(lons, lat, pre, 
+                       levels=color_levels, 
                        transform = proj, 
                        cmap='coolwarm', extend='both')
     ax1.coastlines()
@@ -135,47 +136,164 @@ def plot_global_pre_gt(in_dir, var_name='ssh', units='m', time_step=5):
     cbar = plt.colorbar(cs2, shrink=0.9, orientation='horizontal', label='Sea Surface Height')
 
 
-    ax1.set_title(f'Prediction\n{var_name} ({units}) \nInit Time:{init_time}, forecast steps = {time_step} (day)')
+    ax1.set_title(f'{model_name}, Prediction\n{var_name} ({units}) \nInit Time:{init_time}, forecast steps = {time_step} (day)')
     ax2.set_title(f'Truth\n{var_name} ({units}) \nInit Time:{init_time}, forecast steps = {time_step} (day)')
 
     # plt.tight_layout()
     print('Saving... ')
-    plt.savefig(os.path.join(in_dir, f'{var_name}_{init_time}_{time_step}.png'), dpi=300)
+    plt.savefig(os.path.join(in_dir, f'{model_name}_{var_name}_{init_time}_{time_step}.png'), dpi=300)
     plt.show()
 
+def plot_global_ssh(in_dir:str, 
+                    show_pre:bool,
+                    model_name:str, 
+                    vmin        = 0,
+                    vmax        = 10,
+                    lon_cff     = 20, 
+                    lat_cff     = 20, 
+                    xstep        = 5, 
+                    ystep       = 3, 
+                    extent      = [-180, 180, -90, 90], 
+                    level_num   = 3,
+                    cmap        = 'Blues',
+                    title       = 'SSH (m)',
+                    var_name    = 'ssh', 
+                    units       = 'm', 
+                    time_step   = 5):
+    '''
+    display the global ssh via 'coutour' and 'contourf' 
+
+    params:
+        in_dir: the directory of autoregressive_predictions.h5
+        model_name: the name of the model, used in figure's title
+        extent: area to be displayed
+        var_name: variable to be displayed
+        units: the unit of variable, used in figure's title
+        time_step: the forecast time step to be displayed, used in figure's title
+
+    '''
+    init_time = ''
+
+    lon = np.arange(0, 360, 0.25)    # lontitude
+    lat = np.arange(90, -90, -0.25)  # latitude
+    print('lon:', len(lon))
+    print('lat:', len(lat))
+
+    norm = mpl.colors.Normalize(vmin=vmin, vmax=vmax)
+
+    file_path = os.path.join(in_dir, 'autoregressive_predictions.h5')
+    pre, tru = read_pre_tru_from_h5(file_path, var_name, time_step)
+    if show_pre:
+        data_2d = pre
+    else:   
+        data_2d = tru
+    ic(np.nanmin(data_2d), np.nanmax(data_2d))
+
+    # mask land
+    # land_mask = get_land_mask(0) # 0:land, 1:ocean 
+    # pre[land_mask==0] = np.nan
+    # tru[land_mask==0] = np.nan
+
+    # add cycle to avoid the white line
+    data_2d, lons = add_cyclic_point(data_2d, coord=lon)
+
+    # init figure
+    fig = plt.figure(figsize=(20, 12), dpi=300)
+
+    proj = ccrs.PlateCarree(central_longitude=0)
+    ax = fig.add_subplot(1, 1, 1, projection=proj)
+
+    ax.set_extent(extent, crs=proj)
+    ax.coastlines('50m', linewidth=1)
+
+    ax.set_yticks(np.linspace(extent[2] + lat_cff, extent[3] - lat_cff, ystep), crs=proj)
+    ax.set_xticks(np.linspace(extent[0] + lon_cff, extent[1] - lon_cff, xstep), crs=proj)
+
+    ax.xaxis.set_major_formatter(LongitudeFormatter(zero_direction_label=False))
+    ax.yaxis.set_major_formatter(LatitudeFormatter())
+
+    ax.tick_params(which='major', direction='out', length=8, width=2, pad=0.3, 
+                   labelsize=20, bottom=True, left=True, right=False, top=False)
+
+    ax.set_title(title, fontsize=12, loc='center')
+
+    ic(lon.shape, lons.shape, data_2d.shape)
+    ax.contour(lons, lat, data_2d, level_num, colors=['black'], transform=proj)
+
+    levels = np.arange(np.min(tru), np.max(tru) * 1.1, (np.max(tru)*1.1-np.min(tru))/100)
+    cs = ax.contourf(lons, lat, data_2d, levels=levels, 
+                     transform = proj, 
+                     cmap='coolwarm', extend='both')
+
+    cbar = plt.colorbar(cs, ax=ax, shrink=0.7, 
+                        pad=0.07, aspect=20, location='bottom',
+                        cmap=cmap, norm=norm,
+                        orientation='horizontal', label='Sea Surface Height')
+
+    cbar.ax.set_xlabel('m/s', rotation=0, labelpad=10, fontsize=30)
+    cbar.ax.tick_params(labelsize=25)
+
+    print('Saving... ')
+    plt.savefig(os.path.join(in_dir, f'ssh_{model_name}_{str(time_step)}.png'), dpi=300)
+    plt.show()
 
 if __name__ == '__main__':
 
 
     # %% Plotting the global field with the layout of two subplots (prediction and ground-truth)
-    # in_dir = '/work/home/acrzcyisbk/Ocean_AI_model/exp/afno_backbone/20230524-163725/'
-    in_dir = '/work/home/acrzcyisbk/Ocean_AI_model/exp/Masked_AE_Ocean/20230528-Mask_AE_v2_landmask/'
-    plot_global_pre_gt(in_dir=in_dir, var_name='ssh', units='m', time_step=5)
-    plot_global_pre_gt(in_dir=in_dir, var_name='ssh', units='m', time_step=15)
-    plot_global_pre_gt(in_dir=in_dir, var_name='ssh', units='m', time_step=20)
-    plot_global_pre_gt(in_dir=in_dir, var_name='ssh', units='m', time_step=25)
-    plot_global_pre_gt(in_dir=in_dir, var_name='ssh', units='m', time_step=23)
+    in_dir = '/home/bingxing2/home/scx6115/Ocean_AI_model/exp/afno_backbone/20230609-155507'
+    model_name = 'AFNO'
 
-    plot_global_pre_gt(in_dir=in_dir, var_name='T0', units='', time_step=5)
-    plot_global_pre_gt(in_dir=in_dir, var_name='T0', units='', time_step=15)
-    plot_global_pre_gt(in_dir=in_dir, var_name='T0', units='', time_step=20)
-    plot_global_pre_gt(in_dir=in_dir, var_name='T0', units='', time_step=25)
-    plot_global_pre_gt(in_dir=in_dir, var_name='T0', units='', time_step=23)
+    in_dir = '/home/bingxing2/home/scx6115/Ocean_AI_model/exp_6_levels/Masked_AE_Ocean/20230610'
+    model_name = 'Masked_AE_Ocean'
+    
+    # plot_global_ssh(in_dir      = in_dir,
+    #                 show_pre    = True,
+    #                 model_name  = model_name, 
+    #                 vmin        = -3,
+    #                 vmax        = 3,
+    #                 lon_cff     = 20, 
+    #                 lat_cff     = 20, 
+    #                 xstep        = 5, 
+    #                 ystep       = 3, 
+    #                 extent      = [-180, 180, -90, 90], 
+    #                 level_num   = 3,
+    #                 cmap        = 'Blues',
+    #                 title       = 'SSH (m)',
+    #                 var_name    = 'ssh', 
+    #                 units       = 'm', 
+    #                 time_step   = 5)
 
-    plot_global_pre_gt(in_dir=in_dir, var_name='S0', units='', time_step=5)
-    plot_global_pre_gt(in_dir=in_dir, var_name='S0', units='', time_step=15)
-    plot_global_pre_gt(in_dir=in_dir, var_name='S0', units='', time_step=20)
-    plot_global_pre_gt(in_dir=in_dir, var_name='S0', units='', time_step=25)
-    plot_global_pre_gt(in_dir=in_dir, var_name='S0', units='', time_step=23)
+    
+    # in_dir = '/home/bingxing2/home/scx6115/Ocean_AI_model/exp/Masked_AE_fusion/20230613-203822'
+    # model_name = 'Masked_AE_fusion'
 
-    plot_global_pre_gt(in_dir=in_dir, var_name='U0', units='', time_step=5)
-    plot_global_pre_gt(in_dir=in_dir, var_name='U0', units='', time_step=15)
-    plot_global_pre_gt(in_dir=in_dir, var_name='U0', units='', time_step=20)
-    plot_global_pre_gt(in_dir=in_dir, var_name='U0', units='', time_step=25)
-    plot_global_pre_gt(in_dir=in_dir, var_name='U0', units='', time_step=23)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='ssh', units='m', time_step=5)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='ssh', units='m', time_step=15)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='ssh', units='m', time_step=20)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='ssh', units='m', time_step=25)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='ssh', units='m', time_step=29)
 
-    plot_global_pre_gt(in_dir=in_dir, var_name='V0', units='', time_step=5)
-    plot_global_pre_gt(in_dir=in_dir, var_name='V0', units='', time_step=15)
-    plot_global_pre_gt(in_dir=in_dir, var_name='V0', units='', time_step=20)
-    plot_global_pre_gt(in_dir=in_dir, var_name='V0', units='', time_step=25)
-    plot_global_pre_gt(in_dir=in_dir, var_name='V0', units='', time_step=23)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='T0', units='', time_step=5)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='T0', units='', time_step=15)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='T0', units='', time_step=20)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='T0', units='', time_step=25)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='T0', units='', time_step=29)
+
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='S0', units='', time_step=5)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='S0', units='', time_step=15)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='S0', units='', time_step=20)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='S0', units='', time_step=25)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='S0', units='', time_step=29)
+
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='U0', units='', time_step=5)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='U0', units='', time_step=15)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='U0', units='', time_step=20)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='U0', units='', time_step=25)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='U0', units='', time_step=29)
+
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='V0', units='', time_step=5)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='V0', units='', time_step=15)
+    # # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='V0', units='', time_step=20)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='V0', units='', time_step=25)
+    # plot_global_pre_gt(in_dir=in_dir, model_name=model_name, var_name='V0', units='', time_step=29)

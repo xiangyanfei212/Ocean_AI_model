@@ -1,0 +1,480 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+paraai-n32-h-01-agent-97
+paraai-n32-h-01-agent-97
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+paraai-n32-h-01-agent-97
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+paraai-n32-h-01-agent-97
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+nettypenettype  Masked_AE_fusionMasked_AE_fusion
+
+log_to_wandblog_to_wandb  TrueTrue
+
+lrlr  0.0010.001
+
+batch_sizebatch_size  3232
+
+max_epochsmax_epochs  100100
+
+schedulerscheduler  CosineAnnealingLRCosineAnnealingLR
+
+fusion_3d_2d fusion_3d_2dTrue 
+True
+in_chansin_chans  3131
+
+out_chansout_chans  2525
+
+in_channelsin_channels  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29][0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+out_channelsout_channels  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24][0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+
+img_size_himg_size_h  720720
+
+img_size_w 1440img_size_w
+ 1440
+patch_size_h 16patch_size_h
+ 16
+patch_size_w patch_size_w16 
+16
+patch_size_d patch_size_d2 
+2mlp_ratio
+ 4.0
+mlp_ratio in_chans_2d4.0 
+7
+in_chans_2dout_chans_2d  71
+
+out_chans_2d in_chans_3d1 
+4
+in_chans_3d out_chans_3d4 
+4out_chans_3d
+ 4
+var_depthvar_depth  66
+
+embed_dimembed_dim  512512
+
+depthdepth  1616
+
+num_heads num_heads16 
+16
+decoder_embed_dim decoder_embed_dim512 
+512
+decoder_depth decoder_depth8 
+8
+decoder_num_heads decoder_num_heads 1616
+
+drop_ratedrop_rate  0.0
+0.0
+drop_path_ratedrop_path_rate 0.0 
+0.0
+sparsity_thresholdsparsity_threshold  0.010.01
+
+hard_thresholding_fraction hard_thresholding_fraction1.0 
+1.0num_blocks
+ 8num_blocks
+ 8loss
+ l2
+lossnum_data_workers  l20
+
+dtnum_data_workers  10
+
+n_historydt  01
+
+prediction_typen_history  iterative0
+
+prediction_lengthprediction_type  41iterative
+
+n_initial_conditionsprediction_length  541
+
+n_initial_conditionsics_type  5default
+
+date_stringsics_type  default['2018-09-14 00:00:00']
+
+date_stringssave_raw_forecasts  True
+['2018-09-14 00:00:00']
+save_channelsave_raw_forecasts  FalseTrue
+
+masked_accsave_channel  FalseFalse
+
+maskpath masked_accNone 
+False
+perturb maskpathFalse 
+None
+add_gridperturb  FalseFalse
+
+add_gridN_grid_channels  False0
+
+N_grid_channelsgridtype  sinusoidal0
+
+rollgridtype  Falsesinusoidal
+
+enable_nhwcroll  False
+False
+optimizer_type enable_nhwcFusedAdam 
+Falseexp_dir
+ ./expoptimizer_type
+ patch_sizeFusedAdam 
+8
+exp_dir width./exp 
+56
+patch_sizemodes  832
+
+targetwidth  default56
+
+train_data_pathmodes  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train32
+
+valid_data_pathtarget  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/validdefault
+
+test_data_pathtrain_data_path  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+
+land_maskvalid_data_path  True/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+
+land_mask_pathtest_data_path  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+
+normalize Trueland_mask
+ normalizationTrue 
+zscore
+land_mask_path global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+
+global_maxs_pathnormalize  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npyTrue
+
+global_means_pathnormalization  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npyzscore
+
+global_stds_pathglobal_mins_path  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+
+orography global_maxs_pathTrue 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+orography_norm_zscore_path global_means_path/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5global_stds_path
+ /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npyadd_noise
+ orographyFalse 
+True
+noise_std orography_norm_zscore_path0 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+crop_size_x orography_norm_maxmin_pathNone 
+/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5crop_size_y
+ add_noiseNone 
+False
+log_to_screen Truenoise_std
+ 0save_checkpoint
+ crop_size_xTrue
+ None
+plot_animations crop_size_yFalse 
+None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+---------------------------------------------------
+world_size :world_size :  1616
+
+Initialize distributed process group...
+Initialize distributed process group...
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_ratio 4.0
+in_chans_2d 7
+out_chans_2d 1
+in_chans_3d 4
+out_chans_3d 4
+var_depth 6
+embed_dim 512
+depth 16
+num_heads 16
+decoder_embed_dim 512
+decoder_depth 8
+decoder_num_heads 16
+drop_rate 0.0
+drop_path_rate 0.0
+sparsity_threshold 0.01
+hard_thresholding_fraction 1.0
+num_blocks 8
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_ratio 4.0
+in_chans_2d 7
+out_chans_2d 1
+in_chans_3d 4
+out_chans_3d 4
+var_depth 6
+embed_dim 512
+depth 16
+num_heads 16
+decoder_embed_dim 512
+decoder_depth 8
+decoder_num_heads 16
+drop_rate 0.0
+drop_path_rate 0.0
+sparsity_threshold 0.01
+hard_thresholding_fraction 1.0
+num_blocks 8
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-13 15:40:55,087 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 13
+2023-06-13 15:40:55,087 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 12
+2023-06-13 15:40:55,098 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 14
+2023-06-13 15:40:55,100 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 15
+2023-06-13 15:40:55,109 - torch.distributed.distributed_c10d - INFO - Rank 14: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 15:40:55,111 - torch.distributed.distributed_c10d - INFO - Rank 15: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 15:40:55,118 - torch.distributed.distributed_c10d - INFO - Rank 13: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 15:40:55,118 - torch.distributed.distributed_c10d - INFO - Rank 12: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-13 15:40:55,170 - root - INFO - device: cuda:2
+2023-06-13 15:40:55,170 - root - INFO - rank 14, begin data loader init
+2023-06-13 15:40:55,173 - root - INFO - device: cuda:3
+2023-06-13 15:40:55,173 - root - INFO - rank 15, begin data loader init
+2023-06-13 15:40:55,175 - root - INFO - device: cuda:0
+2023-06-13 15:40:55,175 - root - INFO - rank 12, begin data loader init
+2023-06-13 15:40:55,176 - root - INFO - device: cuda:1
+2023-06-13 15:40:55,176 - root - INFO - rank 13, begin data loader init
+2023-06-13 15:40:55,177 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 15:40:55,177 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 15:40:55,177 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 15:40:55,178 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-13 15:40:55,178 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,178 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,178 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,178 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 2750. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,178 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 2750. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,178 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 2750. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,178 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,178 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,178 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,178 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,178 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,178 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,179 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,179 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 2750. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,179 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,179 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,184 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 15:40:55,184 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 15:40:55,184 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 15:40:55,184 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-13 15:40:55,185 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,185 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,185 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 250. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,185 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,185 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,185 - root - INFO - Number of samples per year: 250
+2023-06-13 15:40:55,185 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 250. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,185 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 250. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,185 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,185 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 250. Image Shape: 720 x 1440 x 30
+2023-06-13 15:40:55,185 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,185 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,185 - root - INFO - Delta t: 1 days
+2023-06-13 15:40:55,185 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,185 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,185 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-13 15:40:55,186 - root - INFO - rank 12, data loader initialized
+2023-06-13 15:40:55,186 - root - INFO - rank 13, data loader initialized
+2023-06-13 15:40:55,186 - root - INFO - rank 15, data loader initialized
+2023-06-13 15:40:55,186 - root - INFO - rank 14, data loader initialized
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 487, in <module>
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 487, in <module>
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 487, in <module>
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 487, in <module>
+    trainer = Trainer(params, world_rank)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 81, in __init__
+    trainer = Trainer(params, world_rank)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 81, in __init__
+    trainer = Trainer(params, world_rank)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 81, in __init__
+    trainer = Trainer(params, world_rank)
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 81, in __init__
+    raise Exception("not implemented")
+Exception: not implemented
+    raise Exception("not implemented")
+Exception: not implemented
+    raise Exception("not implemented")
+Exception: not implemented
+    raise Exception("not implemented")
+Exception: not implemented
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 1733101) of binary: /home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/python
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train_025_bingxing.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-06-13_15:40:58
+  host      : paraai-n32-h-01-agent-97.paraai-n32-h-01.com
+  rank      : 13 (local_rank: 1)
+  exitcode  : 1 (pid: 1733102)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2023-06-13_15:40:58
+  host      : paraai-n32-h-01-agent-97.paraai-n32-h-01.com
+  rank      : 14 (local_rank: 2)
+  exitcode  : 1 (pid: 1733103)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2023-06-13_15:40:58
+  host      : paraai-n32-h-01-agent-97.paraai-n32-h-01.com
+  rank      : 15 (local_rank: 3)
+  exitcode  : 1 (pid: 1733104)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-06-13_15:40:58
+  host      : paraai-n32-h-01-agent-97.paraai-n32-h-01.com
+  rank      : 12 (local_rank: 0)
+  exitcode  : 1 (pid: 1733101)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+srun: error: paraai-n32-h-01-agent-97: task 0: Exited with exit code 1

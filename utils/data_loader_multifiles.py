@@ -97,9 +97,12 @@ class GetDataset(Dataset):
         self.out_channels = np.array(params.out_channels)
         self.n_in_channels = len(self.in_channels)
         self.n_out_channels = len(self.out_channels)
+        if self.train:
+            self.multi_steps_finetune = params.multi_steps_finetune
 
         self._get_files_stats()
         self.add_noise = params.add_noise if train else False
+        self.fusion_3d_2d = params.fusion_3d_2d
 
 
     # 获取文件统计信息
@@ -110,8 +113,8 @@ class GetDataset(Dataset):
 
         with h5py.File(self.files_paths[0], 'r') as _f: 
             logging.info("Getting file stats from {}".format(self.files_paths[0]))
-            self.n_samples_per_year = _f['fields'].shape[0] - 1 # '-1': Leap years have one more sample than non-leap years
-            
+            self.n_samples_per_year = _f['fields'].shape[0] - 1 
+
             # original image shape (before padding)
             self.img_shape_x = _f['fields'].shape[2] - 1 # just get rid of one of the pixels
             self.img_shape_y = _f['fields'].shape[3]
@@ -156,21 +159,51 @@ class GetDataset(Dataset):
         # If the sample is the final one for the year, predict the current time step. Otherwise, predict the next time step.
         step = 0 if local_idx >= self.n_samples_per_year - self.dt else self.dt
 
+        # if multi_steps_finetune > 1, then ensure that local_idx is not the last or last but ${multi_steps_finetune} sample in a year
+        if self.train and self.multi_steps_finetune > 1:
+            if local_idx >= self.n_samples_per_year - self.multi_steps_finetune*self.dt:
+                # set local_idx to last possible sample in a year that allows taking ${multi_steps_finetune} steps forward
+                local_idx = self.n_samples_per_year - (self.multi_steps_finetune+1)*self.dt
+
         if self.orography:
             orog = self.orography_field 
             if np.shape(orog)[0] == 721:
                 orog = orog[0:720]
-            # logging.info(f'orog: {orog.shape}')
         else:
             orog = None
         
-
-
         # logging.info(f'year_idx: {year_idx}, local_idx:{local_idx}, dt:{self.dt}, n_history:{self.n_history}, in_channels:{self.in_channels}')
         # logging.info(self.files[year_idx][(local_idx - self.dt * self.n_history):(local_idx + 1):self.dt, self.in_channels].shape)
         # logging.info(self.files[year_idx][local_idx + step, self.out_channels].shape)
 
-        inp = reshape_fields( self.files[year_idx][(local_idx - self.dt * self.n_history):(local_idx + 1):self.dt, self.in_channels], 'inp', self.params, self.train, self.normalize, orog, self.add_noise )
-        tar = reshape_fields( self.files[year_idx][local_idx + step, self.out_channels], 'tar', self.params, self.train, self.normalize, orog )
+        if self.fusion_3d_2d:
+            inp = reshape_fields( self.files[year_idx][(local_idx - self.dt * self.n_history):(local_idx + 1):self.dt, self.in_channels], 'inp', self.params, self.train, self.normalize, orog, self.add_noise )
+            tar = reshape_fields( self.files[year_idx][local_idx + step, self.out_channels], 'tar', self.params, self.train, self.normalize, orog )
 
-        return inp, tar 
+            inp_3d_t = inp[:6,:,:] 
+            inp_3d_s = inp[6:12,:,:] 
+            inp_3d_u = inp[12:18,:,:] 
+            inp_3d_v = inp[18:24,:,:] 
+            inp_3d_t = inp_3d_t.unsqueeze(0)
+            inp_3d_s = inp_3d_s.unsqueeze(0)
+            inp_3d_u = inp_3d_u.unsqueeze(0)
+            inp_3d_v = inp_3d_v.unsqueeze(0)
+            inp_3d = torch.cat([inp_3d_t, inp_3d_s, inp_3d_u, inp_3d_v], axis=0)
+            inp_3d = inp_3d.permute(0,2,3,1)
+            inp_2d = inp[24:,:,:] 
+            # print('inp: ', inp.shape)
+            # print('inp_3d:', inp_3d.shape)
+            # print('inp_2d:', inp_2d.shape)
+            del inp, inp_3d_t, inp_3d_s, inp_3d_u, inp_3d_v
+            return inp_2d, inp_3d, tar 
+
+        if self.train and self.multi_steps_finetune > 1:
+            inp = reshape_fields( self.files[year_idx][(local_idx - self.dt * self.n_history):(local_idx + 1):self.dt, self.in_channels], 'inp', self.params, self.train, self.normalize, orog, self.add_noise )
+            # modify self.out_channels -> self.in_channels: for atmos force in the future
+            tar = reshape_fields( self.files[year_idx][local_idx + step:local_idx + step + self.multi_steps_finetune, self.in_channels], 'tar', self.params, self.train, self.normalize, orog )
+            return inp, tar 
+        else:
+            inp = reshape_fields( self.files[year_idx][(local_idx - self.dt * self.n_history):(local_idx + 1):self.dt, self.in_channels], 'inp', self.params, self.train, self.normalize, orog, self.add_noise )
+            tar = reshape_fields( self.files[year_idx][local_idx + step, self.out_channels], 'tar', self.params, self.train, self.normalize, orog )
+
+            return inp, tar 

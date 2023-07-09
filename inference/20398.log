@@ -1,0 +1,657 @@
+cuda-11.7 loaded successful
+gcc-12.2.0 loaded successful
+2023-06-10 11:38:32,256 - root - INFO - expDir: .././exp/afno_backbone/20230609-155507
+2023-06-10 11:38:32,261 - root - INFO - ------------------ Configuration ------------------
+2023-06-10 11:38:32,261 - root - INFO - Configuration file: /home/bingxing2/home/scx6115/Ocean_AI_model/config/AFNO.yaml
+2023-06-10 11:38:32,261 - root - INFO - Configuration name: afno_backbone
+2023-06-10 11:38:32,261 - root - INFO - log_to_wandb True
+2023-06-10 11:38:32,261 - root - INFO - lr 0.0005
+2023-06-10 11:38:32,261 - root - INFO - batch_size 32
+2023-06-10 11:38:32,262 - root - INFO - max_epochs 500
+2023-06-10 11:38:32,262 - root - INFO - scheduler CosineAnnealingLR
+2023-06-10 11:38:32,262 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+2023-06-10 11:38:32,262 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+2023-06-10 11:38:32,262 - root - INFO - N_in_channels 31
+2023-06-10 11:38:32,262 - root - INFO - N_out_channels 25
+2023-06-10 11:38:32,262 - root - INFO - img_size_h 720
+2023-06-10 11:38:32,262 - root - INFO - img_size_w 1440
+2023-06-10 11:38:32,262 - root - INFO - patch_size_h 5
+2023-06-10 11:38:32,262 - root - INFO - patch_size_w 5
+2023-06-10 11:38:32,262 - root - INFO - loss l2
+2023-06-10 11:38:32,262 - root - INFO - num_data_workers 8
+2023-06-10 11:38:32,262 - root - INFO - dt 1
+2023-06-10 11:38:32,263 - root - INFO - n_history 0
+2023-06-10 11:38:32,263 - root - INFO - prediction_type iterative
+2023-06-10 11:38:32,263 - root - INFO - prediction_length 30
+2023-06-10 11:38:32,263 - root - INFO - n_initial_conditions 5
+2023-06-10 11:38:32,263 - root - INFO - ics_type default
+2023-06-10 11:38:32,263 - root - INFO - save_raw_forecasts True
+2023-06-10 11:38:32,263 - root - INFO - save_channel False
+2023-06-10 11:38:32,263 - root - INFO - masked_acc False
+2023-06-10 11:38:32,263 - root - INFO - maskpath None
+2023-06-10 11:38:32,263 - root - INFO - perturb False
+2023-06-10 11:38:32,263 - root - INFO - add_grid False
+2023-06-10 11:38:32,263 - root - INFO - N_grid_channels 0
+2023-06-10 11:38:32,263 - root - INFO - gridtype sinusoidal
+2023-06-10 11:38:32,264 - root - INFO - roll False
+2023-06-10 11:38:32,264 - root - INFO - num_blocks 8
+2023-06-10 11:38:32,264 - root - INFO - nettype afno
+2023-06-10 11:38:32,264 - root - INFO - patch_size 8
+2023-06-10 11:38:32,264 - root - INFO - width 56
+2023-06-10 11:38:32,264 - root - INFO - modes 32
+2023-06-10 11:38:32,264 - root - INFO - target default
+2023-06-10 11:38:32,264 - root - INFO - enable_nhwc False
+2023-06-10 11:38:32,264 - root - INFO - optimizer_type FusedAdam
+2023-06-10 11:38:32,264 - root - INFO - normalize True
+2023-06-10 11:38:32,264 - root - INFO - normalization zscore
+2023-06-10 11:38:32,264 - root - INFO - global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+2023-06-10 11:38:32,264 - root - INFO - global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+2023-06-10 11:38:32,265 - root - INFO - global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+2023-06-10 11:38:32,265 - root - INFO - global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+2023-06-10 11:38:32,265 - root - INFO - train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+2023-06-10 11:38:32,265 - root - INFO - valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+2023-06-10 11:38:32,265 - root - INFO - test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+2023-06-10 11:38:32,265 - root - INFO - land_mask True
+2023-06-10 11:38:32,265 - root - INFO - land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:32,265 - root - INFO - orography True
+2023-06-10 11:38:32,265 - root - INFO - orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+2023-06-10 11:38:32,265 - root - INFO - orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+2023-06-10 11:38:32,265 - root - INFO - exp_dir ./exp
+2023-06-10 11:38:32,265 - root - INFO - add_noise False
+2023-06-10 11:38:32,265 - root - INFO - noise_std 0
+2023-06-10 11:38:32,265 - root - INFO - crop_size_x None
+2023-06-10 11:38:32,266 - root - INFO - crop_size_y None
+2023-06-10 11:38:32,266 - root - INFO - log_to_screen True
+2023-06-10 11:38:32,266 - root - INFO - save_checkpoint True
+2023-06-10 11:38:32,266 - root - INFO - plot_animations False
+2023-06-10 11:38:32,266 - root - INFO - world_size 1
+2023-06-10 11:38:32,266 - root - INFO - interp 0
+2023-06-10 11:38:32,266 - root - INFO - global_batch_size 32
+2023-06-10 11:38:32,266 - root - INFO - experiment_dir .././exp/afno_backbone/20230609-155507
+2023-06-10 11:38:32,266 - root - INFO - best_checkpoint_path .././exp/afno_backbone/20230609-155507/training_checkpoints/best_ckpt.tar
+2023-06-10 11:38:32,266 - root - INFO - resuming False
+2023-06-10 11:38:32,266 - root - INFO - local_rank 0
+2023-06-10 11:38:32,266 - root - INFO - ---------------------------------------------------
+2023-06-10 11:38:32,266 - root - INFO - Inference for 6 initial conditions
+2023-06-10 11:38:32,308 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test/2012.h5
+2023-06-10 11:38:32,310 - root - INFO - Number of samples per year: 365
+2023-06-10 11:38:32,310 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test. Number of examples: 365. Image Shape: 720 x 1440 x 30
+2023-06-10 11:38:32,310 - root - INFO - Delta t: 1 days
+2023-06-10 11:38:32,310 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-10 11:38:33,465 - root - INFO - Loading trained model checkpoint from .././exp/afno_backbone/20230609-155507/training_checkpoints/best_ckpt.tar
+2023-06-10 11:38:37,238 - root - INFO - Loading inference data
+2023-06-10 11:38:37,238 - root - INFO - Inference data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test/2012.h5
+2023-06-10 11:38:37,240 - root - INFO - Initial condition 1 of 6
+2023-06-10 11:38:40,380 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:38:40,435 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:38:47,709 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:38:47,709 - root - INFO - Begin autoregressive inference
+2023-06-10 11:38:49,840 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:50,096 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:38:50,335 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:50,489 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.028266500681638718, ACC: 0.998833954334259
+2023-06-10 11:38:50,727 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:50,876 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.04637856036424637, ACC: 0.9968908429145813
+2023-06-10 11:38:51,119 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:51,268 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.06335952132940292, ACC: 0.9943967461585999
+2023-06-10 11:38:51,498 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:51,649 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.0796470046043396, ACC: 0.9915872812271118
+2023-06-10 11:38:51,881 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:52,033 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.10016603022813797, ACC: 0.9872488379478455
+2023-06-10 11:38:52,275 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:52,423 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11448989808559418, ACC: 0.9841009378433228
+2023-06-10 11:38:52,664 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:52,811 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.1274920403957367, ACC: 0.9808833599090576
+2023-06-10 11:38:53,051 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:53,197 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.13792355358600616, ACC: 0.978193998336792
+2023-06-10 11:38:53,429 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:53,577 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.15116947889328003, ACC: 0.9742135405540466
+2023-06-10 11:38:53,810 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:53,958 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.16061705350875854, ACC: 0.9714149832725525
+2023-06-10 11:38:54,193 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:54,344 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.1702042669057846, ACC: 0.96837317943573
+2023-06-10 11:38:54,579 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:54,733 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.17883901298046112, ACC: 0.965531587600708
+2023-06-10 11:38:54,948 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:55,097 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.18920688331127167, ACC: 0.9621402621269226
+2023-06-10 11:38:55,320 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:55,457 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.19942349195480347, ACC: 0.9585751295089722
+2023-06-10 11:38:55,683 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:55,825 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.20973777770996094, ACC: 0.9542970657348633
+2023-06-10 11:38:56,061 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:56,202 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.2216125726699829, ACC: 0.9489278793334961
+2023-06-10 11:38:56,427 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:56,589 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.23147478699684143, ACC: 0.9445264935493469
+2023-06-10 11:38:56,817 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:56,984 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.23916496336460114, ACC: 0.9411947131156921
+2023-06-10 11:38:57,210 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:57,374 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.24737977981567383, ACC: 0.9371615648269653
+2023-06-10 11:38:57,599 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:57,767 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2580791115760803, ACC: 0.9316849708557129
+2023-06-10 11:38:58,000 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:58,174 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.27222907543182373, ACC: 0.924243688583374
+2023-06-10 11:38:58,412 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:58,577 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.2843457758426666, ACC: 0.917676568031311
+2023-06-10 11:38:58,806 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:58,961 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.2938792407512665, ACC: 0.9120829105377197
+2023-06-10 11:38:59,187 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:38:59,342 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.3031795918941498, ACC: 0.9064208269119263
+2023-06-10 11:39:00,148 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:00,307 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.3159758746623993, ACC: 0.8985565900802612
+2023-06-10 11:39:00,536 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:00,700 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.3286275565624237, ACC: 0.8905209302902222
+2023-06-10 11:39:00,926 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:01,073 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.33457329869270325, ACC: 0.8877006769180298
+2023-06-10 11:39:01,300 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:01,452 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.34484511613845825, ACC: 0.8809945583343506
+2023-06-10 11:39:01,506 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:01,658 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.35649776458740234, ACC: 0.8723531365394592
+2023-06-10 11:39:01,681 - root - INFO - Initial condition 2 of 6
+2023-06-10 11:39:05,315 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:39:05,372 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:39:12,607 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:39:12,610 - root - INFO - Begin autoregressive inference
+2023-06-10 11:39:13,015 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:13,197 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:39:13,422 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:13,596 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.028223128989338875, ACC: 0.9988043308258057
+2023-06-10 11:39:13,810 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:13,985 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.04282796010375023, ACC: 0.9973060488700867
+2023-06-10 11:39:14,208 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:14,384 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.060436949133872986, ACC: 0.9948717355728149
+2023-06-10 11:39:14,617 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:14,785 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.08168882876634598, ACC: 0.9911071062088013
+2023-06-10 11:39:15,002 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:15,189 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.10097245126962662, ACC: 0.9872183203697205
+2023-06-10 11:39:15,412 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:15,580 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11717160046100616, ACC: 0.9838707447052002
+2023-06-10 11:39:15,804 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:15,977 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.13164426386356354, ACC: 0.980401873588562
+2023-06-10 11:39:16,194 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:16,370 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.14251190423965454, ACC: 0.9780775308609009
+2023-06-10 11:39:16,593 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:16,757 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.15186189115047455, ACC: 0.975500226020813
+2023-06-10 11:39:16,982 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:17,159 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.158224418759346, ACC: 0.9737286567687988
+2023-06-10 11:39:17,384 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:17,553 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.1689760982990265, ACC: 0.9705043435096741
+2023-06-10 11:39:17,856 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:18,037 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.17837528884410858, ACC: 0.9675770401954651
+2023-06-10 11:39:18,260 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:18,425 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.188308984041214, ACC: 0.9641348719596863
+2023-06-10 11:39:18,650 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:18,818 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.19803820550441742, ACC: 0.9609550833702087
+2023-06-10 11:39:19,032 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:19,199 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.21003231406211853, ACC: 0.9564738869667053
+2023-06-10 11:39:19,410 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:19,589 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.22123867273330688, ACC: 0.9514318704605103
+2023-06-10 11:39:19,811 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:19,976 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.23157745599746704, ACC: 0.9463052153587341
+2023-06-10 11:39:20,206 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:20,372 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.23878443241119385, ACC: 0.9428291916847229
+2023-06-10 11:39:20,594 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:20,752 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.24815306067466736, ACC: 0.9383026957511902
+2023-06-10 11:39:20,964 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:21,142 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2590908408164978, ACC: 0.933148980140686
+2023-06-10 11:39:21,365 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:21,525 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.26886457204818726, ACC: 0.9285915493965149
+2023-06-10 11:39:21,756 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:21,926 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.2811640799045563, ACC: 0.9227089285850525
+2023-06-10 11:39:22,147 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:22,309 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.671824038028717, ACC: 0.32220458984375
+2023-06-10 11:39:22,532 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:22,699 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.29981139302253723, ACC: 0.9125174283981323
+2023-06-10 11:39:22,922 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:23,089 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.31141752004623413, ACC: 0.9054973125457764
+2023-06-10 11:39:23,306 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:23,478 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.3230096995830536, ACC: 0.8984466791152954
+2023-06-10 11:39:23,702 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:23,859 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.3330323100090027, ACC: 0.8918333053588867
+2023-06-10 11:39:24,084 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:24,244 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.34084054827690125, ACC: 0.8870640993118286
+2023-06-10 11:39:24,291 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:24,454 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.35021093487739563, ACC: 0.8802236318588257
+2023-06-10 11:39:26,960 - root - INFO - Initial condition 3 of 6
+2023-06-10 11:39:30,219 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:39:30,284 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:39:37,322 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:39:37,322 - root - INFO - Begin autoregressive inference
+2023-06-10 11:39:37,626 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:37,793 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:39:38,011 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:38,177 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.02931646630167961, ACC: 0.9987504482269287
+2023-06-10 11:39:38,387 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:38,563 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.0451517179608345, ACC: 0.9970911741256714
+2023-06-10 11:39:38,782 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:38,943 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.06369426846504211, ACC: 0.9945526719093323
+2023-06-10 11:39:39,161 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:39,339 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.08097859472036362, ACC: 0.9918203353881836
+2023-06-10 11:39:39,551 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:39,723 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.0974542424082756, ACC: 0.9887385368347168
+2023-06-10 11:39:39,943 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:40,125 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11627008765935898, ACC: 0.9844408631324768
+2023-06-10 11:39:40,344 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:40,511 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.13120126724243164, ACC: 0.9806137084960938
+2023-06-10 11:39:40,723 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:40,889 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.14145220816135406, ACC: 0.9782601594924927
+2023-06-10 11:39:41,107 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:41,280 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.1522909700870514, ACC: 0.9758522510528564
+2023-06-10 11:39:41,497 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:41,665 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.16172361373901367, ACC: 0.9733508229255676
+2023-06-10 11:39:41,893 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:42,071 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.1702602356672287, ACC: 0.9708508253097534
+2023-06-10 11:39:42,302 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:42,489 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.18181756138801575, ACC: 0.9672366976737976
+2023-06-10 11:39:42,711 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:42,884 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.1933220773935318, ACC: 0.9630952477455139
+2023-06-10 11:39:43,114 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:43,294 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.19922690093517303, ACC: 0.9610096216201782
+2023-06-10 11:39:43,531 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:43,706 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.20757415890693665, ACC: 0.9576766490936279
+2023-06-10 11:39:43,933 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:44,097 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.21864847838878632, ACC: 0.9536249041557312
+2023-06-10 11:39:44,322 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:44,510 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.22909758985042572, ACC: 0.950127899646759
+2023-06-10 11:39:44,732 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:44,915 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.24006415903568268, ACC: 0.9452126026153564
+2023-06-10 11:39:45,148 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:45,318 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.2505863308906555, ACC: 0.9401828646659851
+2023-06-10 11:39:45,545 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:45,710 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2594029903411865, ACC: 0.9365449547767639
+2023-06-10 11:39:45,935 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:46,107 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.26886504888534546, ACC: 0.9321273565292358
+2023-06-10 11:39:46,340 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:46,512 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.2795456051826477, ACC: 0.9263431429862976
+2023-06-10 11:39:46,732 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:46,907 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.2911301553249359, ACC: 0.9204242825508118
+2023-06-10 11:39:47,132 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:47,308 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.3005251884460449, ACC: 0.9152617454528809
+2023-06-10 11:39:47,537 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:47,711 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.30828240513801575, ACC: 0.9106342792510986
+2023-06-10 11:39:47,941 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:48,108 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.31709879636764526, ACC: 0.9051184058189392
+2023-06-10 11:39:48,339 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:48,510 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.32636722922325134, ACC: 0.899125337600708
+2023-06-10 11:39:48,731 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:48,907 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.3351152241230011, ACC: 0.8931658267974854
+2023-06-10 11:39:48,957 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:39:49,144 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.3432888984680176, ACC: 0.8873917460441589
+2023-06-10 11:39:52,441 - root - INFO - Initial condition 4 of 6
+2023-06-10 11:39:55,956 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:39:56,021 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:40:03,441 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:40:03,441 - root - INFO - Begin autoregressive inference
+2023-06-10 11:40:03,751 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:03,938 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:40:04,168 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:04,329 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.02596477046608925, ACC: 0.9990121722221375
+2023-06-10 11:40:04,544 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:04,713 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.039112795144319534, ACC: 0.9977998733520508
+2023-06-10 11:40:04,935 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:05,106 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.05840328708291054, ACC: 0.9953834414482117
+2023-06-10 11:40:05,324 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:05,496 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.07910434901714325, ACC: 0.9919974207878113
+2023-06-10 11:40:05,711 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:05,879 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.09778855741024017, ACC: 0.9883259534835815
+2023-06-10 11:40:06,103 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:06,280 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11567682027816772, ACC: 0.9846588373184204
+2023-06-10 11:40:06,504 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:06,679 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.13106101751327515, ACC: 0.9814077019691467
+2023-06-10 11:40:06,903 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:07,106 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.14139513671398163, ACC: 0.9791742563247681
+2023-06-10 11:40:07,337 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:07,495 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.15022428333759308, ACC: 0.9764748215675354
+2023-06-10 11:40:07,723 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:07,886 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.15829505026340485, ACC: 0.9739178419113159
+2023-06-10 11:40:08,100 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:08,272 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.16726471483707428, ACC: 0.9711428284645081
+2023-06-10 11:40:08,495 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:08,664 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.1772625744342804, ACC: 0.9681415557861328
+2023-06-10 11:40:08,886 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:09,070 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.18621943891048431, ACC: 0.9650928378105164
+2023-06-10 11:40:09,295 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:09,482 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.19704729318618774, ACC: 0.9615011215209961
+2023-06-10 11:40:09,920 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:10,099 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.2070591151714325, ACC: 0.9580376744270325
+2023-06-10 11:40:10,323 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:10,485 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.21786074340343475, ACC: 0.9536559581756592
+2023-06-10 11:40:10,697 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:10,859 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.2282775640487671, ACC: 0.9496316909790039
+2023-06-10 11:40:11,078 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:11,237 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.23821155726909637, ACC: 0.9448961615562439
+2023-06-10 11:40:11,451 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:11,634 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.24734854698181152, ACC: 0.9407705664634705
+2023-06-10 11:40:11,847 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:12,021 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2579948306083679, ACC: 0.9357882738113403
+2023-06-10 11:40:12,279 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:12,451 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.2674272656440735, ACC: 0.9312549233436584
+2023-06-10 11:40:12,682 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:12,848 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.2780087888240814, ACC: 0.9258337020874023
+2023-06-10 11:40:13,063 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:13,236 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.2892608344554901, ACC: 0.9196078181266785
+2023-06-10 11:40:13,456 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:13,637 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.2997509241104126, ACC: 0.9137912392616272
+2023-06-10 11:40:13,857 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:14,023 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.30721619725227356, ACC: 0.9093798995018005
+2023-06-10 11:40:14,248 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:14,450 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.31684836745262146, ACC: 0.9033744931221008
+2023-06-10 11:40:14,665 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:14,856 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.32668113708496094, ACC: 0.8976170420646667
+2023-06-10 11:40:15,078 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:15,251 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.33485788106918335, ACC: 0.8923591375350952
+2023-06-10 11:40:15,298 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:15,460 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.3422214984893799, ACC: 0.8872861266136169
+2023-06-10 11:40:20,184 - root - INFO - Initial condition 5 of 6
+2023-06-10 11:40:23,774 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:40:23,841 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:40:30,794 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:40:30,794 - root - INFO - Begin autoregressive inference
+2023-06-10 11:40:31,134 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:31,330 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:40:31,556 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:31,721 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.029771657660603523, ACC: 0.998713493347168
+2023-06-10 11:40:31,941 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:32,105 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.04322773963212967, ACC: 0.9974830150604248
+2023-06-10 11:40:32,332 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:32,512 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.06032319366931915, ACC: 0.9952879548072815
+2023-06-10 11:40:32,741 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:32,925 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.0790308341383934, ACC: 0.992389440536499
+2023-06-10 11:40:33,147 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:33,326 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.09755326062440872, ACC: 0.988978922367096
+2023-06-10 11:40:33,554 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:33,730 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11725449562072754, ACC: 0.9844506978988647
+2023-06-10 11:40:33,960 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:34,134 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.13420824706554413, ACC: 0.9800993204116821
+2023-06-10 11:40:34,344 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:34,510 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.145772784948349, ACC: 0.9775724411010742
+2023-06-10 11:40:34,727 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:34,900 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.1550029218196869, ACC: 0.9753186106681824
+2023-06-10 11:40:35,120 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:35,279 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.1646014302968979, ACC: 0.973047137260437
+2023-06-10 11:40:35,486 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:35,651 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.17508932948112488, ACC: 0.9702737331390381
+2023-06-10 11:40:35,868 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:36,049 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.18316921591758728, ACC: 0.9677591323852539
+2023-06-10 11:40:36,284 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:36,459 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.19168108701705933, ACC: 0.9651786684989929
+2023-06-10 11:40:36,684 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:36,874 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.20146821439266205, ACC: 0.9615461826324463
+2023-06-10 11:40:37,090 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:37,260 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.21169351041316986, ACC: 0.9579302072525024
+2023-06-10 11:40:37,478 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:37,650 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.22046129405498505, ACC: 0.9548036456108093
+2023-06-10 11:40:37,862 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:38,041 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.23167581856250763, ACC: 0.9505270719528198
+2023-06-10 11:40:38,258 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:38,430 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.24082079529762268, ACC: 0.9468862414360046
+2023-06-10 11:40:38,649 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:38,819 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.2518628239631653, ACC: 0.9412452578544617
+2023-06-10 11:40:39,029 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:39,203 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2624652087688446, ACC: 0.9357504844665527
+2023-06-10 11:40:39,436 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:39,615 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.27087217569351196, ACC: 0.930992841720581
+2023-06-10 11:40:39,843 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:40,025 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.278986394405365, ACC: 0.9267221093177795
+2023-06-10 11:40:40,256 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:40,439 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.28894296288490295, ACC: 0.9213861227035522
+2023-06-10 11:40:40,666 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:40,858 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.2980877161026001, ACC: 0.9166083335876465
+2023-06-10 11:40:41,092 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:41,274 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.3069302439689636, ACC: 0.9111155867576599
+2023-06-10 11:40:41,499 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:41,690 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.3153831362724304, ACC: 0.9059262275695801
+2023-06-10 11:40:41,923 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:42,112 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.3260609209537506, ACC: 0.8995593786239624
+2023-06-10 11:40:42,346 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:42,540 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.33541229367256165, ACC: 0.8933528065681458
+2023-06-10 11:40:42,600 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:42,796 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.34478411078453064, ACC: 0.886875331401825
+2023-06-10 11:40:49,074 - root - INFO - Initial condition 6 of 6
+2023-06-10 11:40:52,200 - root - INFO - valid_data_full: (366, 30, 721, 1440)
+2023-06-10 11:40:52,303 - root - INFO - valid_data: (30, 30, 720, 1440)
+2023-06-10 11:40:59,420 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-10 11:40:59,420 - root - INFO - Begin autoregressive inference
+2023-06-10 11:40:59,758 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:40:59,944 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-10 11:41:00,176 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:00,360 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.027623608708381653, ACC: 0.998909056186676
+2023-06-10 11:41:00,573 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:00,744 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.04168253391981125, ACC: 0.9975639581680298
+2023-06-10 11:41:00,953 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:01,133 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.05793718248605728, ACC: 0.9954894781112671
+2023-06-10 11:41:01,352 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:01,540 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.0775659903883934, ACC: 0.9924027323722839
+2023-06-10 11:41:01,761 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:01,947 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.09760525077581406, ACC: 0.9887086153030396
+2023-06-10 11:41:02,154 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:02,351 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.11616303026676178, ACC: 0.9849270582199097
+2023-06-10 11:41:02,559 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:02,753 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.13140833377838135, ACC: 0.9814106822013855
+2023-06-10 11:41:02,979 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:03,160 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.14233224093914032, ACC: 0.978770911693573
+2023-06-10 11:41:03,390 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:03,576 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.15427806973457336, ACC: 0.9757573008537292
+2023-06-10 11:41:03,805 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:03,992 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.16465632617473602, ACC: 0.9732445478439331
+2023-06-10 11:41:04,225 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:04,413 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.175923153758049, ACC: 0.970618724822998
+2023-06-10 11:41:04,646 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:04,832 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.18730220198631287, ACC: 0.9670498371124268
+2023-06-10 11:41:05,057 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:05,235 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.197996124625206, ACC: 0.9634041786193848
+2023-06-10 11:41:05,457 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:05,639 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.2074919492006302, ACC: 0.9604600667953491
+2023-06-10 11:41:05,871 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:06,054 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.2174377590417862, ACC: 0.9567734599113464
+2023-06-10 11:41:06,277 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:06,464 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.22892583906650543, ACC: 0.9520110487937927
+2023-06-10 11:41:06,697 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:06,885 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.23954205214977264, ACC: 0.9468886852264404
+2023-06-10 11:41:07,118 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:07,293 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.2505577802658081, ACC: 0.9420391917228699
+2023-06-10 11:41:07,523 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:07,720 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.25851204991340637, ACC: 0.9382233023643494
+2023-06-10 11:41:07,953 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:08,126 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.2673121690750122, ACC: 0.9337119460105896
+2023-06-10 11:41:08,353 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:08,521 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.27455222606658936, ACC: 0.9299145340919495
+2023-06-10 11:41:08,750 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:08,919 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.28229469060897827, ACC: 0.9255355596542358
+2023-06-10 11:41:09,151 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:09,320 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.291940838098526, ACC: 0.9205346703529358
+2023-06-10 11:41:09,553 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:09,726 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.3000420928001404, ACC: 0.9156723022460938
+2023-06-10 11:41:09,954 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:10,140 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.3090671896934509, ACC: 0.9098725914955139
+2023-06-10 11:41:10,373 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:10,560 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.3188626766204834, ACC: 0.9031374454498291
+2023-06-10 11:41:10,796 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:10,973 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.32960134744644165, ACC: 0.8955312371253967
+2023-06-10 11:41:11,197 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:11,378 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.3395247459411621, ACC: 0.8886088728904724
+2023-06-10 11:41:11,436 - root - INFO - Loading land mask data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-10 11:41:11,615 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.3488190174102783, ACC: 0.8822835087776184
+2023-06-10 11:41:18,029 - root - INFO - Saving files at .././exp/afno_backbone/20230609-155507/autoregressive_predictions.h5
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+pred: torch.Size([1, 25, 720, 1440]) tar: torch.Size([1, 25, 720, 1440])
+seq_real: (6, 30, 25, 720, 1440)
+6 30 25 720 1440
+seq_pred:  (6, 30, 25, 720, 1440)

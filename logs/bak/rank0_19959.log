@@ -1,0 +1,118 @@
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 13, in <module>
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 13, in <module>
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 13, in <module>
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/train_025_bingxing.py", line 13, in <module>
+                import matplotlib.pyplot as pltimport matplotlib.pyplot as pltimport matplotlib.pyplot as pltimport matplotlib.pyplot as plt
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/__init__.py", line 131, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/__init__.py", line 131, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/__init__.py", line 131, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/__init__.py", line 131, in <module>
+                from . import _api, _version, cbook, _docstring, rcsetupfrom . import _api, _version, cbook, _docstring, rcsetupfrom . import _api, _version, cbook, _docstring, rcsetupfrom . import _api, _version, cbook, _docstring, rcsetup
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 27, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 27, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 27, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/rcsetup.py", line 27, in <module>
+                from matplotlib.colors import Colormap, is_color_likefrom matplotlib.colors import Colormap, is_color_likefrom matplotlib.colors import Colormap, is_color_likefrom matplotlib.colors import Colormap, is_color_like
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/colors.py", line 56, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/colors.py", line 56, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/colors.py", line 56, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/colors.py", line 56, in <module>
+                from matplotlib import _api, _cm, cbook, scalefrom matplotlib import _api, _cm, cbook, scalefrom matplotlib import _api, _cm, cbook, scalefrom matplotlib import _api, _cm, cbook, scale
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/scale.py", line 22, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/scale.py", line 22, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/scale.py", line 22, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/scale.py", line 22, in <module>
+                from matplotlib.ticker import (from matplotlib.ticker import (from matplotlib.ticker import (from matplotlib.ticker import (
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/ticker.py", line 138, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/ticker.py", line 138, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/ticker.py", line 138, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/ticker.py", line 138, in <module>
+                from matplotlib import transforms as mtransformsfrom matplotlib import transforms as mtransformsfrom matplotlib import transforms as mtransformsfrom matplotlib import transforms as mtransforms
+
+
+
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/transforms.py", line 49, in <module>
+                from matplotlib._path import (from matplotlib._path import (from matplotlib._path import (from matplotlib._path import (
+
+
+
+ImportErrorImportErrorImportErrorImportError: : : : /home/bingxing2/apps/compilers/gcc/9.3.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_path.cpython-310-aarch64-linux-gnu.so)/home/bingxing2/apps/compilers/gcc/9.3.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_path.cpython-310-aarch64-linux-gnu.so)/home/bingxing2/apps/compilers/gcc/9.3.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_path.cpython-310-aarch64-linux-gnu.so)/home/bingxing2/apps/compilers/gcc/9.3.0/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/matplotlib/_path.cpython-310-aarch64-linux-gnu.so)
+
+
+
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 218931) of binary: /home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/python
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 794, in main
+    run(args)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/run.py", line 785, in run
+    elastic_launch(
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 250, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train_025_bingxing.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2023-06-08_20:45:42
+  host      : paraai-n32-h-01-agent-13.paraai-n32-h-01.com
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 218932)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2023-06-08_20:45:42
+  host      : paraai-n32-h-01-agent-13.paraai-n32-h-01.com
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 218933)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2023-06-08_20:45:42
+  host      : paraai-n32-h-01-agent-13.paraai-n32-h-01.com
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 218934)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-06-08_20:45:42
+  host      : paraai-n32-h-01-agent-13.paraai-n32-h-01.com
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 218931)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

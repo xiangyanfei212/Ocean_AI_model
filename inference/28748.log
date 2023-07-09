@@ -1,0 +1,524 @@
+cuda-11.7 loaded successful
+gcc-12.2.0 loaded successful
+2023-06-29 23:09:16,058 - root - INFO - expDir: /home/bingxing2/home/scx6115/Ocean_AI_model/./exp_15_levels/Masked_AE_Ocean/20230628-131150
+2023-06-29 23:09:16,063 - root - INFO - ------------------ Configuration ------------------
+2023-06-29 23:09:16,066 - root - INFO - Configuration file: ../exp_15_levels/Masked_AE_Ocean/20230628-131150/config.yaml
+2023-06-29 23:09:16,068 - root - INFO - Configuration name: Masked_AE_Ocean
+2023-06-29 23:09:16,069 - root - INFO - nettype Masked_AE_Ocean
+2023-06-29 23:09:16,070 - root - INFO - log_to_wandb True
+2023-06-29 23:09:16,071 - root - INFO - lr 0.001
+2023-06-29 23:09:16,072 - root - INFO - batch_size 32
+2023-06-29 23:09:16,073 - root - INFO - max_epochs 150
+2023-06-29 23:09:16,074 - root - INFO - scheduler CosineAnnealingLR
+2023-06-29 23:09:16,075 - root - INFO - fusion_3d_2d False
+2023-06-29 23:09:16,077 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+2023-06-29 23:09:16,078 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+2023-06-29 23:09:16,079 - root - INFO - N_in_channels 66
+2023-06-29 23:09:16,080 - root - INFO - N_out_channels 61
+2023-06-29 23:09:16,081 - root - INFO - img_size_h 720
+2023-06-29 23:09:16,082 - root - INFO - img_size_w 1440
+2023-06-29 23:09:16,083 - root - INFO - patch_size_h 8
+2023-06-29 23:09:16,084 - root - INFO - patch_size_w 8
+2023-06-29 23:09:16,085 - root - INFO - mlp_ratio 4.0
+2023-06-29 23:09:16,086 - root - INFO - embed_dim 512
+2023-06-29 23:09:16,087 - root - INFO - depth 16
+2023-06-29 23:09:16,088 - root - INFO - num_heads 16
+2023-06-29 23:09:16,089 - root - INFO - decoder_embed_dim 1024
+2023-06-29 23:09:16,090 - root - INFO - decoder_depth 8
+2023-06-29 23:09:16,091 - root - INFO - decoder_num_heads 16
+2023-06-29 23:09:16,092 - root - INFO - koopman_depth 2
+2023-06-29 23:09:16,093 - root - INFO - modes_h_ratio 1
+2023-06-29 23:09:16,094 - root - INFO - modes_w_ratio 0.8
+2023-06-29 23:09:16,095 - root - INFO - drop_rate 0.0
+2023-06-29 23:09:16,096 - root - INFO - drop_path_rate 0.0
+2023-06-29 23:09:16,097 - root - INFO - sparsity_threshold 0.01
+2023-06-29 23:09:16,098 - root - INFO - hard_thresholding_fraction 1.0
+2023-06-29 23:09:16,099 - root - INFO - num_blocks 8
+2023-06-29 23:09:16,100 - root - INFO - loss l2
+2023-06-29 23:09:16,101 - root - INFO - num_data_workers 0
+2023-06-29 23:09:16,102 - root - INFO - dt 1
+2023-06-29 23:09:16,103 - root - INFO - n_history 0
+2023-06-29 23:09:16,105 - root - INFO - prediction_type iterative
+2023-06-29 23:09:16,105 - root - INFO - prediction_length 30
+2023-06-29 23:09:16,106 - root - INFO - n_initial_conditions 5
+2023-06-29 23:09:16,107 - root - INFO - ics_type default
+2023-06-29 23:09:16,108 - root - INFO - date_strings ['2018-09-14 00:00:00']
+2023-06-29 23:09:16,109 - root - INFO - save_raw_forecasts True
+2023-06-29 23:09:16,110 - root - INFO - save_channel False
+2023-06-29 23:09:16,111 - root - INFO - masked_acc False
+2023-06-29 23:09:16,112 - root - INFO - maskpath None
+2023-06-29 23:09:16,113 - root - INFO - perturb False
+2023-06-29 23:09:16,114 - root - INFO - add_grid False
+2023-06-29 23:09:16,115 - root - INFO - N_grid_channels 0
+2023-06-29 23:09:16,116 - root - INFO - gridtype sinusoidal
+2023-06-29 23:09:16,117 - root - INFO - roll False
+2023-06-29 23:09:16,118 - root - INFO - enable_nhwc False
+2023-06-29 23:09:16,119 - root - INFO - optimizer_type FusedAdam
+2023-06-29 23:09:16,120 - root - INFO - exp_dir ./exp_15_levels
+2023-06-29 23:09:16,121 - root - INFO - patch_size 8
+2023-06-29 23:09:16,122 - root - INFO - width 56
+2023-06-29 23:09:16,123 - root - INFO - modes 32
+2023-06-29 23:09:16,124 - root - INFO - target default
+2023-06-29 23:09:16,125 - root - INFO - train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train
+2023-06-29 23:09:16,126 - root - INFO - valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/valid
+2023-06-29 23:09:16,127 - root - INFO - test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test
+2023-06-29 23:09:16,128 - root - INFO - land_mask True
+2023-06-29 23:09:16,129 - root - INFO - land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/land_mask.h5
+2023-06-29 23:09:16,130 - root - INFO - normalize True
+2023-06-29 23:09:16,131 - root - INFO - normalization zscore
+2023-06-29 23:09:16,132 - root - INFO - global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_mins.npy
+2023-06-29 23:09:16,133 - root - INFO - global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_maxs.npy
+2023-06-29 23:09:16,134 - root - INFO - global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_means.npy
+2023-06-29 23:09:16,135 - root - INFO - global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/train/global_stds.npy
+2023-06-29 23:09:16,136 - root - INFO - orography True
+2023-06-29 23:09:16,137 - root - INFO - orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_zscore.h5
+2023-06-29 23:09:16,138 - root - INFO - orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/orography_norm_maxmin.h5
+2023-06-29 23:09:16,139 - root - INFO - add_noise False
+2023-06-29 23:09:16,140 - root - INFO - noise_std 0
+2023-06-29 23:09:16,141 - root - INFO - crop_size_x None
+2023-06-29 23:09:16,142 - root - INFO - crop_size_y None
+2023-06-29 23:09:16,143 - root - INFO - log_to_screen True
+2023-06-29 23:09:16,144 - root - INFO - save_checkpoint True
+2023-06-29 23:09:16,145 - root - INFO - plot_animations False
+2023-06-29 23:09:16,146 - root - INFO - resuming False
+2023-06-29 23:09:16,147 - root - INFO - interp 0
+2023-06-29 23:09:16,148 - root - INFO - world_size 1
+2023-06-29 23:09:16,149 - root - INFO - local_rank 0
+2023-06-29 23:09:16,150 - root - INFO - global_batch_size 32
+2023-06-29 23:09:16,151 - root - INFO - decorrelation_time 50
+2023-06-29 23:09:16,152 - root - INFO - n_samples_per_year 300
+2023-06-29 23:09:16,153 - root - INFO - experiment_dir /home/bingxing2/home/scx6115/Ocean_AI_model/./exp_15_levels/Masked_AE_Ocean/20230628-131150
+2023-06-29 23:09:16,154 - root - INFO - best_checkpoint_path /home/bingxing2/home/scx6115/Ocean_AI_model/./exp_15_levels/Masked_AE_Ocean/20230628-131150/training_checkpoints/best_ckpt.tar
+2023-06-29 23:09:16,155 - root - INFO - ---------------------------------------------------
+2023-06-29 23:09:16,156 - root - INFO - Inference for 6 initial conditions
+2023-06-29 23:09:16,204 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test/2012.h5
+2023-06-29 23:09:16,206 - root - INFO - Number of samples per year: 365
+2023-06-29 23:09:16,207 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test. Number of examples: 365. Image Shape: 720 x 1440 x 66
+2023-06-29 23:09:16,208 - root - INFO - Delta t: 1 days
+2023-06-29 23:09:16,209 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-29 23:09:17,513 - root - INFO - Loading trained model checkpoint from /home/bingxing2/home/scx6115/Ocean_AI_model/./exp_15_levels/Masked_AE_Ocean/20230628-131150/training_checkpoints/best_ckpt.tar
+2023-06-29 23:09:22,138 - root - INFO - Loading inference data
+2023-06-29 23:09:22,140 - root - INFO - Inference data from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_01/test/2012.h5
+2023-06-29 23:09:22,143 - root - INFO - Initial condition 1 of 6
+2023-06-29 23:09:29,472 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:09:29,574 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:09:45,236 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:09:45,238 - root - INFO - Begin autoregressive inference
+2023-06-29 23:09:48,080 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:09:48,885 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.05248498544096947, ACC: 0.9977142214775085
+2023-06-29 23:09:49,675 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.08813996613025665, ACC: 0.9935832619667053
+2023-06-29 23:09:50,487 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.09974171221256256, ACC: 0.9918326735496521
+2023-06-29 23:09:51,353 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.12080565094947815, ACC: 0.9880521893501282
+2023-06-29 23:09:52,160 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.14123490452766418, ACC: 0.9836678504943848
+2023-06-29 23:09:52,950 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.15994969010353088, ACC: 0.9794542789459229
+2023-06-29 23:09:53,786 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.17946213483810425, ACC: 0.9746514558792114
+2023-06-29 23:09:54,701 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.19945283234119415, ACC: 0.9692931175231934
+2023-06-29 23:09:55,505 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.22172459959983826, ACC: 0.9624430537223816
+2023-06-29 23:09:56,314 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.24849914014339447, ACC: 0.9528496265411377
+2023-06-29 23:09:57,125 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.2796615958213806, ACC: 0.9391877055168152
+2023-06-29 23:09:57,926 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.3020439147949219, ACC: 0.9278958439826965
+2023-06-29 23:09:58,735 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.3157629668712616, ACC: 0.9204992651939392
+2023-06-29 23:09:59,566 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.33739256858825684, ACC: 0.9071217775344849
+2023-06-29 23:10:00,369 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.35579830408096313, ACC: 0.8947452902793884
+2023-06-29 23:10:01,158 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.37110283970832825, ACC: 0.8838735222816467
+2023-06-29 23:10:01,962 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.3817073404788971, ACC: 0.875834047794342
+2023-06-29 23:10:02,740 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.3902798295021057, ACC: 0.8689014315605164
+2023-06-29 23:10:03,542 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.39543935656547546, ACC: 0.8649555444717407
+2023-06-29 23:10:04,353 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.402682363986969, ACC: 0.858970046043396
+2023-06-29 23:10:05,156 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.4075053036212921, ACC: 0.8550854325294495
+2023-06-29 23:10:05,960 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.41345831751823425, ACC: 0.8502900004386902
+2023-06-29 23:10:06,779 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.42045238614082336, ACC: 0.8438370823860168
+2023-06-29 23:10:07,569 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.4265234172344208, ACC: 0.8385487198829651
+2023-06-29 23:10:08,368 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.43324995040893555, ACC: 0.832338809967041
+2023-06-29 23:10:09,146 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.4405991733074188, ACC: 0.8255239725112915
+2023-06-29 23:10:09,961 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.4448099434375763, ACC: 0.8215181827545166
+2023-06-29 23:10:10,789 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.4496268332004547, ACC: 0.8170100450515747
+2023-06-29 23:10:11,243 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.4544406831264496, ACC: 0.812025249004364
+2023-06-29 23:10:11,306 - root - INFO - Initial condition 2 of 6
+2023-06-29 23:10:18,397 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:10:18,500 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:10:34,038 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:10:34,039 - root - INFO - Begin autoregressive inference
+2023-06-29 23:10:34,966 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:10:35,778 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.053034476935863495, ACC: 0.9976509213447571
+2023-06-29 23:10:36,591 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.08847500383853912, ACC: 0.993541419506073
+2023-06-29 23:10:37,476 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.10001391917467117, ACC: 0.991840124130249
+2023-06-29 23:10:38,297 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.11915132403373718, ACC: 0.9885147213935852
+2023-06-29 23:10:39,138 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.13964617252349854, ACC: 0.9845502972602844
+2023-06-29 23:10:39,966 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.16129955649375916, ACC: 0.9798409938812256
+2023-06-29 23:10:40,792 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.18412411212921143, ACC: 0.9743274450302124
+2023-06-29 23:10:41,602 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.21091942489147186, ACC: 0.9664866924285889
+2023-06-29 23:10:43,005 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.2391076236963272, ACC: 0.9567511677742004
+2023-06-29 23:10:43,859 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.27078309655189514, ACC: 0.9434233903884888
+2023-06-29 23:10:44,686 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.29842522740364075, ACC: 0.929649293422699
+2023-06-29 23:10:45,523 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.31923699378967285, ACC: 0.9177557826042175
+2023-06-29 23:10:46,325 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.33066117763519287, ACC: 0.9108415842056274
+2023-06-29 23:10:47,173 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.3418252468109131, ACC: 0.9036106467247009
+2023-06-29 23:10:48,023 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.35515400767326355, ACC: 0.8946009874343872
+2023-06-29 23:10:48,876 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.3663538992404938, ACC: 0.8863227367401123
+2023-06-29 23:10:49,694 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.37707892060279846, ACC: 0.8780943155288696
+2023-06-29 23:10:50,539 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.38434702157974243, ACC: 0.872286319732666
+2023-06-29 23:10:51,364 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.3910396099090576, ACC: 0.8668955564498901
+2023-06-29 23:10:52,192 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.39935678243637085, ACC: 0.8600092530250549
+2023-06-29 23:10:53,300 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.4074123203754425, ACC: 0.8531869053840637
+2023-06-29 23:10:54,153 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.4166368246078491, ACC: 0.8448965549468994
+2023-06-29 23:10:55,005 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.42485517263412476, ACC: 0.8375158905982971
+2023-06-29 23:10:55,853 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.43356284499168396, ACC: 0.8294380903244019
+2023-06-29 23:10:56,707 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.44195619225502014, ACC: 0.8214025497436523
+2023-06-29 23:10:57,582 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.44836488366127014, ACC: 0.8153454661369324
+2023-06-29 23:10:58,376 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.4558078646659851, ACC: 0.8084535002708435
+2023-06-29 23:10:59,234 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.4638368487358093, ACC: 0.8004269003868103
+2023-06-29 23:10:59,668 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.4714125692844391, ACC: 0.7928719520568848
+2023-06-29 23:11:06,058 - root - INFO - Initial condition 3 of 6
+2023-06-29 23:11:12,686 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:11:12,790 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:11:28,684 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:11:28,684 - root - INFO - Begin autoregressive inference
+2023-06-29 23:11:29,622 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:11:30,456 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.05292670428752899, ACC: 0.9976577162742615
+2023-06-29 23:11:31,304 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.08782421797513962, ACC: 0.9936227798461914
+2023-06-29 23:11:32,151 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.0986560508608818, ACC: 0.9920067191123962
+2023-06-29 23:11:32,999 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.11716070771217346, ACC: 0.9888290762901306
+2023-06-29 23:11:33,812 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.13658665120601654, ACC: 0.9847811460494995
+2023-06-29 23:11:34,735 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.15574388206005096, ACC: 0.980269193649292
+2023-06-29 23:11:35,582 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.17352084815502167, ACC: 0.9757368564605713
+2023-06-29 23:11:36,444 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.1937793642282486, ACC: 0.9704745411872864
+2023-06-29 23:11:37,262 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.2130974978208542, ACC: 0.9642709493637085
+2023-06-29 23:11:38,110 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.23442494869232178, ACC: 0.9569506645202637
+2023-06-29 23:11:38,953 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.255196213722229, ACC: 0.948722243309021
+2023-06-29 23:11:39,807 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.2764960527420044, ACC: 0.939238429069519
+2023-06-29 23:11:40,634 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.2971009910106659, ACC: 0.9293544888496399
+2023-06-29 23:11:41,482 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.31595027446746826, ACC: 0.9190616607666016
+2023-06-29 23:11:42,377 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.329109787940979, ACC: 0.9112262725830078
+2023-06-29 23:11:43,229 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.3447442948818207, ACC: 0.9011777639389038
+2023-06-29 23:11:44,080 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.3568923771381378, ACC: 0.8929822444915771
+2023-06-29 23:11:44,989 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.37024468183517456, ACC: 0.8836622834205627
+2023-06-29 23:11:45,807 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.3793075382709503, ACC: 0.8768296241760254
+2023-06-29 23:11:46,652 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.3909575343132019, ACC: 0.8678953051567078
+2023-06-29 23:11:47,515 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.4028589129447937, ACC: 0.8583136200904846
+2023-06-29 23:11:48,342 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.4154810607433319, ACC: 0.847533106803894
+2023-06-29 23:11:49,156 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.4271531105041504, ACC: 0.8375339508056641
+2023-06-29 23:11:50,005 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.43672099709510803, ACC: 0.8287352323532104
+2023-06-29 23:11:50,841 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.445144385099411, ACC: 0.821061372756958
+2023-06-29 23:11:51,649 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.4522067606449127, ACC: 0.8141429424285889
+2023-06-29 23:11:52,480 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.4594802260398865, ACC: 0.8069100975990295
+2023-06-29 23:11:53,311 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.465347558259964, ACC: 0.8011378049850464
+2023-06-29 23:11:53,757 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.47132086753845215, ACC: 0.7951490879058838
+2023-06-29 23:12:01,922 - root - INFO - Initial condition 4 of 6
+2023-06-29 23:12:09,101 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:12:09,215 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:12:25,567 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:12:25,567 - root - INFO - Begin autoregressive inference
+2023-06-29 23:12:26,567 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:12:27,387 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.05167083069682121, ACC: 0.9978064894676208
+2023-06-29 23:12:28,240 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.0857175961136818, ACC: 0.9940282106399536
+2023-06-29 23:12:29,076 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.09598386287689209, ACC: 0.9926103949546814
+2023-06-29 23:12:30,702 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.11370144784450531, ACC: 0.9896196126937866
+2023-06-29 23:12:31,537 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.1322890669107437, ACC: 0.9859752655029297
+2023-06-29 23:12:32,468 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.15078453719615936, ACC: 0.981835663318634
+2023-06-29 23:12:33,293 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.16875684261322021, ACC: 0.9774680137634277
+2023-06-29 23:12:34,118 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.1860674023628235, ACC: 0.9727776050567627
+2023-06-29 23:12:34,942 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.20334267616271973, ACC: 0.9674205183982849
+2023-06-29 23:12:35,774 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.2200489640235901, ACC: 0.9620000720024109
+2023-06-29 23:12:36,602 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.23778864741325378, ACC: 0.9559449553489685
+2023-06-29 23:12:37,454 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.2520034909248352, ACC: 0.9507297873497009
+2023-06-29 23:12:38,349 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.2648271322250366, ACC: 0.9454165697097778
+2023-06-29 23:12:39,219 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.2768763303756714, ACC: 0.9399914145469666
+2023-06-29 23:12:40,046 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.2893250584602356, ACC: 0.934076726436615
+2023-06-29 23:12:41,688 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.30167320370674133, ACC: 0.9280620813369751
+2023-06-29 23:12:42,537 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.31707659363746643, ACC: 0.920009434223175
+2023-06-29 23:12:43,363 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.3322548270225525, ACC: 0.9115105867385864
+2023-06-29 23:12:44,223 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.3448096215724945, ACC: 0.9036931991577148
+2023-06-29 23:12:45,149 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.3595457971096039, ACC: 0.8941785097122192
+2023-06-29 23:12:46,052 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.3709579110145569, ACC: 0.8864195346832275
+2023-06-29 23:12:46,970 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.3811197280883789, ACC: 0.8791797161102295
+2023-06-29 23:12:47,786 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.39152687788009644, ACC: 0.8715857863426208
+2023-06-29 23:12:48,625 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.40086665749549866, ACC: 0.8642780780792236
+2023-06-29 23:12:49,440 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.40940606594085693, ACC: 0.8569056391716003
+2023-06-29 23:12:50,258 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.41693803668022156, ACC: 0.8508238792419434
+2023-06-29 23:12:51,070 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.42523279786109924, ACC: 0.8435301184654236
+2023-06-29 23:12:52,534 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.43479248881340027, ACC: 0.8348113298416138
+2023-06-29 23:12:52,990 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.44398900866508484, ACC: 0.8260390758514404
+2023-06-29 23:13:03,586 - root - INFO - Initial condition 5 of 6
+2023-06-29 23:13:10,699 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:13:10,796 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:13:27,107 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:13:27,107 - root - INFO - Begin autoregressive inference
+2023-06-29 23:13:28,113 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:13:28,947 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.051630325615406036, ACC: 0.997835636138916
+2023-06-29 23:13:29,806 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.08476200699806213, ACC: 0.9942148923873901
+2023-06-29 23:13:30,631 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.09411246329545975, ACC: 0.9929705858230591
+2023-06-29 23:13:31,488 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.11215487867593765, ACC: 0.9900385141372681
+2023-06-29 23:13:32,322 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.13090310990810394, ACC: 0.9864190220832825
+2023-06-29 23:13:33,168 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.1490078717470169, ACC: 0.9823980927467346
+2023-06-29 23:13:33,992 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.16635669767856598, ACC: 0.9779648184776306
+2023-06-29 23:13:34,844 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.1828666776418686, ACC: 0.9732965230941772
+2023-06-29 23:13:35,671 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.19806456565856934, ACC: 0.9686074256896973
+2023-06-29 23:13:36,523 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.21145126223564148, ACC: 0.9642642140388489
+2023-06-29 23:13:37,345 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.22379910945892334, ACC: 0.9601158499717712
+2023-06-29 23:13:38,191 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.23608525097370148, ACC: 0.9557027816772461
+2023-06-29 23:13:39,008 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.24733145534992218, ACC: 0.9512970447540283
+2023-06-29 23:13:39,850 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.2578464448451996, ACC: 0.9472597241401672
+2023-06-29 23:13:40,640 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.2683377265930176, ACC: 0.9426043629646301
+2023-06-29 23:13:41,462 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.27668365836143494, ACC: 0.9386581778526306
+2023-06-29 23:13:42,271 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.28585273027420044, ACC: 0.9344629645347595
+2023-06-29 23:13:43,109 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.2951604127883911, ACC: 0.9303675889968872
+2023-06-29 23:13:43,936 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.30413636565208435, ACC: 0.9253721237182617
+2023-06-29 23:13:44,856 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.3132844865322113, ACC: 0.9208077192306519
+2023-06-29 23:13:45,694 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.3241235315799713, ACC: 0.9149234294891357
+2023-06-29 23:13:46,498 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.3330773115158081, ACC: 0.9098860621452332
+2023-06-29 23:13:47,302 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.3416116535663605, ACC: 0.9047101140022278
+2023-06-29 23:13:48,098 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.34863215684890747, ACC: 0.9002969861030579
+2023-06-29 23:13:48,980 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.3571414351463318, ACC: 0.8949748277664185
+2023-06-29 23:13:49,807 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.36533915996551514, ACC: 0.8895265460014343
+2023-06-29 23:13:50,621 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.37337085604667664, ACC: 0.8842974305152893
+2023-06-29 23:13:51,451 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.3784763514995575, ACC: 0.880983829498291
+2023-06-29 23:13:51,928 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.383327454328537, ACC: 0.8774877786636353
+2023-06-29 23:14:06,052 - root - INFO - Initial condition 6 of 6
+2023-06-29 23:14:13,592 - root - INFO - valid_data_full: (366, 66, 721, 1440)
+2023-06-29 23:14:13,716 - root - INFO - valid_data: (30, 66, 720, 1440)
+2023-06-29 23:14:30,209 - root - INFO - orography loaded; shape:torch.Size([1, 1, 720, 1440])
+2023-06-29 23:14:30,209 - root - INFO - Begin autoregressive inference
+2023-06-29 23:14:31,177 - root - INFO - Predicted timestep 0 of 30. ssh RMSE: 0.0, ACC: 1.0
+2023-06-29 23:14:32,063 - root - INFO - Predicted timestep 1 of 30. ssh RMSE: 0.05477341637015343, ACC: 0.9975488185882568
+2023-06-29 23:14:33,009 - root - INFO - Predicted timestep 2 of 30. ssh RMSE: 0.08615372329950333, ACC: 0.9940571784973145
+2023-06-29 23:14:33,832 - root - INFO - Predicted timestep 3 of 30. ssh RMSE: 0.09679101407527924, ACC: 0.9925839304924011
+2023-06-29 23:14:34,642 - root - INFO - Predicted timestep 4 of 30. ssh RMSE: 0.11573409289121628, ACC: 0.9893630146980286
+2023-06-29 23:14:35,497 - root - INFO - Predicted timestep 5 of 30. ssh RMSE: 0.13540992140769958, ACC: 0.9853965640068054
+2023-06-29 23:14:36,339 - root - INFO - Predicted timestep 6 of 30. ssh RMSE: 0.15343806147575378, ACC: 0.9811941385269165
+2023-06-29 23:14:37,193 - root - INFO - Predicted timestep 7 of 30. ssh RMSE: 0.17252923548221588, ACC: 0.9761245250701904
+2023-06-29 23:14:38,109 - root - INFO - Predicted timestep 8 of 30. ssh RMSE: 0.18909382820129395, ACC: 0.971253514289856
+2023-06-29 23:14:39,010 - root - INFO - Predicted timestep 9 of 30. ssh RMSE: 0.2053268551826477, ACC: 0.9661393761634827
+2023-06-29 23:14:39,894 - root - INFO - Predicted timestep 10 of 30. ssh RMSE: 0.21901126205921173, ACC: 0.96141517162323
+2023-06-29 23:14:40,823 - root - INFO - Predicted timestep 11 of 30. ssh RMSE: 0.23203657567501068, ACC: 0.9566919207572937
+2023-06-29 23:14:41,750 - root - INFO - Predicted timestep 12 of 30. ssh RMSE: 0.24386157095432281, ACC: 0.952037513256073
+2023-06-29 23:14:42,566 - root - INFO - Predicted timestep 13 of 30. ssh RMSE: 0.25563183426856995, ACC: 0.9473186731338501
+2023-06-29 23:14:43,426 - root - INFO - Predicted timestep 14 of 30. ssh RMSE: 0.26710718870162964, ACC: 0.9427137970924377
+2023-06-29 23:14:44,260 - root - INFO - Predicted timestep 15 of 30. ssh RMSE: 0.2785356938838959, ACC: 0.9376519322395325
+2023-06-29 23:14:45,087 - root - INFO - Predicted timestep 16 of 30. ssh RMSE: 0.29148462414741516, ACC: 0.9320762157440186
+2023-06-29 23:14:45,945 - root - INFO - Predicted timestep 17 of 30. ssh RMSE: 0.30505073070526123, ACC: 0.9258396029472351
+2023-06-29 23:14:46,783 - root - INFO - Predicted timestep 18 of 30. ssh RMSE: 0.3183997571468353, ACC: 0.9186959266662598
+2023-06-29 23:14:47,592 - root - INFO - Predicted timestep 19 of 30. ssh RMSE: 0.329649955034256, ACC: 0.9123951196670532
+2023-06-29 23:14:48,422 - root - INFO - Predicted timestep 20 of 30. ssh RMSE: 0.34294888377189636, ACC: 0.904695987701416
+2023-06-29 23:14:49,361 - root - INFO - Predicted timestep 21 of 30. ssh RMSE: 0.3542793393135071, ACC: 0.8973214030265808
+2023-06-29 23:14:50,178 - root - INFO - Predicted timestep 22 of 30. ssh RMSE: 0.36515775322914124, ACC: 0.8901484608650208
+2023-06-29 23:14:51,014 - root - INFO - Predicted timestep 23 of 30. ssh RMSE: 0.37530264258384705, ACC: 0.8828912377357483
+2023-06-29 23:14:51,833 - root - INFO - Predicted timestep 24 of 30. ssh RMSE: 0.3855772316455841, ACC: 0.8754810094833374
+2023-06-29 23:14:52,639 - root - INFO - Predicted timestep 25 of 30. ssh RMSE: 0.3926732540130615, ACC: 0.8700425624847412
+2023-06-29 23:14:53,466 - root - INFO - Predicted timestep 26 of 30. ssh RMSE: 0.397327184677124, ACC: 0.866177499294281
+2023-06-29 23:14:54,337 - root - INFO - Predicted timestep 27 of 30. ssh RMSE: 0.40247485041618347, ACC: 0.8620796799659729
+2023-06-29 23:14:55,181 - root - INFO - Predicted timestep 28 of 30. ssh RMSE: 0.41035059094429016, ACC: 0.855350911617279
+2023-06-29 23:14:55,632 - root - INFO - Predicted timestep 29 of 30. ssh RMSE: 0.42180001735687256, ACC: 0.8461140990257263
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/inference/inference_025.py", line 539, in <module>
+    logging.info('seq_real:', seq_real.shape)
+Message: 'seq_real:'
+Arguments: ((6, 30, 61, 720, 1440),)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 1100, in emit
+    msg = self.format(record)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 943, in format
+    return fmt.format(record)
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 678, in format
+    record.message = record.getMessage()
+  File "/home/bingxing2/home/scx6115/.conda/envs/torch2.0/lib/python3.10/logging/__init__.py", line 368, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/home/bingxing2/home/scx6115/Ocean_AI_model/inference/inference_025.py", line 539, in <module>
+    logging.info('seq_real:', seq_real.shape)
+Message: 'seq_real:'
+Arguments: ((6, 30, 61, 720, 1440),)
+2023-06-29 23:15:12,806 - root - INFO - Saving files at /home/bingxing2/home/scx6115/Ocean_AI_model/./exp_15_levels/Masked_AE_Ocean/20230628-131150/autoregressive_predictions.h5
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])
+pred: torch.Size([1, 61, 720, 1440]) tar: torch.Size([1, 61, 720, 1440])

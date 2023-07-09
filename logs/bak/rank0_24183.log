@@ -1,0 +1,591 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+paraai-n32-h-01-agent-31
+0
+paraai-n32-h-01-agent-31
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+paraai-n32-h-01-agent-31
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+paraai-n32-h-01-agent-31
+0
+------------------ Configuration ------------------  /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_rationettype  4.0Masked_AE_fusion
+
+in_chans_2dlog_to_wandb  7True
+
+out_chans_2dlr  10.001
+
+in_chans_3dbatch_size  432
+
+out_chans_3dmax_epochs  4100
+
+var_depthscheduler  6CosineAnnealingLR
+
+embed_dimfusion_3d_2d  512True
+
+depthin_chans  1631
+
+num_headsout_chans  1625
+
+decoder_embed_dimin_channels  1024[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+decoder_depthout_channels  8[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+
+decoder_num_headsimg_size_h  16720
+
+drop_rateimg_size_w  0.01440
+
+drop_path_ratepatch_size_h  0.016
+
+sparsity_thresholdpatch_size_w  0.0116
+
+hard_thresholding_fractionpatch_size_d  1.02
+
+num_blocksmlp_ratio  84.0
+
+lossin_chans_2d  l27
+
+num_data_workersout_chans_2d  01
+
+dtin_chans_3d  14
+
+n_historyout_chans_3d  04
+
+prediction_typevar_depth  iterative6
+
+prediction_lengthembed_dim  41512
+
+n_initial_conditionsdepth  516
+
+ics_typenum_heads  default16
+
+date_stringsdecoder_embed_dim  ['2018-09-14 00:00:00']1024
+
+save_raw_forecastsdecoder_depth  True8
+
+save_channeldecoder_num_heads  False16
+
+masked_accdrop_rate  False0.0
+
+maskpathdrop_path_rate  None0.0
+
+perturbsparsity_threshold  False0.01
+
+add_gridhard_thresholding_fraction  False1.0
+
+N_grid_channelsnum_blocks  08
+
+gridtypeloss  sinusoidall2
+
+rollnum_data_workers  False0
+
+enable_nhwcdt  False1
+
+optimizer_typen_history  FusedAdam0
+
+exp_dirprediction_type  ./expiterative
+
+patch_sizeprediction_length  841
+
+widthn_initial_conditions  565
+
+modesics_type  32default
+
+targetdate_strings  default['2018-09-14 00:00:00']
+
+train_data_pathsave_raw_forecasts  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/trainTrue
+
+valid_data_pathsave_channel  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/validFalse
+
+test_data_pathmasked_acc  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/testFalse
+
+land_maskmaskpath  TrueNone
+
+land_mask_pathperturb  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5False
+
+normalizeadd_grid  TrueFalse
+
+normalizationN_grid_channels  zscore0
+
+global_mins_pathgridtype  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npysinusoidal
+
+global_maxs_pathroll  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npyFalse
+
+global_means_pathenable_nhwc  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npyFalse
+
+global_stds_pathoptimizer_type  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npyFusedAdam
+
+orographyexp_dir  True./exp
+
+orography_norm_zscore_pathpatch_size  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h58
+
+orography_norm_maxmin_pathwidth  /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h556
+
+add_noisemodes  False32
+
+noise_stdtarget  0default
+
+crop_size_xtrain_data_path  None/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+
+crop_size_yvalid_data_path  None/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+
+log_to_screentest_data_path  True/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+
+save_checkpointland_mask  TrueTrue
+
+plot_animationsland_mask_path  False/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+
+normalize True
+normalization zscore---------------------------------------------------
+
+global_mins_path world_size :/home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy 
+16global_maxs_path
+ Initialize distributed process group.../home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_ratio 4.0
+in_chans_2d 7
+out_chans_2d 1
+in_chans_3d 4
+out_chans_3d 4
+var_depth 6
+embed_dim 512
+depth 16
+num_heads 16
+decoder_embed_dim 1024
+decoder_depth 8
+decoder_num_heads 16
+drop_rate 0.0
+drop_path_rate 0.0
+sparsity_threshold 0.01
+hard_thresholding_fraction 1.0
+num_blocks 8
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+nettype Masked_AE_fusion
+log_to_wandb True
+lr 0.001
+batch_size 32
+max_epochs 100
+scheduler CosineAnnealingLR
+fusion_3d_2d True
+in_chans 31
+out_chans 25
+in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+img_size_h 720
+img_size_w 1440
+patch_size_h 16
+patch_size_w 16
+patch_size_d 2
+mlp_ratio 4.0
+in_chans_2d 7
+out_chans_2d 1
+in_chans_3d 4
+out_chans_3d 4
+var_depth 6
+embed_dim 512
+depth 16
+num_heads 16
+decoder_embed_dim 1024
+decoder_depth 8
+decoder_num_heads 16
+drop_rate 0.0
+drop_path_rate 0.0
+sparsity_threshold 0.01
+hard_thresholding_fraction 1.0
+num_blocks 8
+loss l2
+num_data_workers 0
+dt 1
+n_history 0
+prediction_type iterative
+prediction_length 41
+n_initial_conditions 5
+ics_type default
+date_strings ['2018-09-14 00:00:00']
+save_raw_forecasts True
+save_channel False
+masked_acc False
+maskpath None
+perturb False
+add_grid False
+N_grid_channels 0
+gridtype sinusoidal
+roll False
+enable_nhwc False
+optimizer_type FusedAdam
+exp_dir ./exp
+patch_size 8
+width 56
+modes 32
+target default
+train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+land_mask True
+land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+normalize True
+normalization zscore
+global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+orography True
+orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+add_noise False
+noise_std 0
+crop_size_x None
+crop_size_y None
+log_to_screen True
+save_checkpoint True
+plot_animations False
+---------------------------------------------------
+world_size : 16
+Initialize distributed process group...
+2023-06-18 22:04:34,301 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 2
+2023-06-18 22:04:35,279 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 3
+2023-06-18 22:04:35,279 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 1
+2023-06-18 22:04:35,280 - torch.distributed.distributed_c10d - INFO - Rank 1: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-18 22:04:35,280 - torch.distributed.distributed_c10d - INFO - Rank 3: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-18 22:04:35,280 - torch.distributed.distributed_c10d - INFO - Added key: store_based_barrier_key:1 to store for rank: 0
+2023-06-18 22:04:35,280 - torch.distributed.distributed_c10d - INFO - Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-18 22:04:35,280 - torch.distributed.distributed_c10d - INFO - Rank 2: Completed store-based barrier for key:store_based_barrier_key:1 with 16 nodes.
+2023-06-18 22:04:35,361 - root - INFO - device: cuda:1
+2023-06-18 22:04:35,362 - root - INFO - rank 1, begin data loader init
+2023-06-18 22:04:35,373 - root - INFO - device: cuda:2
+2023-06-18 22:04:35,373 - root - INFO - rank 2, begin data loader init
+2023-06-18 22:04:35,384 - root - INFO - device: cuda:3
+2023-06-18 22:04:35,385 - root - INFO - rank 3, begin data loader init
+2023-06-18 22:04:35,388 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-18 22:04:35,388 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-18 22:04:35,389 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-18 22:04:35,389 - root - INFO - Number of samples per year: 365
+2023-06-18 22:04:35,389 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,389 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,389 - root - INFO - Number of samples per year: 365
+2023-06-18 22:04:35,389 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,389 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,389 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,390 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,391 - root - INFO - Number of samples per year: 365
+2023-06-18 22:04:35,391 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,391 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,391 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,432 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-18 22:04:35,432 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-18 22:04:35,432 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-18 22:04:35,433 - root - INFO - Number of samples per year: 364
+2023-06-18 22:04:35,434 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,434 - root - INFO - Number of samples per year: 364
+2023-06-18 22:04:35,434 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,434 - root - INFO - Number of samples per year: 364
+2023-06-18 22:04:35,434 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,434 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,434 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:35,434 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,434 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:35,434 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,434 - root - INFO - rank 2, data loader initialized
+2023-06-18 22:04:35,434 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:35,434 - root - INFO - rank 1, data loader initialized
+2023-06-18 22:04:35,434 - root - INFO - rank 3, data loader initialized
+2023-06-18 22:04:35,463 - root - INFO - ------------------ Configuration ------------------
+2023-06-18 22:04:35,463 - root - INFO - Configuration file: /home/bingxing2/home/scx6115/Ocean_AI_model/config/Model.yaml
+2023-06-18 22:04:35,463 - root - INFO - Configuration name: Masked_AE_fusion
+2023-06-18 22:04:35,463 - root - INFO - nettype Masked_AE_fusion
+2023-06-18 22:04:35,463 - root - INFO - log_to_wandb True
+2023-06-18 22:04:35,463 - root - INFO - lr 0.001
+2023-06-18 22:04:35,463 - root - INFO - batch_size 2
+2023-06-18 22:04:35,463 - root - INFO - max_epochs 100
+2023-06-18 22:04:35,463 - root - INFO - scheduler CosineAnnealingLR
+2023-06-18 22:04:35,464 - root - INFO - fusion_3d_2d True
+2023-06-18 22:04:35,464 - root - INFO - in_chans 31
+2023-06-18 22:04:35,464 - root - INFO - out_chans 25
+2023-06-18 22:04:35,464 - root - INFO - in_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+2023-06-18 22:04:35,464 - root - INFO - out_channels [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+2023-06-18 22:04:35,464 - root - INFO - img_size_h 720
+2023-06-18 22:04:35,464 - root - INFO - img_size_w 1440
+2023-06-18 22:04:35,464 - root - INFO - patch_size_h 16
+2023-06-18 22:04:35,464 - root - INFO - patch_size_w 16
+2023-06-18 22:04:35,464 - root - INFO - patch_size_d 2
+2023-06-18 22:04:35,464 - root - INFO - mlp_ratio 4.0
+2023-06-18 22:04:35,464 - root - INFO - in_chans_2d 7
+2023-06-18 22:04:35,465 - root - INFO - out_chans_2d 1
+2023-06-18 22:04:35,465 - root - INFO - in_chans_3d 4
+2023-06-18 22:04:35,465 - root - INFO - out_chans_3d 4
+2023-06-18 22:04:35,465 - root - INFO - var_depth 6
+2023-06-18 22:04:35,465 - root - INFO - embed_dim 512
+2023-06-18 22:04:35,465 - root - INFO - depth 16
+2023-06-18 22:04:35,465 - root - INFO - num_heads 16
+2023-06-18 22:04:35,465 - root - INFO - decoder_embed_dim 1024
+2023-06-18 22:04:35,465 - root - INFO - decoder_depth 8
+2023-06-18 22:04:35,465 - root - INFO - decoder_num_heads 16
+2023-06-18 22:04:35,465 - root - INFO - drop_rate 0.0
+2023-06-18 22:04:35,465 - root - INFO - drop_path_rate 0.0
+2023-06-18 22:04:35,465 - root - INFO - sparsity_threshold 0.01
+2023-06-18 22:04:35,465 - root - INFO - hard_thresholding_fraction 1.0
+2023-06-18 22:04:35,466 - root - INFO - num_blocks 8
+2023-06-18 22:04:35,466 - root - INFO - loss l2
+2023-06-18 22:04:35,466 - root - INFO - num_data_workers 0
+2023-06-18 22:04:35,466 - root - INFO - dt 1
+2023-06-18 22:04:35,466 - root - INFO - n_history 0
+2023-06-18 22:04:35,466 - root - INFO - prediction_type iterative
+2023-06-18 22:04:35,466 - root - INFO - prediction_length 41
+2023-06-18 22:04:35,466 - root - INFO - n_initial_conditions 5
+2023-06-18 22:04:35,466 - root - INFO - ics_type default
+2023-06-18 22:04:35,466 - root - INFO - date_strings ['2018-09-14 00:00:00']
+2023-06-18 22:04:35,466 - root - INFO - save_raw_forecasts True
+2023-06-18 22:04:35,466 - root - INFO - save_channel False
+2023-06-18 22:04:35,466 - root - INFO - masked_acc False
+2023-06-18 22:04:35,467 - root - INFO - maskpath None
+2023-06-18 22:04:35,467 - root - INFO - perturb False
+2023-06-18 22:04:35,467 - root - INFO - add_grid False
+2023-06-18 22:04:35,467 - root - INFO - N_grid_channels 0
+2023-06-18 22:04:35,467 - root - INFO - gridtype sinusoidal
+2023-06-18 22:04:35,467 - root - INFO - roll False
+2023-06-18 22:04:35,467 - root - INFO - enable_nhwc False
+2023-06-18 22:04:35,467 - root - INFO - optimizer_type FusedAdam
+2023-06-18 22:04:35,467 - root - INFO - exp_dir ./exp
+2023-06-18 22:04:35,467 - root - INFO - patch_size 8
+2023-06-18 22:04:35,467 - root - INFO - width 56
+2023-06-18 22:04:35,467 - root - INFO - modes 32
+2023-06-18 22:04:35,467 - root - INFO - target default
+2023-06-18 22:04:35,468 - root - INFO - train_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train
+2023-06-18 22:04:35,468 - root - INFO - valid_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid
+2023-06-18 22:04:35,468 - root - INFO - test_data_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/test
+2023-06-18 22:04:35,468 - root - INFO - land_mask True
+2023-06-18 22:04:35,468 - root - INFO - land_mask_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/land_mask.h5
+2023-06-18 22:04:35,468 - root - INFO - normalize True
+2023-06-18 22:04:35,468 - root - INFO - normalization zscore
+2023-06-18 22:04:35,468 - root - INFO - global_mins_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_mins.npy
+2023-06-18 22:04:35,468 - root - INFO - global_maxs_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_maxs.npy
+2023-06-18 22:04:35,468 - root - INFO - global_means_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_means.npy
+2023-06-18 22:04:35,468 - root - INFO - global_stds_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/global_stds.npy
+2023-06-18 22:04:35,468 - root - INFO - orography True
+2023-06-18 22:04:35,468 - root - INFO - orography_norm_zscore_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_zscore.h5
+2023-06-18 22:04:35,468 - root - INFO - orography_norm_maxmin_path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/orography_norm_maxmin.h5
+2023-06-18 22:04:35,469 - root - INFO - add_noise False
+2023-06-18 22:04:35,469 - root - INFO - noise_std 0
+2023-06-18 22:04:35,469 - root - INFO - crop_size_x None
+2023-06-18 22:04:35,469 - root - INFO - crop_size_y None
+2023-06-18 22:04:35,469 - root - INFO - log_to_screen True
+2023-06-18 22:04:35,469 - root - INFO - save_checkpoint True
+2023-06-18 22:04:35,469 - root - INFO - plot_animations False
+2023-06-18 22:04:35,469 - root - INFO - epsilon_factor 0
+2023-06-18 22:04:35,469 - root - INFO - world_size 16
+2023-06-18 22:04:35,469 - root - INFO - local_rank 0
+2023-06-18 22:04:35,469 - root - INFO - global_batch_size 32
+2023-06-18 22:04:35,469 - root - INFO - enable_amp True
+2023-06-18 22:04:35,469 - root - INFO - experiment_dir /home/bingxing2/home/scx6115/Ocean_AI_model/exp/Masked_AE_fusion/20230618-220410
+2023-06-18 22:04:35,470 - root - INFO - checkpoint_path ./exp/Masked_AE_fusion/20230618-220410/training_checkpoints/ckpt.tar
+2023-06-18 22:04:35,470 - root - INFO - best_checkpoint_path ./exp/Masked_AE_fusion/20230618-220410/training_checkpoints/best_ckpt.tar
+2023-06-18 22:04:35,470 - root - INFO - resuming False
+2023-06-18 22:04:35,470 - root - INFO - entity ocean_ai_model
+2023-06-18 22:04:35,470 - root - INFO - project ai4science
+2023-06-18 22:04:35,470 - root - INFO - group 025_daily
+2023-06-18 22:04:35,470 - root - INFO - name Masked_AE_fusion_20230618-220410
+2023-06-18 22:04:35,470 - root - INFO - ---------------------------------------------------
+wandb: Tracking run with wandb version 0.15.3
+wandb: W&B syncing is set to `offline` in this directory.  
+wandb: Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+2023-06-18 22:04:45,292 - root - INFO - device: cuda:0
+2023-06-18 22:04:45,292 - root - INFO - rank 0, begin data loader init
+2023-06-18 22:04:45,295 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train/2000.h5
+2023-06-18 22:04:45,296 - root - INFO - Number of samples per year: 365
+2023-06-18 22:04:45,296 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/train. Number of examples: 4015. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:45,296 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:45,297 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:45,299 - root - INFO - Getting file stats from /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid/2011.h5
+2023-06-18 22:04:45,300 - root - INFO - Number of samples per year: 364
+2023-06-18 22:04:45,301 - root - INFO - Found data at path /home/bingxing2/home/scx6115/Ocean_AI_model/sample_00/valid. Number of examples: 364. Image Shape: 720 x 1440 x 30
+2023-06-18 22:04:45,301 - root - INFO - Delta t: 1 days
+2023-06-18 22:04:45,301 - root - INFO - Including 0 days of past history in training at a frequency of 1 days
+2023-06-18 22:04:45,301 - root - INFO - rank 0, data loader initialized
+paraai-n32-h-01-agent-31:2615442:2615442 [0] NCCL INFO Bootstrap : Using eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615442:2615442 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-31:2615444:2615444 [2] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-31:2615442:2615442 [0] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-31:2615443:2615443 [1] NCCL INFO cudaDriverVersion 11060
+NCCL version 2.14.3+cuda11.7
+paraai-n32-h-01-agent-31:2615445:2615445 [3] NCCL INFO cudaDriverVersion 11060
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-31:2615444:2615444 [2] NCCL INFO Bootstrap : Using eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615445:2615445 [3] NCCL INFO Bootstrap : Using eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615444:2615444 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-31:2615443:2615443 [1] NCCL INFO Bootstrap : Using eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615445:2615445 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-31:2615443:2615443 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO NCCL_IB_DISABLE set by environment to 0.
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Using network IB
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Using network IB
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Using network IB
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO NET/IB : Using [0]mlx5_0:1/RoCE [1]mlx5_1:1/RoCE [2]mlx5_2:1/RoCE [3]mlx5_3:1/RoCE [RO]; OOB eth0:172.16.4.73<0>
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Using network IB
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Setting affinity for GPU 3 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Setting affinity for GPU 0 to ffffffff
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Setting affinity for GPU 2 to ffffffff,00000000,00000000
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Setting affinity for GPU 1 to ffffffff
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 00/02 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 01/02 :    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Trees [0] 1/8/-1->0->-1 [1] 1/-1/-1->0->4
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 00/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Channel 00 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Channel 00 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Channel 01 : 1[2000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Channel 01 : 2[81000] -> 3[82000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 01/0 : 15[82000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 00 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 01 : 0[1000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Channel 00 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Channel 01 : 1[2000] -> 0[1000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615442:2616775 [0] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-31:2615442:2616775 [0] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-31:2615442:2616775 [0] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 01/0 : 0[1000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Channel 00/0 : 3[82000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Channel 01/0 : 3[82000] -> 4[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-31:2615445:2616774 [3] NCCL INFO NCCL_IB_GID_INDEX set by environment to 3.
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Channel 00 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Channel 01 : 3[82000] -> 2[81000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Connected all rings
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Channel 00 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Channel 01 : 2[81000] -> 1[2000] via SHM/direct/direct
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 00/0 : 8[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 00/0 : 0[1000] -> 8[1000] [send] via NET/IB/0
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Channel 01/0 : 4[1000] -> 0[1000] [receive] via NET/IB/0
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO Connected all trees
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO threadThresholds 8/8/64 | 128/8/64 | 512 | 512
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+paraai-n32-h-01-agent-31:2615445:2616757 [3] NCCL INFO comm 0x4223a540 rank 3 nranks 16 cudaDev 3 busId 82000 - Init COMPLETE
+paraai-n32-h-01-agent-31:2615444:2616754 [2] NCCL INFO comm 0x4a051680 rank 2 nranks 16 cudaDev 2 busId 81000 - Init COMPLETE
+paraai-n32-h-01-agent-31:2615443:2616758 [1] NCCL INFO comm 0x7f5ac490 rank 1 nranks 16 cudaDev 1 busId 2000 - Init COMPLETE
+paraai-n32-h-01-agent-31:2615442:2616753 [0] NCCL INFO comm 0x62ae5e00 rank 0 nranks 16 cudaDev 0 busId 1000 - Init COMPLETE
+paraai-n32-h-01-agent-31:2615445:2616779 [3] NCCL INFO NCCL_IB_TIMEOUT set by environment to 23.
+paraai-n32-h-01-agent-31:2615445:2616779 [3] NCCL INFO NCCL_IB_RETRY_CNT set by environment to 7.
+2023-06-18 22:04:56,730 - root - INFO - Number of trainable model parameters: 374483080
+2023-06-18 22:04:56,731 - root - INFO - Starting Training Loop...
+2023-06-18 22:12:07,039 - root - INFO - Val loss improved from 1000000.0 to 0.8474481105804443
+2023-06-18 22:12:11,344 - root - INFO - Time taken for epoch 1 is 434.6120095252991 sec
+2023-06-18 22:12:11,344 - root - INFO - train data time=13.479361534118652, train step time=118.38292217254639, valid step time=34.42197370529175
+2023-06-18 22:12:11,345 - root - INFO - Train loss: 0.855201005935669. Valid loss: 0.8474481105804443
