@@ -117,86 +117,86 @@ WaveNet: &WaveNet
   <<: *FULL_FIELD
   nettype: 'WaveNet_v2_fourier'  # Specify the network type for WaveNet downstream task
 
-  # Finetune-specific settings
-  finetune_n_in_chans: 3                   # Number of input channels for the finetune model
-  finetune_n_out_chans: 1                  # Number of output channels for the finetune model
-  finetune_in_channels: [0, 3, 4]          # Input channels (e.g., swh, u10, v10)
-  finetune_out_channels: [0]               # Output channel (e.g., swh)
-  finetune_force_channels: [3, 4]          # Forcing channels (e.g., wind components u10, v10)
-  finetune_target_size_h: 360              # Target output height for predictions
-  finetune_target_size_w: 720              # Target output width for predictions
+  # downstream-specific settings
+  downstream_n_in_chans: 3                   # Number of input channels for the downstream model
+  downstream_n_out_chans: 1                  # Number of output channels for the downstream model
+  downstream_in_channels: [0, 3, 4]          # Input channels (e.g., swh, u10, v10)
+  downstream_out_channels: [0]               # Output channel (e.g., swh)
+  downstream_force_channels: [3, 4]          # Forcing channels (e.g., wind components u10, v10)
+  downstream_target_size_h: 360              # Target output height for predictions
+  downstream_target_size_w: 720              # Target output width for predictions
 
   ### Data Paths for WaveNet ###
-  finetune_train_data_path: './sample_wave/train'  # Path to training data
-  finetune_valid_data_path: './sample_wave/valid'  # Path to validation data
-  finetune_test_data_path: './sample_wave/test'    # Path to test data
+  downstream_train_data_path: './sample_wave/train'  # Path to training data
+  downstream_valid_data_path: './sample_wave/valid'  # Path to validation data
+  downstream_test_data_path: './sample_wave/test'    # Path to test data
 
   ### Normalization Paths for WaveNet ###
-  finetune_global_mins_path: './sample_wave/train/global_mins.npy'  # Min values for normalization
-  finetune_global_maxs_path: './sample_wave/train/global_maxs.npy'  # Max values for normalization
-  finetune_global_means_path: './sample_wave/train/global_means.npy' # Mean values for z-score normalization
-  finetune_global_stds_path: './sample_wave/train/global_stds.npy'  # Std values for z-score normalization
+  downstream_global_mins_path: './sample_wave/train/global_mins.npy'  # Min values for normalization
+  downstream_global_maxs_path: './sample_wave/train/global_maxs.npy'  # Max values for normalization
+  downstream_global_means_path: './sample_wave/train/global_means.npy' # Mean values for z-score normalization
+  downstream_global_stds_path: './sample_wave/train/global_stds.npy'  # Std values for z-score normalization
 
   ### Mask Configuration ###
-  finetune_land_mask_path: './sample_wave/land_mask.h5'  # Path to the land mask
+  downstream_land_mask_path: './sample_wave/land_mask.h5'  # Path to the land mask
 
 
 BiochemicalNet: &BiochemicalNet
   <<: *FULL_FIELD
   nettype: 'BiochemicalNet'  # Specify the network type for biochemical data
 
-  # Finetune-specific settings
-  finetune_n_in_chans: 8                    # Number of input channels for the biochemical model
-  finetune_n_out_chans: 8                   # Number of output channels for the biochemical model
-  finetune_in_channels: [0, 1, 2, 3, 4, 5, 6, 7]  # Input channels (e.g., chlorophyll, nutrients)
-  finetune_out_channels: [0, 1, 2, 3, 4, 5, 6, 7] # Prediction targets (e.g., same as input channels)
-  finetune_target_size_h: 180              # Target output height
-  finetune_target_size_w: 360              # Target output width
+  # downstream-specific settings
+  downstream_n_in_chans: 8                    # Number of input channels for the biochemical model
+  downstream_n_out_chans: 8                   # Number of output channels for the biochemical model
+  downstream_in_channels: [0, 1, 2, 3, 4, 5, 6, 7]  # Input channels (e.g., chlorophyll, nutrients)
+  downstream_out_channels: [0, 1, 2, 3, 4, 5, 6, 7] # Prediction targets (e.g., same as input channels)
+  downstream_target_size_h: 180              # Target output height
+  downstream_target_size_w: 360              # Target output width
 
   ### Biochemical Data Paths ###
-  finetune_train_data_path: './sample_biochemical/train'  # Path to training data
-  finetune_valid_data_path: './sample_biochemical/valid'  # Path to validation data
-  finetune_test_data_path: './sample_biochemical/test'    # Path to test data
+  downstream_train_data_path: './sample_biochemical/train'  # Path to training data
+  downstream_valid_data_path: './sample_biochemical/valid'  # Path to validation data
+  downstream_test_data_path: './sample_biochemical/test'    # Path to test data
 
   ### Normalization Paths for BiochemicalNet ###
-  finetune_normalize: !!bool True            # Enable normalization for biochemical data
-  finetune_normalization: 'zscore'           # Normalization type ('zscore' or 'minmax')
-  finetune_global_mins_path: './sample_biochemical/train/global_mins.npy'  # Min values for normalization
-  finetune_global_maxs_path: './sample_biochemical/train/global_maxs.npy'  # Max values for normalization
-  finetune_global_means_path: './sample_biochemical/train/global_means.npy' # Mean values for z-score normalization
-  finetune_global_stds_path: './sample_biochemical/train/global_stds.npy'  # Std values for z-score normalization
+  downstream_normalize: !!bool True            # Enable normalization for biochemical data
+  downstream_normalization: 'zscore'           # Normalization type ('zscore' or 'minmax')
+  downstream_global_mins_path: './sample_biochemical/train/global_mins.npy'  # Min values for normalization
+  downstream_global_maxs_path: './sample_biochemical/train/global_maxs.npy'  # Max values for normalization
+  downstream_global_means_path: './sample_biochemical/train/global_means.npy' # Mean values for z-score normalization
+  downstream_global_stds_path: './sample_biochemical/train/global_stds.npy'  # Std values for z-score normalization
 
   ### Mask Configuration ###
-  finetune_land_mask_path: './sample_biochemical/land_mask.h5'  # Path to the land mask
+  downstream_land_mask_path: './sample_biochemical/land_mask.h5'  # Path to the land mask
 
 DownScalingNet: &DownScalingNet
   <<: *FULL_FIELD
   nettype: 'DownScalingNet_fourier'  # Specify the network type for downscaling tasks
 
-  # Finetune-specific settings
-  finetune_n_in_chans: 5                   # Number of input channels for downscaling
-  finetune_n_out_chans: 5                  # Number of output channels for downscaling
-  finetune_in_channels: [0, 1, 2, 3, 4]    # Input channels (e.g., temperature, salinity, velocity components)
-  finetune_out_channels: [0, 1, 2, 3, 4]   # Prediction targets (same as input channels)
-  finetune_in_size_h: 120                  # Input height (low-resolution)
-  finetune_in_size_w: 230                  # Input width (low-resolution)
-  finetune_target_size_h: 360              # Target output height (high-resolution)
-  finetune_target_size_w: 690              # Target output width (high-resolution)
+  # downstream-specific settings
+  downstream_n_in_chans: 5                   # Number of input channels for downscaling
+  downstream_n_out_chans: 5                  # Number of output channels for downscaling
+  downstream_in_channels: [0, 1, 2, 3, 4]    # Input channels (e.g., temperature, salinity, velocity components)
+  downstream_out_channels: [0, 1, 2, 3, 4]   # Prediction targets (same as input channels)
+  downstream_in_size_h: 120                  # Input height (low-resolution)
+  downstream_in_size_w: 230                  # Input width (low-resolution)
+  downstream_target_size_h: 360              # Target output height (high-resolution)
+  downstream_target_size_w: 690              # Target output width (high-resolution)
 
   # Depth of model (specific to DownScalingNet_SR)
   blocks_depth: 16                         # Number of blocks/layers in the model
 
   ### Downscaling Data Paths ###
-  finetune_train_data_path: './sample_Kuroshio_downscaling/train'  # Path to training data
-  finetune_valid_data_path: './sample_Kuroshio_downscaling/valid'  # Path to validation data
-  finetune_test_data_path: './sample_Kuroshio_downscaling/test'    # Path to test data
+  downstream_train_data_path: './sample_Kuroshio_downscaling/train'  # Path to training data
+  downstream_valid_data_path: './sample_Kuroshio_downscaling/valid'  # Path to validation data
+  downstream_test_data_path: './sample_Kuroshio_downscaling/test'    # Path to test data
 
   ### Normalization Paths for DownScalingNet ###
-  finetune_global_mins_path: './sample_Kuroshio_downscaling/train/global_mins.npy'  # Min values for normalization
-  finetune_global_maxs_path: './sample_Kuroshio_downscaling/train/global_maxs.npy'  # Max values for normalization
-  finetune_global_means_path: './sample_Kuroshio_downscaling/train/global_means.npy' # Mean values for z-score normalization
-  finetune_global_stds_path: './sample_Kuroshio_downscaling/train/global_stds.npy'  # Std values for z-score normalization
+  downstream_global_mins_path: './sample_Kuroshio_downscaling/train/global_mins.npy'  # Min values for normalization
+  downstream_global_maxs_path: './sample_Kuroshio_downscaling/train/global_maxs.npy'  # Max values for normalization
+  downstream_global_means_path: './sample_Kuroshio_downscaling/train/global_means.npy' # Mean values for z-score normalization
+  downstream_global_stds_path: './sample_Kuroshio_downscaling/train/global_stds.npy'  # Std values for z-score normalization
 
   ### Mask and Topography Paths ###
-  finetune_land_mask_path: './sample_Kuroshio_downscaling/land_mask.h5'  # Path to the land mask
-  finetune_topo_0p08_path: './sample_Kuroshio_downscaling/topo_kuroshio_0p08.h5'  # Path to high-resolution topography data
+  downstream_land_mask_path: './sample_Kuroshio_downscaling/land_mask.h5'  # Path to the land mask
+  downstream_topo_0p08_path: './sample_Kuroshio_downscaling/topo_kuroshio_0p08.h5'  # Path to high-resolution topography data
