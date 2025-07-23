@@ -41,11 +41,11 @@ The modifications are tailored for fine-tuning oceanographic data models with
 distributed training support, mixed precision, and advanced loss functions.
 
 Key Modifications:
-1. Reorganized the training loop and added support for fine-tuning with frozen backbones.
-2. Integrated multiple fine-tuning configurations, including WaveNet and DownScalingNet.
-3. Added momentum conservation loss and land masking for fine-tuned data.
+1. Reorganized the training loop and added support for downstream models with frozen backbones.
+2. Integrated multiple downstream configurations, including WaveNet and DownScalingNet.
+3. Added momentum conservation loss and land masking for downstream data.
 4. Enhanced logging and experiment tracking with Weights & Biases (WandB).
-5. Refactored data loaders to handle separate backbone and fine-tuning datasets.
+5. Refactored data loaders to handle separate backbone and downstream datasets.
 """
 
 import os
@@ -77,7 +77,7 @@ from utils import logging_utils
 logging_utils.config_logger()
 from utils.YParams import YParams
 from utils.darcy_loss import LpLoss, Momentum_Conservation
-from utils.data_loader_multifiles import get_finetune_data_loader
+from utils.data_loader_multifiles import get_downstream_data_loader
 from utils.weighted_acc_rmse import weighted_acc, weighted_rmse, weighted_rmse_torch
 
 from ruamel.yaml import YAML
@@ -115,16 +115,16 @@ class Trainer():
 
         # Load data
         logging.info('rank %d, begin data loader init' % world_rank)
-        self.train_data_loader, self.train_dataset, self.train_sampler = get_finetune_data_loader(
+        self.train_data_loader, self.train_dataset, self.train_sampler = get_downstream_data_loader(
                     params, 
                     params.train_data_path, # backbone data 
-                    params.finetune_train_data_path, # finetune data
+                    params.downstream_train_data_path, # downstream data
                     dist.is_initialized(),
                     train=True)
-        self.valid_data_loader, self.valid_dataset, self.valid_sampler = get_finetune_data_loader(
+        self.valid_data_loader, self.valid_dataset, self.valid_sampler = get_downstream_data_loader(
                     params, 
                     params.valid_data_path, # backbone data
-                    params.finetune_valid_data_path, # finetune data
+                    params.downstream_valid_data_path, # downstream data
                     dist.is_initialized(), 
                     train=True)
         logging.info('rank %d, data loader initialized' % world_rank)
@@ -134,17 +134,17 @@ class Trainer():
         self.mom_loss = Momentum_Conservation()
 
         # Load model
-        if params.finetune_config == 'DownScalingNet': 
-            from finetune_networks.DownScalingNet import DownScalingNet as finetune_model
+        if params.downstream_config == 'DownScalingNet': 
+            from downstream_networks.DownScalingNet import DownScalingNet as downstream_model
 
-        if params.finetune_config == 'WaveNet': 
-            from finetune_networks.WaveNet import WaveNet as finetune_model
+        if params.downstream_config == 'WaveNet': 
+            from downstream_networks.WaveNet import WaveNet as downstream_model
 
-        if params.finetune_config == 'BiochemicalNet': 
-            from finetune_networks.BiochemicalNet import BiochemicalNet as finetune_model
+        if params.downstream_config == 'BiochemicalNet': 
+            from downstream_networks.BiochemicalNet import BiochemicalNet as downstream_model
 
 
-        # init model, including the freezed backbone and un-freezed finetune model
+        # init model, including the freezed backbone and un-freezed downstream model
         backbone = Masked_Ocean(params)
         # load pretrained params to backbone
         logging.info("Starting from pretrained one-step model at %s"%params.pretrained_ckpt_path)
@@ -154,8 +154,8 @@ class Trainer():
             logging.info("Freeze the backbone")
             self.switch_off_grad(backbone) # freeze backbone
 
-        logging.info('Init the finetune model')
-        self.model = finetune_model(backbone, params).to(self.device)
+        logging.info('Init the downstream model')
+        self.model = downstream_model(backbone, params).to(self.device)
 
         # print('---------------------------------------')
         # for name, param in self.model.named_parameters():
@@ -184,7 +184,7 @@ class Trainer():
         self.iters = 0
         self.startEpoch = 0
         self.epoch = self.startEpoch
-        logging.info("Adding %d epochs specified in config file for refining pretrained model"%params.finetune_max_epochs)
+        logging.info("Adding %d epochs specified in config file for refining pretrained model"%params.downstream_max_epochs)
 
         # Dynamical Learning rate
         if params.scheduler == 'ReduceLROnPlateau':
@@ -194,7 +194,7 @@ class Trainer():
                                                                         mode='min')
         elif params.scheduler == 'CosineAnnealingLR': 
             self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, 
-                                                                        T_max=params.finetune_max_epochs,
+                                                                        T_max=params.downstream_max_epochs,
                                                                         last_epoch=self.startEpoch - 1)
         else:
             self.scheduler = None
@@ -211,7 +211,7 @@ class Trainer():
             logging.info("Starting Training Loop...")
 
         best_valid_loss = 1.e6
-        for epoch in range(self.startEpoch, self.params.finetune_max_epochs):
+        for epoch in range(self.startEpoch, self.params.downstream_max_epochs):
             if dist.is_initialized():
                 self.train_sampler.set_epoch(epoch)
                 self.valid_sampler.set_epoch(epoch)
@@ -224,8 +224,8 @@ class Trainer():
                 self.scheduler.step(valid_logs['valid_loss'])
             elif self.params.scheduler == 'CosineAnnealingLR':
                 self.scheduler.step()
-                if self.epoch >= self.params.finetune_max_epochs:
-                    logging.info("Terminating training after reaching params.finetune_max_epochs while LR scheduler is set to CosineAnnealingLR")
+                if self.epoch >= self.params.downstream_max_epochs:
+                    logging.info("Terminating training after reaching params.downstream_max_epochs while LR scheduler is set to CosineAnnealingLR")
                     exit()
 
             if self.params.log_to_wandb:
@@ -246,7 +246,7 @@ class Trainer():
                 logging.info('Time taken for epoch {} is {} sec'.format(epoch+1, time.time() - start))
                 logging.info('train data time={}, train per epoch time={}, train per step time={}, valid time={}'.format(data_time, tr_time, step_time, valid_time))
 
-                if params.finetune_config == 'DownScalingNet':
+                if params.downstream_config == 'DownScalingNet':
                     logging.info('Train loss total: {}. Train loss mom: {}. Train loss l2: {}'.format(train_logs['train_loss_tot'], train_logs['train_loss_mom'], train_logs['train_loss_l2']))
                     logging.info('Valid loss total: {}. Valid loss mom: {}. Valid loss l2: {}'.format(valid_logs['valid_loss_tot'], valid_logs['valid_loss_mom'], valid_logs['valid_loss_l2']))
                 else:
@@ -266,41 +266,41 @@ class Trainer():
             steps_in_one_epoch += 1 
 
             data_start = time.time()
-            backbone_inp, backbone_tar, finetune_inp, finetune_tar = map(lambda x: x.to(self.device, dtype=torch.float), data)
-            # print(f'backbone_inp: {backbone_inp.shape}, backbone_tar:{backbone_tar.shape}, finetune_inp: {finetune_inp.shape}, finetune_tar:{finetune_tar.shape}')
-            if finetune_tar.dim() == 3:
-                finetune_tar = torch.unsqueeze(finetune_tar, 1)
+            backbone_inp, backbone_tar, downstream_inp, downstream_tar = map(lambda x: x.to(self.device, dtype=torch.float), data)
+            # print(f'backbone_inp: {backbone_inp.shape}, backbone_tar:{backbone_tar.shape}, downstream_inp: {downstream_inp.shape}, downstream_tar:{downstream_tar.shape}')
+            if downstream_tar.dim() == 3:
+                downstream_tar = torch.unsqueeze(downstream_tar, 1)
             data_time += time.time() - data_start
 
             tr_start = time.time()
             self.model.zero_grad()
             with amp.autocast(self.params.enable_amp):
-                backbone_gen, finetune_gen = self.model(backbone_inp, finetune_inp)
-                # print(f'finetune_gen: {finetune_gen.shape}, backbone_gen: {backbone_gen.shape}')
+                backbone_gen, downstream_gen = self.model(backbone_inp, downstream_inp)
+                # print(f'downstream_gen: {downstream_gen.shape}, backbone_gen: {backbone_gen.shape}')
 
                 # land mask
                 if self.params.land_mask:
                     # 0:land, 1:ocean
-                    with h5py.File(self.params.finetune_land_mask_path, 'r') as _f: 
+                    with h5py.File(self.params.downstream_land_mask_path, 'r') as _f: 
                         # logging.info(f"Loading land mask data from {self.params.land_mask_path}")
-                        if params.finetune_config == 'WaveNet':
+                        if params.downstream_config == 'WaveNet':
                             mask_data = torch.as_tensor(_f['fields'][:360,:]).to(self.device, dtype=torch.bool)
-                        elif params.finetune_config == 'DownScalingNet':
+                        elif params.downstream_config == 'DownScalingNet':
                             mask_data = torch.as_tensor(_f['fields']).to(self.device, dtype=torch.bool)
-                            mask_data = mask_data[:,params.finetune_out_channels,:,:]
+                            mask_data = mask_data[:,params.downstream_out_channels,:,:]
                         else:
                             mask_data = torch.as_tensor(_f['fields']).to(self.device, dtype=torch.bool)
-                    finetune_gen = torch.masked_fill(input=finetune_gen, mask=~mask_data, value=0)
-                    finetune_tar = torch.masked_fill(input=finetune_tar, mask=~mask_data, value=0)
+                    downstream_gen = torch.masked_fill(input=downstream_gen, mask=~mask_data, value=0)
+                    downstream_tar = torch.masked_fill(input=downstream_tar, mask=~mask_data, value=0)
 
                 # L2 loss
-                l2_loss = self.loss_obj(finetune_gen, finetune_tar)
+                l2_loss = self.loss_obj(downstream_gen, downstream_tar)
 
                 # loss for momentum conservation
-                if params.finetune_config == 'DownScalingNet':
-                    with h5py.File(self.params.finetune_topo_0p08_path, 'r') as _f:
+                if params.downstream_config == 'DownScalingNet':
+                    with h5py.File(self.params.downstream_topo_0p08_path, 'r') as _f:
                         topo = torch.as_tensor(_f['Band1_zscore']).to(self.device)
-                    mom_loss = self.mom_loss(topo, finetune_gen, finetune_tar)
+                    mom_loss = self.mom_loss(topo, downstream_gen, downstream_tar)
 
                 if params.use_mom_loss == 1:
                     loss = l2_loss + mom_loss
@@ -323,7 +323,7 @@ class Trainer():
 
         # time of one step in epoch
         step_time = tr_time / steps_in_one_epoch
-        if params.finetune_config == 'DownScalingNet':
+        if params.downstream_config == 'DownScalingNet':
             logs = {'train_loss_l2': l2_loss, 'train_loss_mom': mom_loss, 'train_loss_tot': loss}
         else:
             logs = {'train_loss_l2': l2_loss}
@@ -345,7 +345,7 @@ class Trainer():
         logging.info('validating...')
         self.model.eval()
 
-        if params.finetune_config == 'DownScalingNet':
+        if params.downstream_config == 'DownScalingNet':
             valid_buff     = torch.zeros((5), dtype=torch.float32, device=self.device)
             valid_loss_l2  = valid_buff[0].view(-1) # 0
             valid_loss_mom = valid_buff[1].view(-1) # 0
@@ -363,65 +363,65 @@ class Trainer():
         with torch.no_grad():
             for i, data in enumerate(self.valid_data_loader, 0):
 
-                backbone_inp, backbone_tar, finetune_inp, finetune_tar = map(lambda x: x.to(self.device, dtype=torch.float), data)
-                if finetune_tar.dim() == 3:
-                    finetune_tar = torch.unsqueeze(finetune_tar, 1)
+                backbone_inp, backbone_tar, downstream_inp, downstream_tar = map(lambda x: x.to(self.device, dtype=torch.float), data)
+                if downstream_tar.dim() == 3:
+                    downstream_tar = torch.unsqueeze(downstream_tar, 1)
 
                 if params.add_noise:
-                    finetune_inp = finetune_inp + torch.normal(mean=params.noise_mean, std=params.noise_std, 
-                                                               size=finetune_inp.shape, device=self.device)
+                    downstream_inp = downstream_inp + torch.normal(mean=params.noise_mean, std=params.noise_std, 
+                                                               size=downstream_inp.shape, device=self.device)
 
-                backbone_gen, finetune_gen = self.model(backbone_inp, finetune_inp)
+                backbone_gen, downstream_gen = self.model(backbone_inp, downstream_inp)
 
                 # land mask
                 if self.params.land_mask:
                     # 0:land, 1:ocean
-                    with h5py.File(self.params.finetune_land_mask_path, 'r') as _f: 
+                    with h5py.File(self.params.downstream_land_mask_path, 'r') as _f: 
                         # logging.info(f"Loading land mask data from {self.params.land_mask_path}")
-                        if params.finetune_config == 'WaveNet':
+                        if params.downstream_config == 'WaveNet':
                             mask_data = torch.as_tensor(_f['fields'][:360,:]).to(self.device, dtype=torch.bool)
-                        elif params.finetune_config == 'DownScalingNet':
+                        elif params.downstream_config == 'DownScalingNet':
                             mask_data = torch.as_tensor(_f['fields']).to(self.device, dtype=torch.bool)
-                            mask_data = mask_data[:,params.finetune_out_channels,:,:]
+                            mask_data = mask_data[:,params.downstream_out_channels,:,:]
                         else:
                             mask_data = torch.as_tensor(_f['fields']).to(self.device, dtype=torch.bool)
-                    finetune_gen = torch.masked_fill(input=finetune_gen, mask=~mask_data, value=0)
-                    finetune_tar = torch.masked_fill(input=finetune_tar, mask=~mask_data, value=0)
+                    downstream_gen = torch.masked_fill(input=downstream_gen, mask=~mask_data, value=0)
+                    downstream_tar = torch.masked_fill(input=downstream_tar, mask=~mask_data, value=0)
 
-                loss_l2 = self.loss_obj(finetune_gen, finetune_tar)
+                loss_l2 = self.loss_obj(downstream_gen, downstream_tar)
                 valid_loss_l2 += loss_l2
 
-                if params.finetune_config == 'DownScalingNet':
-                    with h5py.File(self.params.finetune_topo_0p08_path, 'r') as _f:
+                if params.downstream_config == 'DownScalingNet':
+                    with h5py.File(self.params.downstream_topo_0p08_path, 'r') as _f:
                         topo = torch.as_tensor(_f['Band1_zscore']).to(self.device)
-                    loss_mom = self.mom_loss(topo, finetune_gen, finetune_tar)
+                    loss_mom = self.mom_loss(topo, downstream_gen, downstream_tar)
                     valid_loss_mom += loss_mom
                 
                     loss_tot = loss_l2 + loss_mom
                     valid_loss_tot += loss_tot
 
-                valid_loss_l1 += nn.functional.l1_loss(finetune_gen, finetune_tar)
+                valid_loss_l1 += nn.functional.l1_loss(downstream_gen, downstream_tar)
 
                 valid_steps += 1.
 
                 # save fields for vis before log norm
                 os.makedirs(params['experiment_dir'] + "/" + str(i), exist_ok =True)
-                if params.finetune_config == 'DownScalingNet':
-                    save_image(torch.cat((finetune_gen[0, 0],
-                                          torch.zeros((self.valid_dataset.finetune_0p08_img_shape_x,4)).to(self.device, dtype=torch.float),
-                                          finetune_tar[0, 0]), axis=1),
+                if params.downstream_config == 'DownScalingNet':
+                    save_image(torch.cat((downstream_gen[0, 0],
+                                          torch.zeros((self.valid_dataset.downstream_0p08_img_shape_x,4)).to(self.device, dtype=torch.float),
+                                          downstream_tar[0, 0]), axis=1),
                                os.path.join(params['experiment_dir'], str(i), f'epoch_{self.epoch}.png'))
                 else:
-                    save_image(torch.cat((finetune_gen[0, 0],
-                                          torch.zeros((self.valid_dataset.finetune_img_shape_x,4)).to(self.device, dtype=torch.float),
-                                          finetune_tar[0, 0]), axis=1),
+                    save_image(torch.cat((downstream_gen[0, 0],
+                                          torch.zeros((self.valid_dataset.downstream_img_shape_x,4)).to(self.device, dtype=torch.float),
+                                          downstream_tar[0, 0]), axis=1),
                                os.path.join(params['experiment_dir'], str(i), f'epoch_{self.epoch}.png'))
 
         if dist.is_initialized():
             dist.all_reduce(valid_buff)
 
         # divide by number of steps
-        if params.finetune_config == 'DownScalingNet':
+        if params.downstream_config == 'DownScalingNet':
             valid_buff[0:4] = valid_buff[0:4] / valid_buff[4] # loss/steps, l1/steps
             valid_buff_cpu = valid_buff.detach().cpu().numpy()
 
@@ -503,11 +503,11 @@ class Trainer():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--yaml_config", default='./config/Model_Finetune.yaml', type=str)  
+    parser.add_argument("--yaml_config", default='./config/Model_downstream.yaml', type=str)  
     parser.add_argument("--pretrained_dir", default='', type=str) # the location of backbone's parameters and current experiment directory
-    parser.add_argument("--finetune_config", default='WaveNet', type=str)
+    parser.add_argument("--downstream_config", default='WaveNet', type=str)
     parser.add_argument("--freeze_backbone", default=1, type=int)
-    parser.add_argument("--finetune_max_epochs", default=50, type=int)
+    parser.add_argument("--downstream_max_epochs", default=50, type=int)
     parser.add_argument("--batch_size", default=16, type=int)
 
     parser.add_argument("--use_mom_loss", default=0, type=int)
@@ -516,7 +516,7 @@ if __name__ == '__main__':
     parser.add_argument("--noise_mean", default=0, type=int)
     parser.add_argument("--noise_std", default=0, type=float)
 
-    parser.add_argument("--wandb_group", default='Finetune_WaveNet', type=str)
+    parser.add_argument("--wandb_group", default='downstream_WaveNet', type=str)
     parser.add_argument("--run_num", default='', type=str)
     parser.add_argument("--enable_amp", action='store_true')
     parser.add_argument("--epsilon_factor", default=0, type=float)
@@ -524,12 +524,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    params = YParams(os.path.abspath(args.yaml_config), args.finetune_config, False)
+    params = YParams(os.path.abspath(args.yaml_config), args.downstream_config, False)
 
-    params['finetune_config']      = args.finetune_config
+    params['downstream_config']      = args.downstream_config
     params['freeze_backbone']      = args.freeze_backbone
     params['epsilon_factor']       = args.epsilon_factor
-    params['finetune_max_epochs']  = args.finetune_max_epochs
+    params['downstream_max_epochs']  = args.downstream_max_epochs
 
     params['use_mom_loss']         = args.use_mom_loss
 
@@ -538,7 +538,7 @@ if __name__ == '__main__':
     params['noise_std']            = args.noise_std
 
     params['enable_amp']           = args.enable_amp  # Automatic Mixed Precision Training
-    params['resuming']             = False            # this is not finetune the backbone
+    params['resuming']             = False            # this is not downstream the backbone
     params['pretrained_ckpt_path'] = os.path.join(args.pretrained_dir, 'training_checkpoints/best_ckpt.tar') # backbone parameters
 
     params['world_size'] = 1
@@ -558,7 +558,7 @@ if __name__ == '__main__':
     params['batch_size'] = int(args.batch_size // params['world_size'])  # batch size must be divisible by the number of gpu's
 
     # current experiment directory
-    expDir = os.path.join(args.pretrained_dir, args.finetune_config, args.run_num)
+    expDir = os.path.join(args.pretrained_dir, args.downstream_config, args.run_num)
 
     if world_rank == 0:
         os.makedirs(expDir, exist_ok=True)
