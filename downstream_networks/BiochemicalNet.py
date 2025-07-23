@@ -3,7 +3,7 @@ import torch.nn as nn
 from einops import rearrange
 import utils.bicubic as bicubic
 import torch.nn.functional as F
-from finetune_networks.blocks import ResConv
+from downstream_networks.blocks import ResConv
 
 class BiochemicalNet(nn.Module):
     def __init__(self, backbone, params, target_in_chans=False):
