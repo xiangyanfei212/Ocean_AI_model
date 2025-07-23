@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 from einops import rearrange
 import utils.bicubic as bicubic
-from networks.fourier_block_Masked_AE_Ocean import Block
+from networks.fourier_block import Block
 
 
 class WaveNet(nn.Module):
