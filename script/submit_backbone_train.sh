@@ -30,7 +30,7 @@ do
 done
 
 wandb_group='025_daily_15_levels'
-yaml_config='./config/Model_202312.yaml'
+yaml_config='./config/config_backbone.yaml'
 config='Masked_AE_Ocean' # Model type
 batch_size=32
 run_num=$(date "+%Y%m%d-%H%M%S") # Run ID based on the current timestamp
@@ -43,6 +43,6 @@ torchrun \
        --rdzv_id=1 \
        --rdzv_backend=c10d \
        --rdzv_endpoint="${host[1]}:29503" \
-       train_backbone_025_multi_steps.py --enable_amp --yaml_config=$yaml_config --config=$config --run_num=$run_num --batch_size=$batch_size --multi_steps_finetune=$multi_steps_finetune --finetune_max_epochs=$finetune_max_epochs --wandb_group=$wandb_group >> ./logs/${config}_${wandb_group}_rank0_${SLURM_JOB_ID}_${run_num}.log 2>&1 &
+       train_backbone.py --enable_amp --yaml_config=$yaml_config --config=$config --run_num=$run_num --batch_size=$batch_size --multi_steps_finetune=$multi_steps_finetune --finetune_max_epochs=$finetune_max_epochs --wandb_group=$wandb_group >> ./logs/${config}_${wandb_group}_rank0_${SLURM_JOB_ID}_${run_num}.log 2>&1 &
 
 wait
