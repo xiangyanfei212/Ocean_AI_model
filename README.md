@@ -64,11 +64,11 @@ sample_backbone
 
 Training configurations can be set up in [config/AFNO.yaml](config/backbone.yaml).
 
-An example launch script for distributed data parallel training on the slurm based HPC cluster perlmutter is provided in ```submit_train_backbone.sh```. Please follow the pre-training and fine-tuning procedures as described in the pre-print.
+An example launch script for distributed data parallel training on the slurm based HPC cluster perlmutter is provided in ```submit_backbone_train.sh```. Please follow the pre-training and fine-tuning procedures as described in the pre-print.
 
 ### Downstream task
 
-The variables used in downstream tasks are as follows:
+The variables and datasets source used in downstream tasks are as follows:
 
 | Variable | Resolution      | Details                                                   | Task          | Source |
 |----------|-----------------|-----------------------------------------------------------|---------------|--------|
@@ -88,6 +88,8 @@ The variables used in downstream tasks are as follows:
 | Irn      | 1°             | Iron concentration (nano mole/L)                         | Biochemistry  | NASA   |
 | Nit      | 1°             | Nitrate concentration (micro mole/L)                     | Biochemistry  | NASA   |
 | MLD      | 1°             | Mixed layer depth (m)                                     | Biochemistry  | NASA   |
+
+An example launch script for distributed data parallel training on the slurm based HPC cluster perlmutter is provided in ```submit_downstream_train.sh```.
 
 #### Regional Downscaling
 
@@ -170,6 +172,67 @@ sample_biochemical
 |    |  global_stds.npy  
 |    |  land_mask.h5
 ```
+
+## Inference:
+
+In order to run Poseidon’s backbone and downstream model in inference mode you will need to have the following files on hand.
+
+1. The path to the out of training sample hdf5 file.
+2. The model weights hosted at [Trained Model Weights]()
+3. The pre-computed normalization statistics hosted at [additional]().
+
+Run inference for backbone using
+
+```
+nohup python -u inference_backbone.py \
+    --config='Masked_AE_Ocean' \  # Model configuration
+    --exp_dir='../exps' \  # Path to the experiment directory (./[exp_dir]/[run_num])
+    --run_num='' \
+    --finetune_dir='2_steps_finetune' \  # Directory containing fine-tuned weights
+    --prediction_length=31 \  # Prediction length in timesteps
+    --decorrelation_time=30 \  # Decorrelation time interval
+    --n_samples_per_year=365 \  # Number of samples per year for evaluation
+    --ics_type='datetime' \  # Type of initial conditions (datetime-based)
+    --date_strings='01/01/2021-00:00:00,01/02/2021-00:00:00,01/03/2021-00:00:00,01/04/2021-00:00:00,01/05/2021-00:00:00,01/06/2021-00:00:00,01/07/2021-00:00:00,01/08/2021-00:00:00,01/09/2021-00:00:00,01/10/2021-00:00:00,01/11/2021-00:00:00,01/12/2021-00:00:00' \  
+    --year=2021 \  # Year for which predictions are being generated
+    > logs/inference_025_backbone_20240223-100516.log 2>&1 &
+```
+
+Run inference for downstream using
+
+```
+python inference_biochmical.py \     # you can modify the inference code (inference_biochmical.py, inference_wave.py, inference_kuroshio_downscaling.py)
+    --exp_dir='' \                   # Path to the experiment directory
+    --prediction_length=31 \         # Length of predictions (e.g., 31 days)
+    --decorrelation_time=30 \        # Time interval for decorrelation
+    --n_samples_per_year=365         # Number of samples to evaluate per year
+```
+
+## References:
+
+ERA5 data \[ Hersbach, H. et al., (2018) \] was downloaded from the Copernicus Climate Change Service (C3S) Climate Data Store.
+
+```
+Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2018): ERA5 hourly data on pressure levels from 1959 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). , 10.24381/cds.bd0915c6
+
+Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2018): ERA5 hourly data on single levels from 1959 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). , 10.24381/cds.adbb2d47
+```
+
+If you find this work useful, cite it using:
+```
+@article{pathak2022fourcastnet,
+  title={Fourcastnet: A global data-driven high-resolution weather model using adaptive fourier neural operators},
+  author={Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and Raja, Sanjeev and Chattopadhyay, Ashesh and Mardani, Morteza and Kurth, Thorsten and Hall, David and Li, Zongyi and Azizzadenesheli, Kamyar and Hassanzadeh, Pedram and Kashinath, Karthik and Anandkumar, Animashree},
+  journal={arXiv preprint arXiv:2202.11214},
+  year={2022}
+}
+```
+
+
+
+
+
+
 
 
 
