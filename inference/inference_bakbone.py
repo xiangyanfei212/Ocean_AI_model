@@ -31,23 +31,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------------
 
-Project: Ocean AI Model - Distributed Training Script
-Author: Original code by https://github.com/NVlabs/FourCastNet
-Modified by: Yanfei Xiang
+Modifications by: Yanfei Xiang
+Copyright (c) 2025, Yanfei Xiang
+All rights reserved.
 
-Description:
-This script is used for distributed training of deep learning models for ocean data analysis.
-It includes functionality for:
-- Loading datasets (training, validation, and test sets)
-- Distributed data parallel training
-- Mixed precision training (AMP)
-- Model checkpointing and resuming
-- Integration with Weights & Biases (WandB) for experiment tracking
+Description of Modifications:
+1. Updated to support ocean simulations
+2. Added support for autoregressive inference with additional configurations.
+3. Integrated land masking during inference.
+4. Expanded configuration handling for ocean datasets, normalization schemes, and new model architecture.
 
-License:
-This script is a modified version of the original code by [Original Author/Team Name].
-The original code is licensed under [license type, e.g., MIT License]. Modifications are made under the same license.
-For details, refer to the LICENSE file or contact [Original Author/Your Contact Info].
 """
 
 
