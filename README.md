@@ -1,11 +1,15 @@
 # Ocean_AI_model
 
-This repository contains the code used for "Poseidon: A Unified Foundation Model for Ocean Dynamics System" \[[paper]()\]
+
+This repository contains the code used for [Poseidon: A Unified Foundation Model for Ocean Dynamics System]()
 
 Existing ocean simulation methods face significant bottlenecks in generalization and computational efficiency. To address this challenge, we propose Poseidon, a novel AI foundation model for the global ocean system. The core of Poseidon is a Fourier-based Masked Autoencoder. This model processes patched and serialized ocean state and atmospheric forcing fields through self-supervised pre-training to learn general latent representations of ocean dynamics system. This pre-trained model serves as a unified backbone, efficiently empowering diverse downstream oceanographic tasks with minimal, lightweight fine-tuning. These tasks include: **Sparse Observation Simulation**, which accurately simulates global ocean variable fields from incomplete inputs; **Cross-Disciplinary Coupled Simulation**, which drives ocean biogeochemical process predictions at low cost by coupling the pre-trained physical fields with lightweight modules; **Multi-Modal State Decoding**, which decodes complex ocean phenomena by fusing multi-source information like atmospheric and wave data; and **Context-Aware Downscaling**, which generates high-fidelity regional predictions by combining global features with local low-resolution information. On the 30-day continuous simulation task for global ocean core variables at a $1/4^{\circ}$ resolution and 15 depth layers, Poseidon outperforms state-of-the-art baselines by an average of 17.3% across all key metrics. It also improves inference efficiency by two orders of magnitude. Our work provides a critical paradigm and a solid foundation for building scalable and efficient AI foundation models in the Earth system sciences.
 
-Poseidon is based on the vision transformer architecture with Adaptive Fourier Neural Operator (AFNO) attention proposed in Guibas-Mardani et al. \[[paper](https://openreview.net/pdf?id=EXHG-A3jlM)\], \[[code](https://github.com/NVlabs/AFNO-transformer)\]. # TODO: add mask
+![](assets/framework.png)
 
+The Architecture of the Poseidon Foundation Model is shown as above.
+(a) The pre-training stage of Poseidon, a Fourier-based Masked Autoencoder. The model learns general representations of ocean dynamics by reconstructing the complete ocean state (S, T, U, V, SSH) from masked, patched inputs of initial conditions and atmospheric forcing.
+(b) The downstream application workflow. The pre-trained model serves as a unified backbone, enabling diverse tasks with minimal, lightweight fine-tuning, including: (1) Zero-shot Sparse Prediction: Reconstructing full fields from incomplete observations. (2) Cross-Disciplinary Coupling: Driving biogeochemical models at low cost. (3) Multi-Modal Decoding: Fusing atmospheric and wave data for complex state estimation. (4) Context-Aware Downscaling: Generating high-fidelity regional predictions using global features.
 
 ## Training:
 
