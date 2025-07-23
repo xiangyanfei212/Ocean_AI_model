@@ -496,7 +496,7 @@ if __name__ == '__main__':
         stop        = num_samples
         init_conditions         = np.arange(0, stop, args.decorrelation_time)
         n_ics       = len(init_conditions)
-    elif params["ics_type"] == "datetime": # TODO: this function has not been debug
+    elif params["ics_type"] == "datetime": # TODO
         date_strings = params["date_strings"]
         init_conditions = []
         if params.perturb: 
