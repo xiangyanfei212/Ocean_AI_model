@@ -1,25 +1,49 @@
-# Ocean_AI_model
+# Poseidon: A Unified Foundation Model for Ocean Dynamics System
+
+This repository contains the code and resources for Poseidon, a novel AI foundation model for the global ocean system. Poseidon is designed to overcome the limitations of existing ocean simulation methods in terms of generalization and computational efficiency. By leveraging a Fourier-based Masked Autoencoder architecture, Poseidon learns general latent representations of ocean dynamics, enabling diverse oceanographic tasks with minimal fine-tuning.
+
+## Overview
+Poseidon consists of a pre-trained backbone model and downstream modules that address key oceanographic challenges, including:
+
+1. Sparse Observation Simulation: Simulating global ocean variable fields from incomplete inputs.
+2. Cross-Disciplinary Coupled Simulation: Driving ocean biogeochemical process predictions at low computational cost.
+3. Multi-Modal State Decoding: Decoding complex ocean phenomena by fusing multi-source information like atmospheric and wave data.
+4. Context-Aware Downscaling: Generating high-fidelity regional predictions by combining global features with local low-resolution information.
+
+With its efficient design, Poseidon outperforms state-of-the-art baselines by 17.3% across key metrics for 30-day continuous simulations at a $1/4^{\circ}$ resolution. Furthermore, it achieves two orders of magnitude improvement in inference efficiency.
+
+## Architecture
+### Pre-Training Stage
+Poseidon uses a Fourier-based Masked Autoencoder to learn general representations of ocean dynamics by reconstructing complete ocean states (e.g., sea temperature, salinity, velocity, and sea surface height) from masked, patched inputs of initial ocean conditions and atmospheric forcing.
+
+### Downstream Tasks
+The pre-trained backbone serves as a unified model for various downstream tasks:
+
+1. Zero-shot Sparse Prediction: Reconstruct full fields from incomplete observations.
+2. Cross-Disciplinary Coupling: Drive biogeochemical models at low computational cost.
+3. Multi-Modal Decoding: Fuse atmospheric and wave data for complex state estimation.
+4. Context-Aware Downscaling: Generate high-fidelity regional predictions.
 
 
-This repository contains the code used for [Poseidon: A Unified Foundation Model for Ocean Dynamics System]()
+## Dependencies
+The following dependencies are required to run Poseidon:
 
-Existing ocean simulation methods face significant bottlenecks in generalization and computational efficiency. To address this challenge, we propose Poseidon, a novel AI foundation model for the global ocean system. The core of Poseidon is a Fourier-based Masked Autoencoder. This model processes patched and serialized ocean state and atmospheric forcing fields through self-supervised pre-training to learn general latent representations of ocean dynamics system. This pre-trained model serves as a unified backbone, efficiently empowering diverse downstream oceanographic tasks with minimal, lightweight fine-tuning. These tasks include: **Sparse Observation Simulation**, which accurately simulates global ocean variable fields from incomplete inputs; **Cross-Disciplinary Coupled Simulation**, which drives ocean biogeochemical process predictions at low cost by coupling the pre-trained physical fields with lightweight modules; **Multi-Modal State Decoding**, which decodes complex ocean phenomena by fusing multi-source information like atmospheric and wave data; and **Context-Aware Downscaling**, which generates high-fidelity regional predictions by combining global features with local low-resolution information. On the 30-day continuous simulation task for global ocean core variables at a $1/4^{\circ}$ resolution and 15 depth layers, Poseidon outperforms state-of-the-art baselines by an average of 17.3% across all key metrics. It also improves inference efficiency by two orders of magnitude. Our work provides a critical paradigm and a solid foundation for building scalable and efficient AI foundation models in the Earth system sciences.
+- Python >= 3.8
+- PyTorch >= 1.8.0
+- NumPy
+- h5py
+- tqdm
+- matplotlib
+Additional libraries as specified in ```requirements.txt```
+Install dependencies using:
+```
+pip install -r requirements.txt
+```
 
-![](assets/framework.png)
-
-The Architecture of the Poseidon Foundation Model is shown as above.
-(a) The pre-training stage of Poseidon, a Fourier-based Masked Autoencoder. The model learns general representations of ocean dynamics by reconstructing the complete ocean state (S, T, U, V, SSH) from masked, patched inputs of initial conditions and atmospheric forcing.
-(b) The downstream application workflow. The pre-trained model serves as a unified backbone, enabling diverse tasks with minimal, lightweight fine-tuning, including: (1) Zero-shot Sparse Prediction: Reconstructing full fields from incomplete observations. (2) Cross-Disciplinary Coupling: Driving biogeochemical models at low cost. (3) Multi-Modal Decoding: Fusing atmospheric and wave data for complex state estimation. (4) Context-Aware Downscaling: Generating high-fidelity regional predictions using global features.
-
-## Training:
-
-### Backbone model
-
-The backbone model is trained on a subset of [HYCOM analysis(reanalysis)](https://www.hycom.org/dataserver/gofs-3pt1/analysis), which is a state-of-the-art global eddy-resolving ocean analysis(reanalysis) product generated via the Global Ocean Forecast System 3.1 (GOFS-3.1). 
-
-Our backbone model is designed to predict key ocean variables, including sea surface height (SSH), temperature (T), salinity (S), and the u- and v-components of ocean velocity (U and V), on a daily basis. We preprocess the HYCOM analysis(reanalysis) datasets from 2000 to 2021 at a spatial resolution of $1/4^{\circ}$. We selected 15 depth levels (0 m, 6 m, 10 m, 20 m, 30 m, 50 m, 70 m, 100 m, 125 m, 150 m, 200 m, 250 m, 300 m, 400 m, and 500 m) for T, S, U, and V. We sample daily subset at 12:00. 
-
-In addition, external forcing and boundary conditions are incorporated, including topographic data from ETOPO~\cite{NOAA_ETOPO2022} and five atmospheric forcing variables from ERA5~\cite{hersbach2020era5}.
+## Data Sources
+### Backbone Training Data
+Poseidon is trained on a subset of the [HYCOM analysis (reanalysis)](https://www.hycom.org/dataserver/gofs-3pt1/analysis), a state-of-the-art global ocean analysis product from the Global Ocean Forecast System 3.1 (GOFS-3.1). 
+In addition, external forcing and boundary conditions are incorporated, including topographic data from [ETOPO](https://doi.org/10.25921/fd45-gt74) and five atmospheric forcing variables from [ERA5](https://doi.org/10.24381/cds.bd0915c6).
 
 The variables used in backbone are as follows:
 
@@ -39,38 +63,11 @@ The variables used in backbone are as follows:
 
 We divide the dataset into three subsets: training, validation, and testing. The training dataset spans the period from 2000 to 2019, the validation dataset consists of data from 2020, and the testing dataset includes out-of-sample data from 2021. 
 
-[Pre-processed Training Data]()
+### Downstream Tasks
 
-The data directory is organized as follows:
-
-```
-sample_backbone
-|---train
-|    |  2000.h5
-|    |  2001.h5
-|    |  ...
-|    |  ...
-|    |  2019.h5
-|
-|---valid
-|    |  2020.h5
-|
-|---test
-|    |  2021.h5
-|
-|---stats
-|    |  time_means.npy
-|    |  global_means.npy  
-|    |  global_stds.npy  
-|    |  land_mask.h5
-|    |  orography.h5 
-```
-
-Training configurations can be set up in [config/AFNO.yaml](config/backbone.yaml).
-
-An example launch script for distributed data parallel training on the slurm based HPC cluster perlmutter is provided in ```submit_backbone_train.sh```. Please follow the pre-training and fine-tuning procedures as described in the pre-print.
-
-### Downstream task
+1. Regional Downscaling: High-resolution training labels from HYCOM for the Kuroshio region.
+2. Wave Decoding: Significant Wave Height (SWH) and wind components from [ERA5](https://doi.org/10.24381/cds.bd0915c6).
+3. Biochemistry Coupling: Biogeochemical variables from the [NASA Ocean Biochemical Model](https://doi.org/10.5067/BHCFDIICIOU5).
 
 The variables and datasets source used in downstream tasks are as follows:
 
@@ -93,148 +90,115 @@ The variables and datasets source used in downstream tasks are as follows:
 | Nit      | 1°             | Nitrate concentration (micro mole/L)                     | Biochemistry  | NASA   |
 | MLD      | 1°             | Mixed layer depth (m)                                     | Biochemistry  | NASA   |
 
-An example launch script for distributed data parallel training on the slurm based HPC cluster perlmutter is provided in ```submit_downstream_train.sh```.
+## Data Organization
+### Backbone Training Data
 
-#### Regional Downscaling
+```
+sample_backbone
+|---train
+|    |  2000.h5
+|    |  2001.h5
+|    |  ...
+|---valid
+|    |  2020.h5
+|---test
+|    |  2021.h5
+|---stats
+|    |  time_means.npy
+|    |  global_means.npy  
+|    |  global_stds.npy  
+|    |  land_mask.h5
+|    |  orography.h5
+```
 
-The regional downscaling module focuses on the Kuroshio region, defined by the geographical range of $124.7^{\circ}$E to $180^{\circ}$ and $21.28^{\circ}$N to $45^{\circ}$N. The high-resolution training labels are from the HYCOM analysis and reanalysis data set at a spatial resolution of $1/12^{\circ}$.
 
-The data directory is organized as follows:
-
+### Downstream Tasks
+1. Regional Downscaling:
 ```
 sample_Kuroshio_downscaling
 |---train
 |    |  2000.h5
-|    |  2001.h5
 |    |  ...
-|    |  ...
-|    |  2013.h5
-|
 |---valid
 |    |  2014.h5
-|
 |---test
 |    |  2015.h5
-|
 |---stats
 |    |  global_means.npy  
 |    |  global_stds.npy  
-|    |  land_mask.h5
 |    |  topo_kuroshio_0p08.h5
 ```
 
-#### Wave Decoding
-
-The goal of this module is to predict significant wave height (SWH) using physical ocean variables and atmospheric drivers. SWH data and 10m U/V wind components are taken from the ERA5 dataset~\cite{hersbach2020era5}. 
-
-The data directory is organized as follows:
-
+2. Wave Decoding:
 ```
 sample_wave
 |---train
 |    |  2000.h5
-|    |  2001.h5
 |    |  ...
-|    |  ...
-|    |  2013.h5
-|
-|---valid
-|    |  2014.h5
-|
-|---test
-|    |  2015.h5
-|
 |---stats
 |    |  global_means.npy  
 |    |  global_stds.npy  
 |    |  land_mask.h5
 ```
 
-#### Biochemistry Coupling
-
-The Biochemistry Coupling Module is trained on eight biochemical variables obtained from the NASA Ocean Biochemical Model~\cite{gregg2017nasa}, which integrates satellite chlorophyll data with ocean circulation-biochemical coupled numerical models. These variables include total chlorophyll a concentration, chlorophyte concentration, diatom concentration, coccolithophore concentration, cyanobacteria concentration, iron concentration, nitrate concentration, and mixed layer depth. Each variable is interpolated onto a global regular grid with dimensions of $180 \times 360$ using the bilinear interpolation method.
-
-The data directory is organized as follows:
-
+3. Biochemistry Coupling:
 ```
 sample_biochemical
 |---train
 |    |  2000.h5
-|    |  2001.h5
 |    |  ...
-|    |  ...
-|    |  2013.h5
-|
-|---valid
-|    |  2014.h5
-|
-|---test
-|    |  2015.h5
-|
 |---stats
 |    |  global_means.npy  
 |    |  global_stds.npy  
 |    |  land_mask.h5
 ```
 
-## Inference:
+## Training
+### Backbone Training
+The backbone model can be trained using the provided configuration file (```config/config_backbone.yaml```) and the launch script (```submit_backbone_train.sh```).
 
-In order to run Poseidon’s backbone and downstream model in inference mode you will need to have the following files on hand.
+### Downstream Tasks
+The downstream model can be trained using the configuration file (```config/config_downstream.yaml```) and the launch script (```submit_downstream_train.sh```).
 
-1. The path to the out of training sample hdf5 file.
-2. The model weights hosted at [Trained Model Weights]()
-3. The pre-computed normalization statistics hosted at [additional]().
+## Inference
 
-Run inference for backbone using
-
+### Backbone Model
+To run inference with the backbone model:
+1. Ensure the test data (```./sample_backbone/test/```) and normalization stats (```./sample_backbone/stats/```) are available.
+2. Use the trained model weights hosted at Trained Model Weights.
+3. Run the following command:
 ```
 nohup python -u inference_backbone.py \
-    --config='Masked_AE_Ocean' \  # Model configuration
-    --exp_dir='../exps' \  # Path to the experiment directory (./[exp_dir]/[run_num])
+    --config='Masked_AE_Ocean' \
+    --exp_dir='../exps' \
     --run_num='' \
-    --finetune_dir='2_steps_finetune' \  # Directory containing fine-tuned weights
-    --prediction_length=31 \  # Prediction length in timesteps
-    --decorrelation_time=30 \  # Decorrelation time interval
-    --n_samples_per_year=365 \  # Number of samples per year for evaluation
-    --ics_type='datetime' \  # Type of initial conditions (datetime-based)
-    --date_strings='01/01/2021-00:00:00,01/02/2021-00:00:00,01/03/2021-00:00:00,01/04/2021-00:00:00,01/05/2021-00:00:00,01/06/2021-00:00:00,01/07/2021-00:00:00,01/08/2021-00:00:00,01/09/2021-00:00:00,01/10/2021-00:00:00,01/11/2021-00:00:00,01/12/2021-00:00:00' \  
-    --year=2021 \  # Year for which predictions are being generated
-    > logs/inference_025_backbone_20240223-100516.log 2>&1 &
+    --finetune_dir='2_steps_finetune' \
+    --prediction_length=31 \
+    --decorrelation_time=30 \
+    --n_samples_per_year=365 \
+    --ics_type='datetime' \
+    --date_strings='01/01/2021-00:00:00,...' \
+    --year=2021 \
+    > logs/inference.log 2>&1 &
 ```
 
-Run inference for downstream using
-
+### Downstream Modules
 ```
-python inference_biochmical.py \     # you can modify the inference code (inference_biochmical.py, inference_wave.py, inference_kuroshio_downscaling.py)
-    --exp_dir='' \                   # Path to the experiment directory
-    --prediction_length=31 \         # Length of predictions (e.g., 31 days)
-    --decorrelation_time=30 \        # Time interval for decorrelation
-    --n_samples_per_year=365         # Number of samples to evaluate per year
+python inference_biochmical.py \
+    --exp_dir='' \
+    --prediction_length=31 \
+    --decorrelation_time=30 \
+    --n_samples_per_year=365
 ```
+Modify the script based on the task (e.g., wave decoding or regional downscaling).
 
-## References:
-
-ERA5 data \[ Hersbach, H. et al., (2018) \] was downloaded from the Copernicus Climate Change Service (C3S) Climate Data Store.
-
-```
-Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2018): ERA5 hourly data on pressure levels from 1959 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). , 10.24381/cds.bd0915c6
-
-Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2018): ERA5 hourly data on single levels from 1959 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS). , 10.24381/cds.adbb2d47
-```
-
-If you find this work useful, cite it using:
-```
+## Citation
 @article{pathak2022fourcastnet,
   title={Fourcastnet: A global data-driven high-resolution weather model using adaptive fourier neural operators},
-  author={Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and Raja, Sanjeev and Chattopadhyay, Ashesh and Mardani, Morteza and Kurth, Thorsten and Hall, David and Li, Zongyi and Azizzadenesheli, Kamyar and Hassanzadeh, Pedram and Kashinath, Karthik and Anandkumar, Animashree},
+  author={Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and ...},
   journal={arXiv preprint arXiv:2202.11214},
   year={2022}
 }
-```
-
-
-
-
 
 
 
