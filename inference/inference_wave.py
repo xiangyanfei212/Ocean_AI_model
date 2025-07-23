@@ -71,7 +71,7 @@ from torch.nn.parallel import DistributedDataParallel
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '/../')
 from utils.YParams import YParams
-from utils.data_loader_multifiles import get_finetune_data_loader
+from utils.data_loader_multifiles import get_downstream_data_loader
 from utils.weighted_acc_rmse import weighted_rmse_torch_channels, weighted_acc_torch_channels, unweighted_acc_torch_channels, weighted_acc_masked_torch_channels
 
 from utils import logging_utils
@@ -105,10 +105,10 @@ def setup(params):
     device = torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
 
     # get data loader
-    valid_data_loader, valid_dataset = get_finetune_data_loader(
+    valid_data_loader, valid_dataset = get_downstream_data_loader(
                 params, 
                 params.test_data_path, # backbone data
-                params.finetune_test_data_path, # downstream data
+                params.downstream_test_data_path, # downstream data
                 dist.is_initialized(), 
                 train=False)
 
@@ -124,40 +124,34 @@ def setup(params):
     params.N_in_channels = params.backbone_n_in_channels # don't comment this
     params.N_out_channels = params.backbone_n_out_channels # don't comment this
 
-    # %% finetune data
-    params.finetune_img_shape_x = valid_dataset.finetune_img_shape_x 
-    params.finetune_img_shape_y = valid_dataset.finetune_img_shape_y
-    params.finetune_in_channels    = np.array(params.finetune_in_channels)
-    params.finetune_out_channels   = np.array(params.finetune_out_channels)
-    params.finetune_n_in_channels  = len(params.finetune_in_channels)
-    params.finetune_n_out_channels = len(params.finetune_out_channels)
+    # %% downstream data
+    params.downstream_img_shape_x = valid_dataset.downstream_img_shape_x 
+    params.downstream_img_shape_y = valid_dataset.downstream_img_shape_y
+    params.downstream_in_channels    = np.array(params.downstream_in_channels)
+    params.downstream_out_channels   = np.array(params.downstream_out_channels)
+    params.downstream_n_in_channels  = len(params.downstream_in_channels)
+    params.downstream_n_out_channels = len(params.downstream_out_channels)
 
     # %% statistic data for normallization
     if params.normalization == 'zscore': 
         params.backbone_means = np.load(params.global_means_path)
         params.backbone_stds  = np.load(params.global_stds_path)
-        params.finetune_means = np.load(params.finetune_global_means_path)
-        params.finetune_stds  = np.load(params.finetune_global_stds_path)
+        params.downstream_means = np.load(params.downstream_global_means_path)
+        params.downstream_stds  = np.load(params.downstream_global_stds_path)
     if params.normalization == 'minmax': 
         params.backbone_mins = np.load(params.global_mins_path)
         params.backbone_maxs = np.load(params.global_maxs_path)
-        params.finetune_mins = np.load(params.finetune_global_mins_path)
-        params.finetune_maxs = np.load(params.finetune_global_maxs_path)
+        params.downstream_mins = np.load(params.downstream_global_mins_path)
+        params.downstream_maxs = np.load(params.downstream_global_maxs_path)
 
     if params.nettype == 'WaveNet':
-        from finetune_networks.WaveNet import WaveNet as finetune_model
-    elif params.nettype == 'WaveNet_v2':
-        from finetune_networks.WaveNet_v2 import WaveNet as finetune_model
-    elif params.nettype == 'WaveNet_fourier':
-        from finetune_networks.WaveNet_fourier import WaveNet as finetune_model
-    elif params.nettype == 'WaveNet_v2_fourier':
-        from finetune_networks.WaveNet_v2_fourier import WaveNet as finetune_model
+        from downstream_networks.WaveNet import WaveNet as downstream_model
     else:
         raise Exception("not implemented")
 
     # init model
     backbone = Masked_Ocean(params)
-    model = finetune_model(backbone, params)
+    model = downstream_model(backbone, params)
 
     # Load model params
     logging.info('Loading trained model checkpoint from {}'.format(params['best_checkpoint_path']))
@@ -168,8 +162,8 @@ def setup(params):
     backbone_files_paths = glob.glob(params.test_data_path + "/*.h5")
     backbone_files_paths.sort()
 
-    finetune_files_paths = glob.glob(params.finetune_test_data_path + "/*.h5")
-    finetune_files_paths.sort()
+    downstream_files_paths = glob.glob(params.downstream_test_data_path + "/*.h5")
+    downstream_files_paths.sort()
 
     # which year
     yr = 0
@@ -177,13 +171,13 @@ def setup(params):
     logging.info('Inference data from {}'.format(backbone_files_paths[yr]))
     backbone_valid_data_full = h5py.File(backbone_files_paths[yr], 'r')['fields']
 
-    logging.info('Inference finetune data from {}'.format(finetune_files_paths[yr]))
-    finetune_valid_data_full = h5py.File(finetune_files_paths[yr], 'r')['fields']
+    logging.info('Inference downstream data from {}'.format(downstream_files_paths[yr]))
+    downstream_valid_data_full = h5py.File(downstream_files_paths[yr], 'r')['fields']
 
-    return backbone_valid_data_full, finetune_valid_data_full, model
+    return backbone_valid_data_full, downstream_valid_data_full, model
 
     
-def autoregressive_inference(params, init_condition, backbone_valid_data_full, finetune_valid_data_full, model): 
+def autoregressive_inference(params, init_condition, backbone_valid_data_full, downstream_valid_data_full, model): 
     # initialize global variables
     device = torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
 
@@ -203,34 +197,34 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
     backbone_seq_real = torch.zeros((prediction_length, params.backbone_n_out_channels, params.backbone_img_shape_x, params.backbone_img_shape_y))
     backbone_seq_pred = torch.zeros((prediction_length, params.backbone_n_out_channels, params.backbone_img_shape_x, params.backbone_img_shape_y))
 
-    # %% finetune
-    finetune_valid_loss             = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_acc                    = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_acc_unweighted         = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_valid_loss_coarse      = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_acc_coarse             = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_acc_coarse_unweighted  = torch.zeros((prediction_length, params.finetune_n_out_channels))
-    finetune_seq_real = torch.zeros((prediction_length, params.finetune_n_out_channels, params.finetune_img_shape_x, params.finetune_img_shape_y))
-    finetune_seq_pred = torch.zeros((prediction_length, params.finetune_n_out_channels, params.finetune_img_shape_x, params.finetune_img_shape_y))
+    # %% downstream
+    downstream_valid_loss             = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_acc                    = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_acc_unweighted         = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_valid_loss_coarse      = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_acc_coarse             = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_acc_coarse_unweighted  = torch.zeros((prediction_length, params.downstream_n_out_channels))
+    downstream_seq_real = torch.zeros((prediction_length, params.downstream_n_out_channels, params.downstream_img_shape_x, params.downstream_img_shape_y))
+    downstream_seq_pred = torch.zeros((prediction_length, params.downstream_n_out_channels, params.downstream_img_shape_x, params.downstream_img_shape_y))
 
     # extract valid data 
     backbone_valid_data = backbone_valid_data_full[init_condition:(init_condition+prediction_length*dt+n_history*dt):dt, :, 0:720]
     logging.info(f'backbone_valid_data_full: {backbone_valid_data_full.shape}')
     logging.info(f'backbone_valid_data: {backbone_valid_data.shape}')
 
-    finetune_valid_data = finetune_valid_data_full[init_condition:(init_condition+prediction_length*dt+n_history*dt):dt, :, 0:360]
-    logging.info(f'finetune_valid_data_full: {finetune_valid_data_full.shape}')
-    logging.info(f'finetune_valid_data: {finetune_valid_data.shape}')
+    downstream_valid_data = downstream_valid_data_full[init_condition:(init_condition+prediction_length*dt+n_history*dt):dt, :, 0:360]
+    logging.info(f'downstream_valid_data_full: {downstream_valid_data_full.shape}')
+    logging.info(f'downstream_valid_data: {downstream_valid_data.shape}')
     
     if params.normalization == 'zscore': 
         backbone_valid_data = (backbone_valid_data - params.backbone_means)/params.backbone_stds
-        finetune_valid_data = (finetune_valid_data - params.finetune_means)/params.finetune_stds
+        downstream_valid_data = (downstream_valid_data - params.downstream_means)/params.downstream_stds
     if params.normalization == 'minmax': 
         backbone_valid_data = (backbone_valid_data - params.backbone_mins) / (params.backbone_maxs - params.backbone_mins)
-        finetune_valid_data = (finetune_valid_data - params.finetune_mins) / (params.finetune_maxs - params.finetune_mins)
+        downstream_valid_data = (downstream_valid_data - params.downstream_mins) / (params.downstream_maxs - params.downstream_mins)
 
     backbone_valid_data = torch.as_tensor(backbone_valid_data)
-    finetune_valid_data = torch.as_tensor(finetune_valid_data)
+    downstream_valid_data = torch.as_tensor(downstream_valid_data)
 
     # orography
     if params.orography and params.normalization == 'zscore': 
@@ -249,45 +243,45 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
                 backbone_first  = backbone_valid_data[0:n_history+1]
                 backbone_future = backbone_valid_data[n_history+1]
 
-                finetune_first  = finetune_valid_data[0:n_history+1, params.finetune_in_channels]
-                finetune_future = finetune_valid_data[n_history+1,   params.finetune_in_channels]
+                downstream_first  = downstream_valid_data[0:n_history+1, params.downstream_in_channels]
+                downstream_future = downstream_valid_data[n_history+1,   params.downstream_in_channels]
 
                 print(f'backbone_first: {backbone_first.shape}')
                 print(f'backbone_future: {backbone_future.shape}')
-                print(f'finetune_first: {finetune_first.shape}')
-                print(f'finetune_future: {finetune_future.shape}')
+                print(f'downstream_first: {downstream_first.shape}')
+                print(f'downstream_future: {downstream_future.shape}')
 
                 for h in range(n_history+1):
                     backbone_seq_real[h] = backbone_first[h*params.backbone_n_in_channels : (h+1)*params.backbone_n_in_channels, params.backbone_out_channels] # extract history from 1st 
                     backbone_seq_pred[h] = backbone_seq_real[h]
 
-                    finetune_seq_real[h] = finetune_first[h*params.finetune_n_in_channels : (h+1)*params.finetune_n_in_channels, params.finetune_out_channels] # extract history from 1st 
+                    downstream_seq_real[h] = downstream_first[h*params.downstream_n_in_channels : (h+1)*params.downstream_n_in_channels, params.downstream_out_channels] # extract history from 1st 
                     print(f'backbone_seq_real[h]: {backbone_seq_real[h].shape}')
-                    print(f'finetune_seq_real[h]: {finetune_seq_real[h].shape}')
-                    finetune_seq_pred[h] = finetune_seq_real[h]
+                    print(f'downstream_seq_real[h]: {downstream_seq_real[h].shape}')
+                    downstream_seq_pred[h] = downstream_seq_real[h]
 
                 if params.perturb:
                     backbone_first = gaussian_perturb(backbone_first, level=params.n_level, device=device) # perturb the ic
-                    finetune_first = gaussian_perturb(finetune_first, level=params.n_level, device=device) 
+                    downstream_first = gaussian_perturb(downstream_first, level=params.n_level, device=device) 
 
                 backbone_first = backbone_first.to(device, dtype=torch.float)
-                finetune_first = finetune_first.to(device, dtype=torch.float)
+                downstream_first = downstream_first.to(device, dtype=torch.float)
 
                 if params.orography:
                     backbone_first = torch.cat((backbone_first, orog.to(device, dtype=torch.float)), axis=1)
-                    print(f'backbone_first: {backbone_first.shape}, finetune_first: {finetune_first.shape}')
-                    backbone_future_pred, finetune_future_pred = model(backbone_first, finetune_first)
+                    print(f'backbone_first: {backbone_first.shape}, downstream_first: {downstream_first.shape}')
+                    backbone_future_pred, downstream_future_pred = model(backbone_first, downstream_first)
                 else:
-                    backbone_future_pred, finetune_future_pred = model(backbone_first, finetune_first)
+                    backbone_future_pred, downstream_future_pred = model(backbone_first, downstream_first)
 
             else: # t1 --> t2 --> t3 ....
                 if i < prediction_length-1:
                     backbone_future = backbone_valid_data[n_history+i+1]
-                    finetune_future = finetune_valid_data[n_history+i+1] # !!! channels=5
+                    downstream_future = downstream_valid_data[n_history+i+1] # !!! channels=5
 
                 if params.orography:
                     backbone_future_pred = backbone_future_pred.to(device, dtype=torch.float)
-                    finetune_future_pred = finetune_future_pred.to(device, dtype=torch.float)
+                    downstream_future_pred = downstream_future_pred.to(device, dtype=torch.float)
 
                     # backbone input: 
                     # 1. last time backbone output (t+1)
@@ -298,16 +292,16 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
                     orog  = orog.to(device, dtype=torch.float)
                     backbone_future_pred = torch.cat((backbone_future_pred, backbone_future_force, orog), axis=1)
 
-                    # finetune input
-                    # 1. last time finetune model output (t+1)
+                    # downstream input
+                    # 1. last time downstream model output (t+1)
                     # 2. wind force (t+2)
-                    # finetune output: (t+2)
-                    finetune_future_force = torch.unsqueeze(finetune_future[params.finetune_force_channels], dim=0).to(device, dtype=torch.float) 
-                    finetune_future_pred = torch.cat((finetune_future_pred, finetune_future_force), axis=1)
+                    # downstream output: (t+2)
+                    downstream_future_force = torch.unsqueeze(downstream_future[params.downstream_force_channels], dim=0).to(device, dtype=torch.float) 
+                    downstream_future_pred = torch.cat((downstream_future_pred, downstream_future_force), axis=1)
 
                     # predict
                     inf_one_step_start = time.time()
-                    backbone_future_pred, finetune_future_pred = model(backbone_future_pred, finetune_future_pred)
+                    backbone_future_pred, downstream_future_pred = model(backbone_future_pred, downstream_future_pred)
                     inf_one_step_time = time.time() - inf_one_step_start
 
                 else:
@@ -315,13 +309,13 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
                     backbone_future_force = torch.unsqueeze(backbone_future[params.backbone_n_out_channels:], dim=0).to(device, dtype=torch.float)
                     backbone_future_pred = torch.cat((backbone_future_pred, backbone_future_force), axis=1)
 
-                    # finetune input
-                    finetune_future_force = torch.unsqueeze(finetune_future[params.finetune_force_channels], dim=0).to(device, dtype=torch.float) 
-                    finetune_future_pred = torch.cat((finetune_future_pred, finetune_future_force), axis=1)
+                    # downstream input
+                    downstream_future_force = torch.unsqueeze(downstream_future[params.downstream_force_channels], dim=0).to(device, dtype=torch.float) 
+                    downstream_future_pred = torch.cat((downstream_future_pred, downstream_future_force), axis=1)
 
                     # predict
                     inf_one_step_start = time.time()
-                    backbone_future_pred, finetune_future_pred = model(backbone_future_pred, finetune_future_pred)
+                    backbone_future_pred, downstream_future_pred = model(backbone_future_pred, downstream_future_pred)
                     inf_one_step_time = time.time() - inf_one_step_start
 
                 logging.info(f'inference one step time: {inf_one_step_time}')
@@ -331,44 +325,44 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
                 backbone_seq_real[n_history+i+1] = backbone_future[:params.backbone_n_out_channels]
                 backbone_history_stack = backbone_seq_pred[i+1:i+2+n_history]
 
-                finetune_seq_pred[n_history+i+1] = finetune_future_pred.cpu()
-                finetune_seq_real[n_history+i+1] = finetune_future[params.finetune_out_channels]
-                finetune_history_stack = finetune_seq_pred[i+1:i+2+n_history]
+                downstream_seq_pred[n_history+i+1] = downstream_future_pred.cpu()
+                downstream_seq_real[n_history+i+1] = downstream_future[params.downstream_out_channels]
+                downstream_history_stack = downstream_seq_pred[i+1:i+2+n_history]
 
             backbone_future_pred = backbone_history_stack
-            finetune_future_pred = finetune_history_stack
+            downstream_future_pred = downstream_history_stack
 
             backbone_pred = torch.unsqueeze(backbone_seq_pred[i], 0)
             backbone_tar  = torch.unsqueeze(backbone_seq_real[i], 0)
             print('backbone_pred:', backbone_pred.shape, 'backbone_tar:', backbone_tar.shape)
 
-            finetune_pred = torch.unsqueeze(finetune_seq_pred[i], 0)
-            finetune_tar  = torch.unsqueeze(finetune_seq_real[i], 0)
-            print('finetune_pred:', finetune_pred.shape, 'finetune_tar:', finetune_tar.shape)
+            downstream_pred = torch.unsqueeze(downstream_seq_pred[i], 0)
+            downstream_tar  = torch.unsqueeze(downstream_seq_real[i], 0)
+            print('downstream_pred:', downstream_pred.shape, 'downstream_tar:', downstream_tar.shape)
 
             if params.land_mask:
                 # 0:land, 1:ocean
                 with h5py.File(params.land_mask_path, 'r') as _f: 
                     backbone_mask_data = torch.as_tensor(_f['fields'][:720], dtype=bool)
-                with h5py.File(params.finetune_land_mask_path, 'r') as _f: 
-                    finetune_mask_data = torch.as_tensor(_f['fields'][:360], dtype=bool)
+                with h5py.File(params.downstream_land_mask_path, 'r') as _f: 
+                    downstream_mask_data = torch.as_tensor(_f['fields'][:360], dtype=bool)
 
                 backbone_pred = torch.masked_fill(input=backbone_pred, mask=~backbone_mask_data, value=0)
                 backbone_tar  = torch.masked_fill(input=backbone_tar,  mask=~backbone_mask_data, value=0)
 
-                finetune_pred = torch.masked_fill(input=finetune_pred, mask=~finetune_mask_data, value=0)
-                finetune_tar  = torch.masked_fill(input=finetune_tar,  mask=~finetune_mask_data, value=0)
+                downstream_pred = torch.masked_fill(input=downstream_pred, mask=~downstream_mask_data, value=0)
+                downstream_tar  = torch.masked_fill(input=downstream_tar,  mask=~downstream_mask_data, value=0)
 
             # Compute metrics 
             if params.normalization == 'zscore': 
                 backbone_valid_loss[i] = weighted_rmse_torch_channels(backbone_pred, backbone_tar) * params.backbone_stds[:,params.backbone_out_channels,0,0]
-                finetune_valid_loss[i] = weighted_rmse_torch_channels(finetune_pred, finetune_tar) * params.finetune_stds[:,params.finetune_out_channels,0,0]
+                downstream_valid_loss[i] = weighted_rmse_torch_channels(downstream_pred, downstream_tar) * params.downstream_stds[:,params.downstream_out_channels,0,0]
 
             backbone_acc[i] = weighted_acc_torch_channels(backbone_pred, backbone_tar)
-            finetune_acc[i] = weighted_acc_torch_channels(finetune_pred, finetune_tar)
+            downstream_acc[i] = weighted_acc_torch_channels(downstream_pred, downstream_tar)
 
             backbone_acc_unweighted[i] = unweighted_acc_torch_channels(backbone_pred, backbone_tar)
-            finetune_acc_unweighted[i] = unweighted_acc_torch_channels(finetune_pred, finetune_tar)
+            downstream_acc_unweighted[i] = unweighted_acc_torch_channels(downstream_pred, downstream_tar)
 
             if params.interp > 0:   # TODO
                 pred = downsample(pred, scale=params.interp)
@@ -389,14 +383,14 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
     backbone_acc_coarse_unweighted  = backbone_acc_coarse_unweighted.numpy()
     backbone_valid_loss_coarse      = backbone_valid_loss_coarse.numpy()
 
-    finetune_seq_real               = finetune_seq_real.numpy()
-    finetune_seq_pred               = finetune_seq_pred.numpy()
-    finetune_valid_loss             = finetune_valid_loss.numpy()
-    finetune_acc                    = finetune_acc.numpy()
-    finetune_acc_unweighted         = finetune_acc_unweighted.numpy()
-    finetune_acc_coarse             = finetune_acc_coarse.numpy()
-    finetune_acc_coarse_unweighted  = finetune_acc_coarse_unweighted.numpy()
-    finetune_valid_loss_coarse      = finetune_valid_loss_coarse.numpy()
+    downstream_seq_real               = downstream_seq_real.numpy()
+    downstream_seq_pred               = downstream_seq_pred.numpy()
+    downstream_valid_loss             = downstream_valid_loss.numpy()
+    downstream_acc                    = downstream_acc.numpy()
+    downstream_acc_unweighted         = downstream_acc_unweighted.numpy()
+    downstream_acc_coarse             = downstream_acc_coarse.numpy()
+    downstream_acc_coarse_unweighted  = downstream_acc_coarse_unweighted.numpy()
+    downstream_valid_loss_coarse      = downstream_valid_loss_coarse.numpy()
 
     return (np.expand_dims(backbone_seq_real[n_history:], 0), 
             np.expand_dims(backbone_seq_pred[n_history:], 0), 
@@ -406,20 +400,20 @@ def autoregressive_inference(params, init_condition, backbone_valid_data_full, f
             np.expand_dims(backbone_valid_loss_coarse, 0), 
             np.expand_dims(backbone_acc_coarse, 0),
             np.expand_dims(backbone_acc_coarse_unweighted, 0),
-            np.expand_dims(finetune_seq_real[n_history:], 0), 
-            np.expand_dims(finetune_seq_pred[n_history:], 0), 
-            np.expand_dims(finetune_valid_loss,0), 
-            np.expand_dims(finetune_acc, 0),
-            np.expand_dims(finetune_acc_unweighted, 0), 
-            np.expand_dims(finetune_valid_loss_coarse, 0), 
-            np.expand_dims(finetune_acc_coarse, 0),
-            np.expand_dims(finetune_acc_coarse_unweighted, 0))
+            np.expand_dims(downstream_seq_real[n_history:], 0), 
+            np.expand_dims(downstream_seq_pred[n_history:], 0), 
+            np.expand_dims(downstream_valid_loss,0), 
+            np.expand_dims(downstream_acc, 0),
+            np.expand_dims(downstream_acc_unweighted, 0), 
+            np.expand_dims(downstream_valid_loss_coarse, 0), 
+            np.expand_dims(downstream_acc_coarse, 0),
+            np.expand_dims(downstream_acc_coarse_unweighted, 0))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--exp_dir", default='', type=str)
-    parser.add_argument("--finetune_config", default='WaveNet', type=str)
+    parser.add_argument("--downstream_config", default='WaveNet', type=str)
     parser.add_argument("--prediction_length", default=30, type=int)
     parser.add_argument("--decorrelation_time", default=30, type=int)
     parser.add_argument("--n_samples_per_year", default=365, type=int)
@@ -427,9 +421,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     config_path = os.path.join(args.exp_dir, 'config.yaml')
-    params = YParams(config_path, args.finetune_config)
+    params = YParams(config_path, args.downstream_config)
 
-    params['finetune_config']    = args.finetune_config
+    params['downstream_config']    = args.downstream_config
     params['prediction_length']  = args.prediction_length
     params['decorrelation_time'] = args.decorrelation_time
     params['n_samples_per_year'] = args.n_samples_per_year
@@ -481,7 +475,7 @@ if __name__ == '__main__':
         autoregressive_inference_filetag = "_coarse"
 
     # get data and models
-    backbone_valid_data_full, finetune_valid_data_full, model = setup(params)
+    backbone_valid_data_full, downstream_valid_data_full, model = setup(params)
 
     # initialize lists for image sequences and RMSE/ACC
     backbone_valid_loss = []
@@ -496,23 +490,23 @@ if __name__ == '__main__':
     backbone_seq_pred = []
     backbone_seq_real = []
 
-    finetune_valid_loss = []
-    finetune_valid_loss_coarse = []
+    downstream_valid_loss = []
+    downstream_valid_loss_coarse = []
 
-    finetune_acc = []
-    finetune_acc_unweighted = []
+    downstream_acc = []
+    downstream_acc_unweighted = []
 
-    finetune_acc_coarse = []
-    finetune_acc_coarse_unweighted = []
+    downstream_acc_coarse = []
+    downstream_acc_coarse_unweighted = []
 
-    finetune_seq_pred = []
-    finetune_seq_real = []
+    downstream_seq_pred = []
+    downstream_seq_real = []
 
     # run autoregressive inference for multiple initial conditions
     save_path = os.path.join(args.exp_dir, 'autoregressive_predictions' + autoregressive_inference_filetag+ '.h5')
     for i, ic in enumerate(ics):
         logging.info("Initial condition {} of {}".format(i+1, n_ics))
-        backbone_sr, backbone_sp, backbone_vl, backbone_a, backbone_au, backbone_vc, backbone_ac, backbone_acu, finetune_sr, finetune_sp, finetune_vl, finetune_a, finetune_au, finetune_vc, finetune_ac, finetune_acu  = autoregressive_inference(params, ic, backbone_valid_data_full, finetune_valid_data_full, model)
+        backbone_sr, backbone_sp, backbone_vl, backbone_a, backbone_au, backbone_vc, backbone_ac, backbone_acu, downstream_sr, downstream_sp, downstream_vl, downstream_a, downstream_au, downstream_vc, downstream_ac, downstream_acu  = autoregressive_inference(params, ic, backbone_valid_data_full, downstream_valid_data_full, model)
 
         print(f'saving to {save_path}')
         if i ==0:
@@ -528,14 +522,14 @@ if __name__ == '__main__':
                 f.create_dataset("backbone_acc_coarse",      data=backbone_ac, maxshape=[None, args.prediction_length, params.backbone_n_out_channels], dtype =np.float32)
                 f.create_dataset("backbone_acc_coarse_unweighted", data=backbone_acu, maxshape=[None, args.prediction_length, params.backbone_n_out_channels], dtype =np.float32)
 
-            f.create_dataset("finetune_ground_truth",    data=finetune_sr, maxshape=[None, args.prediction_length, params.finetune_n_out_channels, params.finetune_img_shape_x, params.finetune_img_shape_y], dtype=np.float32)
-            f.create_dataset("finetune_predicted",       data=finetune_sp, maxshape=[None, args.prediction_length, params.finetune_n_out_channels, params.finetune_img_shape_x, params.finetune_img_shape_y], dtype=np.float32)
-            f.create_dataset("finetune_rmse",            data=finetune_vl, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
-            f.create_dataset("finetune_rmse_coarse",     data=finetune_vc, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
-            f.create_dataset("finetune_acc",             data=finetune_a, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
-            f.create_dataset("finetune_acc_unweighted",  data=finetune_au, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
-            f.create_dataset("finetune_acc_coarse",      data=finetune_ac, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
-            f.create_dataset("finetune_acc_coarse_unweighted", data=finetune_acu, maxshape=[None, args.prediction_length, params.finetune_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_ground_truth",    data=downstream_sr, maxshape=[None, args.prediction_length, params.downstream_n_out_channels, params.downstream_img_shape_x, params.downstream_img_shape_y], dtype=np.float32)
+            f.create_dataset("downstream_predicted",       data=downstream_sp, maxshape=[None, args.prediction_length, params.downstream_n_out_channels, params.downstream_img_shape_x, params.downstream_img_shape_y], dtype=np.float32)
+            f.create_dataset("downstream_rmse",            data=downstream_vl, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_rmse_coarse",     data=downstream_vc, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_acc",             data=downstream_a, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_acc_unweighted",  data=downstream_au, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_acc_coarse",      data=downstream_ac, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
+            f.create_dataset("downstream_acc_coarse_unweighted", data=downstream_acu, maxshape=[None, args.prediction_length, params.downstream_n_out_channels], dtype =np.float32)
             f.close()
         else:
             f = h5py.File(save_path, 'a')
@@ -565,26 +559,26 @@ if __name__ == '__main__':
                 f["backbone_acc_coarse_unweighted"].resize((f["backbone_acc_coarse_unweighted"].shape[0] + 1), axis = 0)
                 f["backbone_acc_coarse_unweighted"][-1:] = backbone_acu
 
-            f["finetune_ground_truth"].resize((f["finetune_ground_truth"].shape[0] + 1), axis = 0)
-            f["finetune_ground_truth"][-1:] = finetune_sr 
+            f["downstream_ground_truth"].resize((f["downstream_ground_truth"].shape[0] + 1), axis = 0)
+            f["downstream_ground_truth"][-1:] = downstream_sr 
 
-            f["finetune_predicted"].resize((f["finetune_predicted"].shape[0] + 1), axis = 0)
-            f["finetune_predicted"][-1:] = finetune_sp 
+            f["downstream_predicted"].resize((f["downstream_predicted"].shape[0] + 1), axis = 0)
+            f["downstream_predicted"][-1:] = downstream_sp 
 
-            f["finetune_rmse"].resize((f["finetune_rmse"].shape[0] + 1), axis = 0)
-            f["finetune_rmse"][-1:] = finetune_vl
+            f["downstream_rmse"].resize((f["downstream_rmse"].shape[0] + 1), axis = 0)
+            f["downstream_rmse"][-1:] = downstream_vl
 
-            f["finetune_rmse_coarse"].resize((f["finetune_rmse_coarse"].shape[0] + 1), axis = 0)
-            f["finetune_rmse_coarse"][-1:] = finetune_vc
+            f["downstream_rmse_coarse"].resize((f["downstream_rmse_coarse"].shape[0] + 1), axis = 0)
+            f["downstream_rmse_coarse"][-1:] = downstream_vc
 
-            f["finetune_acc"].resize((f["finetune_acc"].shape[0] + 1), axis = 0)
-            f["finetune_acc"][-1:] = finetune_a
+            f["downstream_acc"].resize((f["downstream_acc"].shape[0] + 1), axis = 0)
+            f["downstream_acc"][-1:] = downstream_a
 
-            f["finetune_acc_coarse"].resize((f["finetune_acc_coarse"].shape[0] + 1), axis = 0)
-            f["finetune_acc_coarse"][-1:] = finetune_ac
+            f["downstream_acc_coarse"].resize((f["downstream_acc_coarse"].shape[0] + 1), axis = 0)
+            f["downstream_acc_coarse"][-1:] = downstream_ac
 
-            f["finetune_acc_unweighted"].resize((f["finetune_acc_unweighted"].shape[0] + 1), axis = 0)
-            f["finetune_acc_unweighted"][-1:] = finetune_au
+            f["downstream_acc_unweighted"].resize((f["downstream_acc_unweighted"].shape[0] + 1), axis = 0)
+            f["downstream_acc_unweighted"][-1:] = downstream_au
 
-            f["finetune_acc_coarse_unweighted"].resize((f["finetune_acc_coarse_unweighted"].shape[0] + 1), axis = 0)
-            f["finetune_acc_coarse_unweighted"][-1:] = finetune_acu
+            f["downstream_acc_coarse_unweighted"].resize((f["downstream_acc_coarse_unweighted"].shape[0] + 1), axis = 0)
+            f["downstream_acc_coarse_unweighted"][-1:] = downstream_acu
