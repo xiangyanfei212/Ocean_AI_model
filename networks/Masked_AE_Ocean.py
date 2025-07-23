@@ -3,8 +3,8 @@ import torch.nn as nn
 from icecream import ic
 from timm.models.vision_transformer import PatchEmbed
 from einops import rearrange
-from networks.fourier_block_Masked_AE_Ocean import Block
-from networks.basic_modules_Masked_AE_Ocean import get_2d_sincos_pos_embed
+from networks.fourier_block import Block
+from networks.modules import get_2d_sincos_pos_embed
 
 class Masked_Ocean(nn.Module):
     def __init__(
