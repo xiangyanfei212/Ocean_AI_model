@@ -1,0 +1,202 @@
+### Base Configuration ###
+# -*- coding: utf-8 -*-
+full_field: &FULL_FIELD
+  
+  loss: 'l2'                 # Loss function used during training
+  num_data_workers: 0
+  dt: 1                      # Time step interval for model predictions (e.g., 1 means predict 1 step ahead)
+  n_history: 0               # Number of historical time steps to include as input
+
+  # Type of prediction: 'iterative' supports autoregressive forecasting
+  prediction_type: 'iterative'
+  # Total prediction steps for iterative prediction
+  prediction_length: 41     
+  # Number of initial conditions to evaluate (e.g., ensemble forecasts)
+  n_initial_conditions: 5   
+  # Initial condition type: 'default' for starting from zero or 'datetime' for specific dates
+  ics_type: "default"       
+  date_strings: ["2018-09-14 00:00:00"]  # Start datetime if ics_type is 'datetime'
+  
+  # Save channel-wise outputs separately (if needed)
+  save_channel: !!bool False
+  # Whether to calculate accuracy metrics only on masked regions (e.g., ocean only)
+  masked_acc: !!bool False
+  maskpath: None  # Path to the mask file for masked accuracy calculation
+  # Add perturbations (optional) for ensemble-like forecasts
+  perturb: !!bool False
+
+  # Enable NHWC (channel-last) data format for performance optimization
+  enable_nhwc: !!bool False
+
+  # Type of optimizer used for training
+  optimizer_type: 'FusedAdam'
+
+  exp_dir: './exps'
+
+  ### Data Paths ###
+  train_data_path: './sample_backbone/train'  # Training data path
+  valid_data_path: './sample_backbone/valid'  # Validation data path
+  test_data_path:  './sample_backbone/test'   # Test data path
+
+  ### Land Mask Configuration ###
+  land_mask: !!bool True        # Enable land masking (e.g., exclude land regions in metrics)
+  land_mask_path: './sample_backbone/land_mask.h5'  # Path to land mask file
+
+  ### Normalization Configuration ###
+  normalize: !!bool True        # Enable normalization
+  normalization: 'zscore'       # Normalization type: 'zscore' or 'minmax'
+  global_mins_path:  './sample_backbone/global_mins.npy'  # Min values for minmax
+  global_maxs_path:  './sample_backbone/global_maxs.npy'  # Max values for minmax
+  global_means_path: './sample_backbone/global_means.npy' # Mean values for zscore
+  global_stds_path:  './sample_backbone/global_stds.npy'  # Std values for zscore
+
+  ### Orography Configuration ###
+  orography: !!bool True  # Include orography (terrain height) as input
+  orography_norm_zscore_path: './sample_backbone/orography_norm_zscore.h5'  # Z-score normalized orography
+  orography_norm_maxmin_path: './sample_backbone/orography_norm_maxmin.h5'  # Min-max normalized orography
+
+  ### Noise Configuration ###
+  add_noise: !!bool False  # Add noise to inputs (for robustness testing)
+  noise_std: 0             # Standard deviation of noise
+
+  ### Crop Configuration ###
+  crop_size_x: None  # Crop size in height (if applicable)
+  crop_size_y: None  # Crop size in width (if applicable)
+
+  ### Logging Configuration ###
+  log_to_screen: !!bool True  # Print logs to the console
+  log_to_wandb: !!bool True   # Log metrics to Weights & Biases
+  save_checkpoint: !!bool True  # Save model checkpoints
+  plot_animations: !!bool False # Generate animations for predictions
+
+  ### Backbone Model Configuration ###
+  # nettype: 'Masked_AE_Ocean'  # Uncomment and specify the backbone model type
+
+  ### Training Hyperparameters ###
+  lr: 1E-3                   # Learning rate
+  batch_size: 32             # Batch size
+  max_epochs: 150            # Maximum number of training epochs
+  scheduler: 'CosineAnnealingLR'  # Learning rate scheduler
+
+  ### Data and Model Parameters ###
+  fusion_3d_2d: False        # Combine 3D and 2D data
+  in_channels: [0, 1, 2, ..., 65]  # Input channels (e.g., meteorological variables)
+  out_channels: [0, 1, 2, ..., 60] # Output channels (prediction targets)
+  N_in_channels: 66          # Total number of input channels
+  N_out_channels: 61         # Total number of output channels
+  img_size_h: 720            # Input image height
+  img_size_w: 1440           # Input image width
+  patch_size_h: 8            # Patch height for models like ViT
+  patch_size_w: 8            # Patch width for models like ViT
+  mlp_ratio: 4.              # MLP ratio for transformer-based models
+
+  ### Encoder Hyperparameters ###
+  embed_dim: 512             # Embedding dimension for the encoder
+  depth: 16                  # Number of encoder layers
+  num_heads: 16              # Number of attention heads in the encoder
+
+  ### Decoder Hyperparameters ###
+  decoder_embed_dim: 1024    # Embedding dimension for the decoder
+  decoder_depth: 8           # Number of decoder layers
+  decoder_num_heads: 16      # Number of attention heads in the decoder
+
+  ### Koopman Operator Hyperparameters ###
+  koopman_depth: 2           # Depth of Koopman operator layers
+  modes_h_ratio: 1           # Horizontal modes ratio for Koopman operator
+  modes_w_ratio: 0.8         # Vertical modes ratio for Koopman operator
+
+  ### Fourier Hyperparameters ###
+  drop_rate: 0.              # Dropout rate
+  drop_path_rate: 0.          # Drop path rate
+  sparsity_threshold: 0.01    # Threshold for Fourier sparsity
+  hard_thresholding_fraction: 1.0 # Fraction of hard-thresholded Fourier modes
+  num_blocks: 8              # Number of blocks in Fourier-based models
+
+################## Downstream Tasks ##################
+WaveNet: &WaveNet
+  <<: *FULL_FIELD
+  nettype: 'WaveNet_v2_fourier'  # Specify the network type for WaveNet downstream task
+
+  # Finetune-specific settings
+  finetune_n_in_chans: 3                   # Number of input channels for the finetune model
+  finetune_n_out_chans: 1                  # Number of output channels for the finetune model
+  finetune_in_channels: [0, 3, 4]          # Input channels (e.g., swh, u10, v10)
+  finetune_out_channels: [0]               # Output channel (e.g., swh)
+  finetune_force_channels: [3, 4]          # Forcing channels (e.g., wind components u10, v10)
+  finetune_target_size_h: 360              # Target output height for predictions
+  finetune_target_size_w: 720              # Target output width for predictions
+
+  ### Data Paths for WaveNet ###
+  finetune_train_data_path: './sample_wave/train'  # Path to training data
+  finetune_valid_data_path: './sample_wave/valid'  # Path to validation data
+  finetune_test_data_path: './sample_wave/test'    # Path to test data
+
+  ### Normalization Paths for WaveNet ###
+  finetune_global_mins_path: './sample_wave/train/global_mins.npy'  # Min values for normalization
+  finetune_global_maxs_path: './sample_wave/train/global_maxs.npy'  # Max values for normalization
+  finetune_global_means_path: './sample_wave/train/global_means.npy' # Mean values for z-score normalization
+  finetune_global_stds_path: './sample_wave/train/global_stds.npy'  # Std values for z-score normalization
+
+  ### Mask Configuration ###
+  finetune_land_mask_path: './sample_wave/land_mask.h5'  # Path to the land mask
+
+
+BiochemicalNet: &BiochemicalNet
+  <<: *FULL_FIELD
+  nettype: 'BiochemicalNet'  # Specify the network type for biochemical data
+
+  # Finetune-specific settings
+  finetune_n_in_chans: 8                    # Number of input channels for the biochemical model
+  finetune_n_out_chans: 8                   # Number of output channels for the biochemical model
+  finetune_in_channels: [0, 1, 2, 3, 4, 5, 6, 7]  # Input channels (e.g., chlorophyll, nutrients)
+  finetune_out_channels: [0, 1, 2, 3, 4, 5, 6, 7] # Prediction targets (e.g., same as input channels)
+  finetune_target_size_h: 180              # Target output height
+  finetune_target_size_w: 360              # Target output width
+
+  ### Biochemical Data Paths ###
+  finetune_train_data_path: './sample_biochemical/train'  # Path to training data
+  finetune_valid_data_path: './sample_biochemical/valid'  # Path to validation data
+  finetune_test_data_path: './sample_biochemical/test'    # Path to test data
+
+  ### Normalization Paths for BiochemicalNet ###
+  finetune_normalize: !!bool True            # Enable normalization for biochemical data
+  finetune_normalization: 'zscore'           # Normalization type ('zscore' or 'minmax')
+  finetune_global_mins_path: './sample_biochemical/train/global_mins.npy'  # Min values for normalization
+  finetune_global_maxs_path: './sample_biochemical/train/global_maxs.npy'  # Max values for normalization
+  finetune_global_means_path: './sample_biochemical/train/global_means.npy' # Mean values for z-score normalization
+  finetune_global_stds_path: './sample_biochemical/train/global_stds.npy'  # Std values for z-score normalization
+
+  ### Mask Configuration ###
+  finetune_land_mask_path: './sample_biochemical/land_mask.h5'  # Path to the land mask
+
+DownScalingNet: &DownScalingNet
+  <<: *FULL_FIELD
+  nettype: 'DownScalingNet_fourier'  # Specify the network type for downscaling tasks
+
+  # Finetune-specific settings
+  finetune_n_in_chans: 5                   # Number of input channels for downscaling
+  finetune_n_out_chans: 5                  # Number of output channels for downscaling
+  finetune_in_channels: [0, 1, 2, 3, 4]    # Input channels (e.g., temperature, salinity, velocity components)
+  finetune_out_channels: [0, 1, 2, 3, 4]   # Prediction targets (same as input channels)
+  finetune_in_size_h: 120                  # Input height (low-resolution)
+  finetune_in_size_w: 230                  # Input width (low-resolution)
+  finetune_target_size_h: 360              # Target output height (high-resolution)
+  finetune_target_size_w: 690              # Target output width (high-resolution)
+
+  # Depth of model (specific to DownScalingNet_SR)
+  blocks_depth: 16                         # Number of blocks/layers in the model
+
+  ### Downscaling Data Paths ###
+  finetune_train_data_path: './sample_Kuroshio_downscaling/train'  # Path to training data
+  finetune_valid_data_path: './sample_Kuroshio_downscaling/valid'  # Path to validation data
+  finetune_test_data_path: './sample_Kuroshio_downscaling/test'    # Path to test data
+
+  ### Normalization Paths for DownScalingNet ###
+  finetune_global_mins_path: './sample_Kuroshio_downscaling/train/global_mins.npy'  # Min values for normalization
+  finetune_global_maxs_path: './sample_Kuroshio_downscaling/train/global_maxs.npy'  # Max values for normalization
+  finetune_global_means_path: './sample_Kuroshio_downscaling/train/global_means.npy' # Mean values for z-score normalization
+  finetune_global_stds_path: './sample_Kuroshio_downscaling/train/global_stds.npy'  # Std values for z-score normalization
+
+  ### Mask and Topography Paths ###
+  finetune_land_mask_path: './sample_Kuroshio_downscaling/land_mask.h5'  # Path to the land mask
+  finetune_topo_0p08_path: './sample_Kuroshio_downscaling/topo_kuroshio_0p08.h5'  # Path to high-resolution topography data
