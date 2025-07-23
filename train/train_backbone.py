@@ -31,8 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------------
 
-Project: Ocean AI Model
-Modified by: Yanfei Xiang
+Modifications by: Yanfei Xiang
+Copyright (c) 2025, Yanfei Xiang
+All rights reserved.
 
 Description:
 This script is used for distributed training of deep learning models for ocean data analysis.
