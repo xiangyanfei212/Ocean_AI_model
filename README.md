@@ -24,6 +24,8 @@ The pre-trained backbone serves as a unified model for various downstream tasks:
 3. Multi-Modal Decoding: Fuse atmospheric and wave data for complex state estimation.
 4. Context-Aware Downscaling: Generate high-fidelity regional predictions.
 
+![Poseidon Architecture](./assets/framework.png)
+
 
 ## Dependencies
 The following dependencies are required to run Poseidon:
@@ -165,7 +167,7 @@ The downstream model can be trained using the configuration file (```config/conf
 ### Backbone Model
 To run inference with the backbone model:
 1. Ensure the test data (```./sample_backbone/test/```) and normalization stats (```./sample_backbone/stats/```) are available.
-2. Use the trained model weights hosted at Trained Model Weights.
+2. Use the trained model weights hosted at Trained Model Weights. # TODO
 3. Run the following command:
 ```
 nohup python -u inference_backbone.py \
@@ -193,12 +195,14 @@ python inference_biochmical.py \
 Modify the script based on the task (e.g., wave decoding or regional downscaling).
 
 ## Citation
+```
 @article{pathak2022fourcastnet,
   title={Fourcastnet: A global data-driven high-resolution weather model using adaptive fourier neural operators},
   author={Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and ...},
   journal={arXiv preprint arXiv:2202.11214},
   year={2022}
 }
+```
 
 
 
