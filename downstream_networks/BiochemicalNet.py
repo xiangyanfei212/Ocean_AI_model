@@ -16,11 +16,11 @@ class BiochemicalNet(nn.Module):
 
         self.backbone_decoder_embed_dim = params.decoder_embed_dim
 
-        self.target_size_h = params.finetune_target_size_h
-        self.target_size_w = params.finetune_target_size_w
+        self.target_size_h = params.downstream_target_size_h
+        self.target_size_w = params.downstream_target_size_w
 
-        self.target_in_chans = params.finetune_n_in_chans
-        self.target_channel = params.finetune_n_out_chans
+        self.target_in_chans = params.downstream_n_in_chans
+        self.target_channel = params.downstream_n_out_chans
 
         self.hidden_channel = self.target_channel * 3 + self.target_in_chans
         self.tconv = nn.ConvTranspose2d(
