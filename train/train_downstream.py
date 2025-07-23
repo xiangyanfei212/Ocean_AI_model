@@ -31,7 +31,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------------------------------
 
-Modified by: Yanfei Xiang
+Modifications by: Yanfei Xiang
+Copyright (c) 2025, Yanfei Xiang
+All rights reserved.
 
 Description:
 This script is a heavily modified version of the original FourCastNet code.
