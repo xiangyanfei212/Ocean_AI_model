@@ -206,15 +206,13 @@ def setup(params):
         params.finetune_maxs = np.load(params.finetune_global_maxs_path)
 
     if params.nettype == 'BiochemicalNet':
-        from finetune_networks.BiochemicalNet import BiochemicalNet as finetune_model
-    elif params.nettype == 'BiochemicalNet_fourier':
-        from finetune_networks.BiochemicalNet_fourier import BiochemicalNet as finetune_model
+        from downstream_networks.BiochemicalNet import BiochemicalNet as downstream_model
     else:
         raise Exception("not implemented")
 
     # init model
     backbone = Masked_Ocean(params)
-    model = finetune_model(backbone, params)
+    model = downstream_model(backbone, params)
 
     # Load model params
     logging.info('Loading trained model checkpoint from {}'.format(params['best_checkpoint_path']))
