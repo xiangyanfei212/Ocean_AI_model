@@ -147,12 +147,8 @@ def setup(params):
         params.downstream_mins = params.downstream_mins[:,params.downstream_in_channels]
         params.downstream_maxs = params.downstream_maxs[:,params.downstream_in_channels]
 
-    if params.nettype == 'DownScalingNet_fourier':
-        from downstream_networks.DownScalingNet_fourier import DownScalingNet as downstream_model
-    elif params.nettype == 'DownScalingNet':
+    if params.nettype == 'DownScalingNet':
         from downstream_networks.DownScalingNet import DownScalingNet as downstream_model
-    elif params.nettype == 'DownScalingNet_SR':
-        from downstream_networks.DownScalingNet_SR import DownScalingNet as downstream_model
     else:
         raise Exception("not implemented")
 
