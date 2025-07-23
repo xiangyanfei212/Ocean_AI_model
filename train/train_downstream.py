@@ -135,26 +135,14 @@ class Trainer():
 
         # Load model
         if params.finetune_config == 'DownScalingNet': 
-            if params.nettype == 'DownScalingNet_fourier':
-                from finetune_networks.DownScalingNet_fourier import DownScalingNet as finetune_model
-            if params.nettype == 'DownScalingNet_SR':
-                from finetune_networks.DownScalingNet_SR import DownScalingNet as finetune_model
+            from finetune_networks.DownScalingNet import DownScalingNet as finetune_model
 
         if params.finetune_config == 'WaveNet': 
-            if params.nettype == 'WaveNet':
-                from finetune_networks.WaveNet import WaveNet as finetune_model
-            if params.nettype == 'WaveNet_v2':
-                from finetune_networks.WaveNet_v2 import WaveNet as finetune_model
-            if params.nettype == 'WaveNet_fourier':
-                from finetune_networks.WaveNet_fourier import WaveNet as finetune_model
-            if params.nettype == 'WaveNet_v2_fourier':
-                from finetune_networks.WaveNet_v2_fourier import WaveNet as finetune_model
+            from finetune_networks.WaveNet import WaveNet as finetune_model
 
         if params.finetune_config == 'BiochemicalNet': 
-            if params.nettype == 'BiochemicalNet':
-                from finetune_networks.BiochemicalNet import BiochemicalNet as finetune_model
-            if params.nettype == 'BiochemicalNet_fourier':
-                from finetune_networks.BiochemicalNet_fourier import BiochemicalNet as finetune_model
+            from finetune_networks.BiochemicalNet import BiochemicalNet as finetune_model
+
 
         # init model, including the freezed backbone and un-freezed finetune model
         backbone = Masked_Ocean(params)
