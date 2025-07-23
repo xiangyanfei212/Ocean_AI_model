@@ -4,7 +4,6 @@ from einops import rearrange
 import utils.bicubic as bicubic
 from networks.fourier_block import Block
 
-
 class WaveNet(nn.Module):
     def __init__(self, backbone, params, target_in_chans=False):
         super().__init__()
@@ -18,13 +17,13 @@ class WaveNet(nn.Module):
 
         # Target domain settings
         self.target_size = (
-            params.finetune_target_size_h,
-            params.finetune_target_size_w,
+            params.downstream_target_size_h,
+            params.downstream_target_size_w,
         )
-        self.target_size_h = params.finetune_target_size_h
-        self.target_size_w = params.finetune_target_size_w
-        self.target_in_chans = params.finetune_n_in_chans
-        self.target_channel = params.finetune_n_out_chans
+        self.target_size_h = params.downstream_target_size_h
+        self.target_size_w = params.downstream_target_size_w
+        self.target_in_chans = params.downstream_n_in_chans
+        self.target_channel = params.downstream_n_out_chans
 
         self.hidden_channel = self.backbone_decoder_embed_dim * 2
         self.conv1 = nn.Conv2d(
@@ -53,7 +52,7 @@ class WaveNet(nn.Module):
         self.act = nn.ReLU()
         self.norm = nn.LayerNorm(self.hidden_channel)
 
-        self.finetune_blocks = nn.ModuleList(
+        self.downstream_blocks = nn.ModuleList(
             [
                 Block(
                     dim=self.hidden_channel,
@@ -100,7 +99,7 @@ class WaveNet(nn.Module):
 
         # Downstream Block
         x = rearrange(x, "B C H W -> B (H W) C")
-        for blk in self.finetune_blocks:
+        for blk in self.downstream_blocks:
             x = blk(x)
         x = self.norm(x)
         x = rearrange(x, "B (H W) C -> B C H W", H=h)
