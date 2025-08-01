@@ -209,18 +209,6 @@ python inference_biochmical.py \
 ```
 Modify the script based on the task (e.g., wave decoding or regional downscaling).
 
-## Citation
-```
-@article{xiong2023aigomslargeaidrivenglobal,
-      title={AI-GOMS: Large AI-Driven Global Ocean Modeling System}, 
-      author={Wei Xiong and Yanfei Xiang and Hao Wu and Shuyi Zhou and Yuze Sun and Muyuan Ma and Xiaomeng Huang},
-      year={2023},
-      eprint={2308.03152},
-      archivePrefix={arXiv},
-      primaryClass={physics.ao-ph},
-      url={https://arxiv.org/abs/2308.03152}, 
-}
-```
 
 
 
