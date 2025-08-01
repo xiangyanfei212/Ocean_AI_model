@@ -26,6 +26,21 @@ The pre-trained backbone serves as a unified model for various downstream tasks:
 
 ![Poseidon Architecture](./assets/framework.png)
 
+## Project structure
+
+```
+project structure:
+|-- config/    # configuration of experiments
+|-- networks/  # backbone model
+|-- finetune_networks/ # Downstream model
+|-- logs/           # logs
+|-- train/          # code for training
+|-- inference/      # code for inference
+|-- exps/           # Experiment outputs
+|-- utils/          # utils for train and inference
+|-- script/         # Script to submit train and inference
+```
+
 
 ## Dependencies
 The following dependencies are required to run Poseidon:
@@ -196,11 +211,14 @@ Modify the script based on the task (e.g., wave decoding or regional downscaling
 
 ## Citation
 ```
-@article{pathak2022fourcastnet,
-  title={Fourcastnet: A global data-driven high-resolution weather model using adaptive fourier neural operators},
-  author={Pathak, Jaideep and Subramanian, Shashank and Harrington, Peter and ...},
-  journal={arXiv preprint arXiv:2202.11214},
-  year={2022}
+@article{xiong2023aigomslargeaidrivenglobal,
+      title={AI-GOMS: Large AI-Driven Global Ocean Modeling System}, 
+      author={Wei Xiong and Yanfei Xiang and Hao Wu and Shuyi Zhou and Yuze Sun and Muyuan Ma and Xiaomeng Huang},
+      year={2023},
+      eprint={2308.03152},
+      archivePrefix={arXiv},
+      primaryClass={physics.ao-ph},
+      url={https://arxiv.org/abs/2308.03152}, 
 }
 ```
 
