@@ -1,20 +1,20 @@
-# Poseidon: A Unified Foundation Model for Ocean Dynamics System
+# AI-GOMS: Large AI-Driven Global Ocean Modeling System
 
-This repository contains the code and resources for Poseidon, a novel AI foundation model for the global ocean system. Poseidon is designed to overcome the limitations of existing ocean simulation methods in terms of generalization and computational efficiency. By leveraging a Fourier-based Masked Autoencoder architecture, Poseidon learns general latent representations of ocean dynamics, enabling diverse oceanographic tasks with minimal fine-tuning.
+This repository contains the code and resources for AI-GOMS, a novel AI foundation model for the global ocean system. AI-GOMS is designed to overcome the limitations of existing ocean simulation methods in terms of generalization and computational efficiency. By leveraging a Fourier-based Masked Autoencoder architecture, AI-GOMS learns general latent representations of ocean dynamics, enabling diverse oceanographic tasks with minimal fine-tuning.
 
 ## Overview
-Poseidon consists of a pre-trained backbone model and downstream modules that address key oceanographic challenges, including:
+AI-GOMS consists of a pre-trained backbone model and downstream modules that address key oceanographic challenges, including:
 
 1. Sparse Observation Simulation: Simulating global ocean variable fields from incomplete inputs.
 2. Cross-Disciplinary Coupled Simulation: Driving ocean biogeochemical process predictions at low computational cost.
 3. Multi-Modal State Decoding: Decoding complex ocean phenomena by fusing multi-source information like atmospheric and wave data.
 4. Context-Aware Downscaling: Generating high-fidelity regional predictions by combining global features with local low-resolution information.
 
-With its efficient design, Poseidon outperforms state-of-the-art baselines by 17.3% across key metrics for 30-day continuous simulations at a $1/4^{\circ}$ resolution. Furthermore, it achieves two orders of magnitude improvement in inference efficiency.
+With its efficient design, AI-GOMS outperforms state-of-the-art baselines by 17.3% across key metrics for 30-day continuous simulations at a $1/4^{\circ}$ resolution. Furthermore, it achieves two orders of magnitude improvement in inference efficiency.
 
 ## Architecture
 ### Pre-Training Stage
-Poseidon uses a Fourier-based Masked Autoencoder to learn general representations of ocean dynamics by reconstructing complete ocean states (e.g., sea temperature, salinity, velocity, and sea surface height) from masked, patched inputs of initial ocean conditions and atmospheric forcing.
+AI-GOMS uses a Fourier-based Masked Autoencoder to learn general representations of ocean dynamics by reconstructing complete ocean states (e.g., sea temperature, salinity, velocity, and sea surface height) from masked, patched inputs of initial ocean conditions and atmospheric forcing.
 
 ### Downstream Tasks
 The pre-trained backbone serves as a unified model for various downstream tasks:
@@ -24,7 +24,7 @@ The pre-trained backbone serves as a unified model for various downstream tasks:
 3. Multi-Modal Decoding: Fuse atmospheric and wave data for complex state estimation.
 4. Context-Aware Downscaling: Generate high-fidelity regional predictions.
 
-![Poseidon Architecture](./assets/framework.png)
+![AI-GOMS Architecture](./assets/framework.png)
 
 ## Project structure
 
@@ -43,7 +43,7 @@ project structure:
 
 
 ## Dependencies
-The following dependencies are required to run Poseidon:
+The following dependencies are required to run AI-GOMS:
 
 - Python >= 3.8
 - PyTorch >= 1.8.0
@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 ## Data Sources
 ### Backbone Training Data
-Poseidon is trained on a subset of the [HYCOM analysis (reanalysis)](https://www.hycom.org/dataserver/gofs-3pt1/analysis), a state-of-the-art global ocean analysis product from the Global Ocean Forecast System 3.1 (GOFS-3.1). 
+AI-GOMS is trained on a subset of the [HYCOM analysis (reanalysis)](https://www.hycom.org/dataserver/gofs-3pt1/analysis), a state-of-the-art global ocean analysis product from the Global Ocean Forecast System 3.1 (GOFS-3.1). 
 In addition, external forcing and boundary conditions are incorporated, including topographic data from [ETOPO](https://doi.org/10.25921/fd45-gt74) and five atmospheric forcing variables from [ERA5](https://doi.org/10.24381/cds.bd0915c6).
 
 The variables used in backbone are as follows:
